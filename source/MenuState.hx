@@ -9,14 +9,14 @@ import flixel.math.FlxMath;
 
 class MenuState extends FlxState
 {
-	override public function create():Void
-	{
-		super.create();
-    add(new FlxText(0, 0, 0, "Hello World!"));
-	}
+    override public function create():Void
+    {
+        super.create();
+    }
 
-	override public function update(elapsed:Float):Void
-	{
-		super.update(elapsed);
-	}
+    override public function update(elapsed:Float):Void
+    {
+        super.update(elapsed);
+        FlxG.switchState(new PlayState());
+    }
 }
