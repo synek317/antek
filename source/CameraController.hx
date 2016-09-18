@@ -39,9 +39,22 @@ import flixel.math.FlxPoint;
 class CameraController extends FlxSprite
 {
     private var zoomFactor : Float = 1;
-
+	private var minZoomFactor : Float;
+	private var maxZoomFactor : Float = 2;
+	
+	public function new()
+	{
+		super();
+		
+		var minXZoomFactory = FlxG.width  / PlayState.levelMap.width;
+		var minYZoomFactory = FlxG.height / PlayState.levelMap.height;
+		
+		minZoomFactor = Math.max(minXZoomFactory, minYZoomFactory);
+	}
+	
     override public function update(elapsed:Float):Void
     {
+		this.visible = false;
         super.update(elapsed);
 
         if(FlxG.keys.justPressed.PAGEUP)
@@ -63,23 +76,28 @@ class CameraController extends FlxSprite
 
     private function updateScale(): Void
     {
-        var c        = FlxG.camera;
-        var currentX = c.x;
-        var currentY = c.y;
+		zoomFactor = FlxMath.bound(zoomFactor, minZoomFactor, maxZoomFactor);
+			
         var newCameraWidth  = FlxG.width / zoomFactor;
         var newCameraHeight = FlxG.height / zoomFactor;
-        var diffWidth  = FlxG.width  - newCameraWidth;
-        var diffHeight = FlxG.height - newCameraHeight;
-
-        FlxG.camera.setSize(Std.int(newCameraWidth), Std.int(newCameraHeight));
-        FlxG.camera.setScale(zoomFactor, zoomFactor);
-        FlxG.camera.setPosition(
-            (1-zoomFactor) * FlxG.width,
-            (1-zoomFactor) * FlxG.height
-        );
-    }
-
-    private function setCenter(x: Float, y: Float): Void
-    {
+        var diffWidth      = FlxG.width  - newCameraWidth;
+        var diffHeight     = FlxG.height - newCameraHeight;
+		
+		if (zoomFactor <= 1)
+		{
+			FlxG.camera.setSize(Std.int(newCameraWidth), Std.int(newCameraHeight));
+			FlxG.camera.setScale(zoomFactor, zoomFactor);
+            FlxG.camera.setPosition(
+               diffWidth/2, diffHeight/2
+            );
+		}
+		else
+		{
+			FlxG.camera.setSize(FlxG.width, FlxG.height);
+			FlxG.camera.setScale(zoomFactor, zoomFactor);
+		}
+		
+		FlxG.camera.focusOn(new FlxPoint(400, 300));
+		PlayState.levelMap.updateBuffers();
     }
 }

@@ -39,7 +39,7 @@ import flixel.math.FlxPoint;
 class PlayState extends FlxState
 {
     private var scale : Float = 1;
-    private var levelLayer : LevelLayer;
+    public static var levelMap : LevelMap;
 
     override public function create():Void
     {
@@ -51,13 +51,14 @@ class PlayState extends FlxState
         x.animation.addByPrefix("walk", "c01/idle/", 18);
         x.animation.play("walk");
 
-        var levelLayer = Level.loadFrom("assets/data/levels/0.tmx");
+        levelMap = new LevelMap("assets/data/levels/0.tmx");
 
-        add(levelLayer);
+        add(levelMap);
         add(x);
         add(new CameraController());
 
         FlxG.camera.bgColor = 0x99FFFFFF;
+		//FlxG.debugger.visible = true;
     }
 
     override public function update(elapsed:Float):Void

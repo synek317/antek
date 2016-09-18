@@ -16,14 +16,27 @@ import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
 import haxe.io.Path;
 
-class LevelLayer extends FlxTilemap
+class LevelMap extends FlxTilemap
 {
     private var layer: TiledTileLayer;
 
-    public function new(layer: TiledTileLayer): Void
-    {
-        super();
+	public function new(tiledLevel:String)
+	{
+		super();
+		
+		var tiledMap = new TiledMap(tiledLevel);
 
+		for (layer in tiledMap.layers)
+		{
+            if (layer.type == TiledLayerType.TILE)
+            {
+                createLayer(cast(layer, TiledTileLayer));
+            }
+        }
+	}
+	
+    public function createLayer(layer: TiledTileLayer): Void
+    {
         this.layer = layer;
 
         var tileSet          = findTileSet(layer);

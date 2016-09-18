@@ -18,18 +18,5 @@ import haxe.io.Path;
 
 class Level
 {
-	public static function loadFrom(tiledLevel:String) : LevelLayer
-	{
-		var tiledMap = new TiledMap(tiledLevel);
 
-		for (layer in tiledMap.layers)
-		{
-            if (layer.type == TiledLayerType.TILE)
-            {
-                return new LevelLayer(cast(layer, TiledTileLayer));
-            }
-        }
-
-        return null;
-	}
 }
