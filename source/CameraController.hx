@@ -35,69 +35,94 @@ import flixel.util.FlxColor;
 import flixel.addons.display.FlxZoomCamera;
 import flixel.math.FlxRect;
 import flixel.math.FlxPoint;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 
 class CameraController extends FlxSprite
 {
     private var zoomFactor : Float = 1;
-	private var minZoomFactor : Float;
-	private var maxZoomFactor : Float = 2;
-	
-	public function new()
-	{
-		super();
-		
-		var minXZoomFactory = FlxG.width  / PlayState.levelMap.width;
-		var minYZoomFactory = FlxG.height / PlayState.levelMap.height;
-		
-		minZoomFactor = Math.max(minXZoomFactory, minYZoomFactory);
-	}
-	
+    private var minZoomFactor : Float;
+    private var maxZoomFactor : Float = 2;
+
+    public function new()
+    {
+        super();
+
+        var minXZoomFactory = FlxG.width  / PlayState.levelMap.width;
+        var minYZoomFactory = FlxG.height / PlayState.levelMap.height;
+
+        minZoomFactor = Math.max(minXZoomFactory, minYZoomFactory);
+        updateZoom(1);
+    }
+
     override public function update(elapsed:Float):Void
     {
-		this.visible = false;
+        this.visible = false;
         super.update(elapsed);
 
         if(FlxG.keys.justPressed.PAGEUP)
         {
-            zoomFactor += 0.1;
-            updateScale();
+            zoomTo(zoomFactor + 0.1);
         }
         else if(FlxG.keys.justPressed.PAGEDOWN)
         {
-            zoomFactor -= 0.1;
-            updateScale();
+            zoomTo(zoomFactor - 0.1);
         }
         else if(FlxG.keys.justPressed.ZERO)
         {
-            zoomFactor = 1;
-            updateScale();
+            zoomTo(1);
         }
     }
 
-    private function updateScale(): Void
+    private var destinationZoomFactor: Float;
+    private var zoomTween: FlxTween;
+
+    private function zoomTo(newZoomFactor: Float): Void
     {
-		zoomFactor = FlxMath.bound(zoomFactor, minZoomFactor, maxZoomFactor);
-			
+        destinationZoomFactor = FlxMath.bound(newZoomFactor, minZoomFactor, maxZoomFactor);
+
+        FlxG.log.notice("Requested zoom from current: " + zoomFactor + " to: " + newZoomFactor + ". Zooming to: " + destinationZoomFactor);
+
+        if(zoomTween != null)
+        {
+          zoomTween.cancel();
+        }
+
+        zoomTween = FlxTween.num(
+          zoomFactor,
+          destinationZoomFactor,
+          0.1,
+          { ease: function (t) { return t; } },
+          updateZoom
+        );
+    }
+
+    private function updateZoom(newZoomFactor: Float): Void
+    {
+        FlxG.log.notice("Update zoom to: " + newZoomFactor);
+        zoomFactor = newZoomFactor;
+
         var newCameraWidth  = FlxG.width / zoomFactor;
         var newCameraHeight = FlxG.height / zoomFactor;
         var diffWidth      = FlxG.width  - newCameraWidth;
         var diffHeight     = FlxG.height - newCameraHeight;
-		
-		if (zoomFactor <= 1)
-		{
-			FlxG.camera.setSize(Std.int(newCameraWidth), Std.int(newCameraHeight));
-			FlxG.camera.setScale(zoomFactor, zoomFactor);
+
+        if (zoomFactor <= 1)
+        {
+            FlxG.camera.setSize(Std.int(newCameraWidth), Std.int(newCameraHeight));
+            FlxG.camera.setScale(zoomFactor, zoomFactor);
             FlxG.camera.setPosition(
                diffWidth/2, diffHeight/2
             );
-		}
-		else
-		{
-			FlxG.camera.setSize(FlxG.width, FlxG.height);
-			FlxG.camera.setScale(zoomFactor, zoomFactor);
-		}
-		
-		FlxG.camera.focusOn(new FlxPoint(400, 300));
-		PlayState.levelMap.updateBuffers();
+        }
+        else
+        {
+            FlxG.camera.setSize(FlxG.width, FlxG.height);
+            FlxG.camera.setScale(zoomFactor, zoomFactor);
+            FlxG.camera.setPosition(0, 0);
+        }
+
+        FlxG.camera.focusOn(new FlxPoint(400, 300));
+        PlayState.levelMap.updateBuffers();
     }
 }

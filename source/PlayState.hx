@@ -58,12 +58,10 @@ class PlayState extends FlxState
         add(new CameraController());
 
         FlxG.camera.bgColor = 0x99FFFFFF;
-		//FlxG.debugger.visible = true;
     }
 
     override public function update(elapsed:Float):Void
     {
         super.update(elapsed);
-
     }
 }

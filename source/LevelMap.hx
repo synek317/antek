@@ -23,7 +23,7 @@ class LevelMap extends FlxTilemap
 	public function new(tiledLevel:String)
 	{
 		super();
-		
+
 		var tiledMap = new TiledMap(tiledLevel);
 
 		for (layer in tiledMap.layers)
@@ -34,7 +34,7 @@ class LevelMap extends FlxTilemap
             }
         }
 	}
-	
+
     public function createLayer(layer: TiledTileLayer): Void
     {
         this.layer = layer;
