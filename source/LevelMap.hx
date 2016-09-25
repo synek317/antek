@@ -1,28 +1,20 @@
 package;
 
-import flixel.FlxG;
-import flixel.FlxObject;
-import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.addons.editors.tiled.TiledImageLayer;
-import flixel.addons.editors.tiled.TiledImageTile;
+import flixel.*;
+import flixel.addons.editors.tiled.*;
 import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
-import flixel.addons.editors.tiled.TiledMap;
-import flixel.addons.editors.tiled.TiledObject;
-import flixel.addons.editors.tiled.TiledObjectLayer;
-import flixel.addons.editors.tiled.TiledTileLayer;
-import flixel.addons.editors.tiled.TiledTileSet;
-import flixel.group.FlxGroup;
-import flixel.tile.FlxTilemap;
-import haxe.io.Path;
+import flixel.tile.*;
+import haxe.io.*;
 
 class LevelMap extends FlxTilemap
 {
+	public static var obj: LevelMap;
+	
     private var layer: TiledTileLayer;
-
-	public function new(tiledLevel:String)
+	
+	public static function init(tiledLevel:String)
 	{
-		super();
+		obj = new LevelMap();
 
 		var tiledMap = new TiledMap(tiledLevel);
 
@@ -33,16 +25,18 @@ class LevelMap extends FlxTilemap
                 createLayer(cast(layer, TiledTileLayer));
             }
         }
+		
+		obj.cameras = [FlxG.camera];
 	}
 
-    public function createLayer(layer: TiledTileLayer): Void
+    private static function createLayer(layer: TiledTileLayer): Void
     {
-        this.layer = layer;
+        obj.layer = layer;
 
         var tileSet          = findTileSet(layer);
         var tileSetImageFile = getTileSetImageFile(tileSet);
 
-        this.loadMapFromArray(
+        obj.loadMapFromArray(
             layer.tileArray,     //map data
             layer.map.width,     //width in tiles
             layer.map.height,    //height in tiles
@@ -56,14 +50,14 @@ class LevelMap extends FlxTilemap
         );
     }
 
-    private function getTileSetImageFile(tileSet: TiledTileSet) : String
+    private static function getTileSetImageFile(tileSet: TiledTileSet) : String
     {
         var path = new Path(tileSet.imageSource);
 
         return "assets/images/" + path.file + "." + path.ext;
     }
 
-    private function findTileSet(layer: TiledTileLayer) : TiledTileSet
+    private static function findTileSet(layer: TiledTileLayer) : TiledTileSet
     {
         var tileSheetName:String = layer.properties.get("tileset");
 
