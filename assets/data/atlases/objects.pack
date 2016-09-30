@@ -1,0 +1,103 @@
+objects01.png
+size: 440, 390
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+inverted_fog
+  rotate: false
+  xy: 0, 0
+  size: 350, 350
+  orig: 350, 350
+  offset: 0, 0
+  index: -1
+ladder01
+  rotate: false
+  xy: 350, 0
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder02
+  rotate: false
+  xy: 390, 0
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder03
+  rotate: false
+  xy: 0, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder04
+  rotate: false
+  xy: 40, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder05
+  rotate: false
+  xy: 80, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder06
+  rotate: false
+  xy: 120, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder07
+  rotate: false
+  xy: 160, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder08
+  rotate: false
+  xy: 200, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder09
+  rotate: false
+  xy: 240, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder10
+  rotate: false
+  xy: 280, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder11
+  rotate: false
+  xy: 320, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder
+  rotate: false
+  xy: 360, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: 0
+ladder
+  rotate: false
+  xy: 400, 350
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: 99

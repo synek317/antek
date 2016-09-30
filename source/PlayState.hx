@@ -50,7 +50,7 @@ class PlayState extends FlxState
     {
 		obj = this;
 		
-        LevelMap.init("assets/data/levels/0.tmx");
+        LevelMap.init("assets/data/levels/l0.tmx");
 		
         ZoomController.init();
 		FreeCameraController.init();
@@ -60,25 +60,24 @@ class PlayState extends FlxState
 		FlxG.camera.pixelPerfectRender = true;
         FlxG.camera.bgColor = 0xffCCE6E6;
 		
-        var tex = FlxAtlasFrames.fromLibGdx("assets/images/anteks.png", "assets/data/atlases/anteks.pack");
         var x = new FlxSprite(50, 76);
 
-        x.frames = tex;
+        x.frames = Textures.anteks;
         x.animation.addByPrefix("walk", "c02/walk/", 19);
         x.animation.play("walk");
 
 		var xx = new FlxSprite(300, 72);
 
-        xx.frames = tex;
+        xx.frames = Textures.anteks;
         xx.animation.addByPrefix("walk", "c01/idle/", 18);
         xx.animation.play("walk");
 		
 		
 		var xxx = new FlxSprite(400, 472);
 
-        xxx.frames = tex;
+        xxx.frames = Textures.anteks;
 		xxx.flipX = true;
-        xxx.animation.addByPrefix("walk", "c03/idle/", 18);
+        xxx.animation.addByPrefix("walk", "c03/build/", 18);
         xxx.animation.play("walk");
 		
         add(LevelMap.obj);
@@ -96,7 +95,7 @@ class PlayState extends FlxState
 		FlxTween.tween(x, {x: 730}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { x.flipX = !x.flipX; } } );
 		
 		var xxxx = new FlxSprite(780, 1076);
-		xxxx.frames = tex;
+		xxxx.frames = Textures.anteks;
 		xxxx.flipX = true;
 		xxxx.animation.addByPrefix("walk", "c04/walk/", 19);
 		xxxx.animation.play("walk");
@@ -105,9 +104,8 @@ class PlayState extends FlxState
 		FlxTween.tween(xxxx, {x: 10}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { xxxx.flipX = !xxxx.flipX; } } );
 		
         var e = new FlxSprite(50, 24);
-		var etex = FlxAtlasFrames.fromLibGdx("assets/images/enemies.png", "assets/data/atlases/enemies.pack");
 		
-        e.frames = etex;
+        e.frames = Textures.enemies;
         e.animation.addByPrefix("walk", "e01/walk/", 15);
         e.animation.play("walk");
 		e.cameras = [FlxG.camera];
@@ -116,6 +114,7 @@ class PlayState extends FlxState
 		FlxTween.tween(e, {x: 700}, 22, { type: FlxTween.PINGPONG, onComplete: function(_) { e.flipX = !e.flipX; } } );
 		FlxG.debugger.visible = true;
 		Fog.obj.visible = false;
+        xxx.
     }
 
     override public function update(elapsed:Float):Void

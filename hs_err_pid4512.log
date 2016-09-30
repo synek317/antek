@@ -1,0 +1,79 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (0xc0020001), pid=4512, tid=3388
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_31-b13) (build 1.8.0_31-b13)
+# Java VM: Java HotSpot(TM) Client VM (25.31-b07 mixed mode windows-x86 )
+# Problematic frame:
+# C  [KERNELBASE.dll+0x14598]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x12f4ec00):  JavaThread "Thread-0" daemon [_thread_in_native, id=3388, stack(0x0f110000,0x0f210000)]
+
+siginfo: ExceptionCode=0xc0020001, ExceptionInformation=0x8007042b 
+
+Registers:
+EAX=0x0f20e9e0, EBX=0x26eb0ef8, ECX=0x00000001, EDX=0x00000000
+ESP=0x0f20e9e0, EBP=0x0f20ea3c, ESI=0x09eae798, EDI=0x12f4ec00
+EIP=0x76934598, EFLAGS=0x00000212
+
+Top of Stack: (sp=0x0f20e9e0)
+0x0f20e9e0:   c0020001 00000001 00000000 76934598
+0x0f20e9f0:   00000001 8007042b 0f20ea40 12f4ec00
+0x0f20ea00:   0f20ea58 5bba3851 26ec70ae 26ec70ae
+0x0f20ea10:   12f4ec00 00000000 26ec4698 12f4ec00
+0x0f20ea20:   0f20ea4c 5bbf2156 12f4ec00 5bbf2232
+0x0f20ea30:   12f12d30 e184b8b9 26ec71d0 0f20ea58
+0x0f20ea40:   6c5df47b c0020001 00000001 00000001
+0x0f20ea50:   0f20ea54 8007042b 0f20ea68 6c56e29e 
+
+Instructions: (pc=0x76934598)
+0x76934578:   e0 01 c7 44 24 0c 50 45 93 76 89 44 24 04 85 c9
+0x76934588:   75 1f 21 4c 24 10 8d 04 24 50 ff 15 2c 63 9e 76
+0x76934598:   8b 4c 24 54 33 cc e8 11 a7 ff ff 8b e5 5d c2 10
+0x769345a8:   00 8b 45 10 83 f8 0f 77 18 89 44 24 10 c1 e0 02 
+
+
+Register to memory mapping:
+
+EAX=0x0f20e9e0 is pointing into the stack for thread: 0x12f4ec00
+EBX={method} {0x26eb0efc} 'setProgress' '(II)V' in 'flash/tools/debugger/__IProgress'
+ECX=0x00000001 is an unknown value
+EDX=0x00000000 is an unknown value
+ESP=0x0f20e9e0 is pointing into the stack for thread: 0x12f4ec00
+EBP=0x0f20ea3c is pointing into the stack for thread: 0x12f4ec00
+ESI=0x09eae798 is an unknown value
+EDI=0x12f4ec00 is a thread
+
+
+Stack: [0x0f110000,0x0f210000],  sp=0x0f20e9e0,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [KERNELBASE.dll+0x14598]
+C  [mscorwks.dll+0x24f47b]
+C  [mscorwks.dll+0x1de29e]
+C  [mscorwks.dll+0x1e8d]
+j  flash.tools.debugger.__IProgress.setProgress(II)V+0
+j  flash.tools.debugger.concrete.PlayerSessionManager.accept(Lflash/tools/debugger/concrete/ProcessListener;Lflash/tools/debugger/IProgress;)Lflash/tools/debugger/Session;+96
+j  flash.tools.debugger.concrete.PlayerSessionManager.accept(Lflash/tools/debugger/IProgress;)Lflash/tools/debugger/Session;+3
+v  ~StubRoutines::call_stub
+C  0x5bc773e5
+C  0x5bd3d57e
+C  0x5bc7747e
+C  0x5bc00e67
+C  0x5bc029cc
+C  [mscorwks.dll+0x1d39]
+C  0x0f2b060f
+C  0x10c75dbf
+C  0x0f5da71c
+C  0x0f5d8e9c
+C  0x0f5d8d9d

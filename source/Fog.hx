@@ -30,14 +30,15 @@ class Fog
 		
 	public static function init()
 	{
-		pos            = new FlxPoint();
-		obj            = makeFog();
-		fogRect        = new Rectangle(0, 0, obj.width, obj.height);
-		colorTransform = new ColorTransform(0, 0, 0, -1, 0, 0, 0, 255);
-		viewOwners     = new List<FlxSprite>();
-		viewStamp      = new FlxSprite();
+		pos              = new FlxPoint();
+		obj              = makeFog();
+		fogRect          = new Rectangle(0, 0, obj.width, obj.height);
+		colorTransform   = new ColorTransform(0, 0, 0, -1, 0, 0, 0, 255);
+		viewOwners       = new List<FlxSprite>();
+		viewStamp        = new FlxSprite();
 		
-		viewStamp.loadGraphic(AssetPaths.inverted_fog__png);
+        viewStamp.frames = Textures.objects;
+        viewStamp.frame  = Textures.objects.getByName("inverted_fog");
 		PlayState.obj.add(obj);
 		
 		cam = new FlxCamera(0, 0, Std.int(obj.width), Std.int(obj.height), 1);
