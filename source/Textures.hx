@@ -11,7 +11,7 @@ class Textures
     private static var _objects:           FlxAtlasFrames;
     private static var _anteks:            FlxAtlasFrames;
     private static var _enemies:           FlxAtlasFrames;
-    
+
     public static var objects(get, never): FlxAtlasFrames;
     public static var anteks(get, never):  FlxAtlasFrames;
     public static var enemies(get, never): FlxAtlasFrames;

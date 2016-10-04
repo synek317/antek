@@ -1,7 +1,6 @@
 package;
 import flixel.*;
 import flixel.math.*;
-import flixel.tweens.*;
 
 class FreeCameraController
 {

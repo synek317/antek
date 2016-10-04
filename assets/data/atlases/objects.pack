@@ -1,5 +1,5 @@
-objects01.png
-size: 440, 390
+objects.png
+size: 470, 390
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -10,63 +10,70 @@ inverted_fog
   orig: 350, 350
   offset: 0, 0
   index: -1
-ladder01
+ladder0
   rotate: false
   xy: 350, 0
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
-  index: -1
-ladder02
+  index: -1  
+ladder1
   rotate: false
   xy: 390, 0
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder03
+ladder2
+  rotate: false
+  xy: 430, 0
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ladder3
   rotate: false
   xy: 0, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder04
+ladder4
   rotate: false
   xy: 40, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder05
+ladder5
   rotate: false
   xy: 80, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder06
+ladder6
   rotate: false
   xy: 120, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder07
+ladder7
   rotate: false
   xy: 160, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder08
+ladder8
   rotate: false
   xy: 200, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder09
+ladder9
   rotate: false
   xy: 240, 350
   size: 40, 40
@@ -87,17 +94,17 @@ ladder11
   orig: 40, 40
   offset: 0, 0
   index: -1
-ladder
+ladder12
   rotate: false
   xy: 360, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
-  index: 0
-ladder
+  index: -1
+ladder13
   rotate: false
   xy: 400, 350
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
-  index: 99
+  index: -1

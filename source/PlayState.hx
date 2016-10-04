@@ -40,12 +40,15 @@ import flixel.util.FlxColor;
 import flixel.addons.display.FlxZoomCamera;
 import flixel.math.FlxRect;
 import flixel.math.FlxPoint;
+import objects.Ladder;
 using flixel.util.FlxSpriteUtil;
 
 class PlayState extends FlxState
 {
 	public static var obj : PlayState;
 	
+    private static var e: FlxSprite;
+    
     override public function create():Void
     {
 		obj = this;
@@ -60,6 +63,8 @@ class PlayState extends FlxState
 		FlxG.camera.pixelPerfectRender = true;
         FlxG.camera.bgColor = 0xffCCE6E6;
 		
+        
+        
         var x = new FlxSprite(50, 76);
 
         x.frames = Textures.anteks;
@@ -73,7 +78,7 @@ class PlayState extends FlxState
         xx.animation.play("walk");
 		
 		
-		var xxx = new FlxSprite(400, 472);
+		var xxx = new FlxSprite(430, 472);
 
         xxx.frames = Textures.anteks;
 		xxx.flipX = true;
@@ -103,7 +108,7 @@ class PlayState extends FlxState
 		Fog.register(xxxx);
 		FlxTween.tween(xxxx, {x: 10}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { xxxx.flipX = !xxxx.flipX; } } );
 		
-        var e = new FlxSprite(50, 24);
+        e = new FlxSprite(50, 24);
 		
         e.frames = Textures.enemies;
         e.animation.addByPrefix("walk", "e01/walk/", 15);
@@ -114,7 +119,9 @@ class PlayState extends FlxState
 		FlxTween.tween(e, {x: 700}, 22, { type: FlxTween.PINGPONG, onComplete: function(_) { e.flipX = !e.flipX; } } );
 		FlxG.debugger.visible = true;
 		Fog.obj.visible = false;
-        xxx.
+		
+        var l = new Ladder();
+        l.init(40 * 10, 40 * 15, 8);
     }
 
     override public function update(elapsed:Float):Void
