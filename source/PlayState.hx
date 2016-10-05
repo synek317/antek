@@ -2,6 +2,8 @@ package;
 import flash.display.BitmapDataChannel;
 import flash.display.BlendMode;
 import flash.geom.*;
+import flixel.FlxBasic;
+import flixel.addons.util.FlxAsyncLoop;
 import flixel.system.scaleModes.FillScaleMode;
 import flixel.system.scaleModes.FixedScaleMode;
 import flixel.system.scaleModes.RatioScaleMode;
@@ -24,7 +26,9 @@ import flixel.addons.editors.tiled.TiledTileSet;
 import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
+import flixel.util.FlxSort;
 import flixel.util.FlxSpriteUtil;
+import flixel.util.FlxTimer;
 import haxe.io.Path;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -78,17 +82,16 @@ class PlayState extends FlxState
         xx.animation.play("walk");
 		
 		
-		var xxx = new FlxSprite(430, 472);
+		var xxx = new FlxSprite(350, 472);
 
         xxx.frames = Textures.anteks;
-		xxx.flipX = true;
-        xxx.animation.addByPrefix("walk", "c03/build/", 18);
+        xxx.animation.addByPrefix("walk", "c03/build/", 19);
         xxx.animation.play("walk");
 		
-        add(LevelMap.obj);
+        addChild(LevelMap.obj);
 		//add(xx);
         //add(x);
-		add(xxx);
+		addChildZ(xxx, 15);
 		x.cameras = [FlxG.camera];
 		xx.cameras = [FlxG.camera];
 		xxx.cameras = [FlxG.camera];
@@ -104,7 +107,7 @@ class PlayState extends FlxState
 		xxxx.flipX = true;
 		xxxx.animation.addByPrefix("walk", "c04/walk/", 19);
 		xxxx.animation.play("walk");
-		add(xxxx);
+		addChild(xxxx);
 		Fog.register(xxxx);
 		FlxTween.tween(xxxx, {x: 10}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { xxxx.flipX = !xxxx.flipX; } } );
 		
@@ -115,15 +118,21 @@ class PlayState extends FlxState
         e.animation.play("walk");
 		e.cameras = [FlxG.camera];
 		Fog.register(e);
-		add(e);
+		addChild(e);
 		FlxTween.tween(e, {x: 700}, 22, { type: FlxTween.PINGPONG, onComplete: function(_) { e.flipX = !e.flipX; } } );
-		FlxG.debugger.visible = true;
 		Fog.obj.visible = false;
 		
-        var l = new Ladder();
-        l.init(40 * 10, 40 * 15, 8);
+        ladder = new Ladder();
+        ladder.init(40 * 10, 40 * 15, 8);
+        
+        var loop = new FlxTimer();
+        loop.start(0.5, function(_) { loop.time = 1; ladder.step(); } , 100);
+        
+		//FlxG.debugger.visible = true;
     }
 
+    private var ladder: Ladder;
+    
     override public function update(elapsed:Float):Void
     {
         super.update(elapsed);
@@ -133,12 +142,24 @@ class PlayState extends FlxState
 		
 		if (FlxG.keys.justPressed.SPACE)
 		{
-			ZoomController.zoomTo(1);
+			ladder.step();
 		}
 		if (FlxG.keys.justPressed.F)
 		{
 			Fog.obj.visible = !Fog.obj.visible;
 		}
 		MouseHandler.update();
+    }
+    
+    public static function addChildZ(sprite: FlxBasic, zOrder: Int)
+    {
+        sprite.ID = zOrder;
+        addChild(sprite);
+    }
+    
+    public static function addChild(sprite: FlxBasic)
+    {
+        PlayState.obj.add(sprite);
+        obj.members.sort(function(a, b) return a.ID - b.ID);
     }
 }

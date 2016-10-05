@@ -13,8 +13,8 @@ class FreeCameraController
     public static function init()
     {
 		obj = new FlxSprite();
-		obj.x = 300;
-		obj.y = 300;
+		obj.x = 325;
+		obj.y = 370;
 		obj.visible = false;
 		
         PlayState.obj.add(obj);

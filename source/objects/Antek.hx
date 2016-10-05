@@ -1,11 +1,11 @@
-package;
+package objects;
 import flixel.addons.display.FlxExtendedSprite;
 
 /**
  * ...
  * @author ...
  */
-class Character extends FlxExtendedSprite
+class Antek extends FlxExtendedSprite
 {
 	public function new() 
 	{
