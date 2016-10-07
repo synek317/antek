@@ -4,7 +4,9 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxRandom;
 import flixel.math.FlxRect;
+import objects.factories.LadderSpriteFactory;
 import openfl.display.BitmapData;
+using FlxSpriteExtender;
 
 /**
  * ...
@@ -12,114 +14,68 @@ import openfl.display.BitmapData;
  */
 class Ladder
 {
+    private static inline var Nothing          = 0;
+    private static inline var Start            = 1;
+    private static inline var PartialSkeleton  = 2;
+    private static inline var Building_Entered = 3;
+    private static inline var Building         = 4;
+    private static inline var Done_Entered     = 5;
+    
+    private static inline var SmallStep       = 13;
+    private static inline var BigStep         = 14;
+    
     private static var random = new FlxRandom();
     
     private var skeleton: FlxSprite;
-    private var ladder: FlxSprite;
-    private var pixel_height: Int;
-    private static inline var pixel_width: Int = 40;
-    private var progress: Int = 0;
-    private var current_height(get, never) : Float;
-    private var tiles_count: Int;
-
-    private function get_current_height() : Int
-    {
-        var h = (progress - 2) * 40;
-        
-        return h > 0 ? h : 0;
-    }
+    private var ladder:   FlxSprite;
+    private var progress: Int;
+    private var state:     Int = Start;
     
     public function new() {}
     
     public function init(x: Int, y: Int, tiles_count: Int)
     {
-        this.tiles_count = tiles_count;
-        
-        pixel_height = tiles_count * 40;
-        skeleton = new FlxSprite();
-        skeleton.cameras = [FlxG.camera];
-        skeleton.pixels = new BitmapData(pixel_width, pixel_height);
-        
-        ladder = new FlxSprite();
-        ladder.cameras = [FlxG.camera];
-        ladder.pixels = new BitmapData(pixel_width, pixel_height);
-        
-        skeleton.x = x;
-        skeleton.y = y - pixel_height;
-        ladder.x = skeleton.x;
-        ladder.y = skeleton.y;
-        
-        draw(0, 0, ladder.pixels);
-        draw(0, 0, skeleton.pixels);
-        draw(12, tiles_count - 1, ladder.pixels);
-        draw(12, tiles_count - 1, skeleton.pixels);
-        
-        for (i in 1...(tiles_count-1))
-        {
-            var r = random.int(1, 11);
-            draw(r, i, ladder.pixels);
-            draw(13, i, skeleton.pixels);
-        }
-        
-        PlayState.addChildZ(skeleton, 10);
-        PlayState.addChildZ(ladder, 11);
-        ladder.clipRect = new FlxRect(0, pixel_height, pixel_width, 0);
-        skeleton.clipRect = new FlxRect(0, 0, 0, pixel_height);
+        skeleton          = LadderSpriteFactory.createSkeleton(tiles_count, x, y);
+        ladder            = LadderSpriteFactory.create(tiles_count, x, y);
+        ladder.clipRect   = new FlxRect(0, ladder.height, ladder.width, 0);
+        skeleton.clipRect = new FlxRect(0, 0, 0, skeleton.height);
     }
     
-    private var finished = false;
-    public function step()
+    public function step() : Bool
     {
-        if (finished) { return; }
-        
-        progress++;
-        switch(progress)
+        switch(state)
         {
-            case 1: skeleton.clipRect.width = pixel_width / 2; skeleton.clipRect = skeleton.clipRect;
-            case 2: skeleton.clipRect = null;
-        case 3:
-            ladder.clipRect.y -= 53;
-            ladder.clipRect.height += 53;
-            ladder.clipRect = ladder.clipRect;
-        default:
-                var step = progress % 5 == 0 ? 14 : 13;
-                
-                ladder.clipRect.y -= step;
-                ladder.clipRect.height += step;
+            case Start:
+                skeleton.setClipWidth(skeleton.width / 2);
+                state++;
+            case PartialSkeleton:
+                skeleton.clipRect = null;
+                state++;
+            case Building_Entered:
+                progress = 1;
+                StretchLadderClip(LevelMap.TileHeight + SmallStep);
+                state++;
+            case Building:
+                StretchLadderClip(progress % 3 < 2 ? SmallStep : BigStep);
                 if (ladder.clipRect.y <= 0)
                 {
-                    ladder.clipRect = null;
-                    PlayState.obj.remove(skeleton);
-                    skeleton = null;
-                    finished = true;
+                    state++;
                 }
-                else
-                {
-                    ladder.clipRect = ladder.clipRect;
-                }
+                progress++;
+            case Done_Entered:
+                PlayState.obj.remove(skeleton);
+                ladder.clipRect = null;
+                skeleton        = null;
+                state++;
         }
-    }
-    
-    private function draw_skeleton_left()
-    {
         
+        return state <= Done_Entered;
     }
     
-    private function draw_skeleton_full()
+    private function StretchLadderClip(step: Int)
     {
-        
-    }
-    
-    private function draw_ladder()
-    {
-        
-    }
-    
-    private static var point = new Point();
-    private static var helperSprite = new FlxSprite();
-    private function draw(partIndex: Int, tile: Int, bmp: BitmapData)
-    {
-        point.y = tile * 40;
-        Textures.objects.getByName("ladder" + partIndex).paint(bmp, point);
+        ladder.clipRect.y      -= step;
+        ladder.clipRect.height += step;
+        ladder.updateClip();
     }
 }

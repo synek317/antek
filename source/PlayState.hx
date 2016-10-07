@@ -1,4 +1,5 @@
 package;
+import actions.BuildLadder;
 import flash.display.BitmapDataChannel;
 import flash.display.BlendMode;
 import flash.geom.*;
@@ -44,6 +45,7 @@ import flixel.util.FlxColor;
 import flixel.addons.display.FlxZoomCamera;
 import flixel.math.FlxRect;
 import flixel.math.FlxPoint;
+import objects.Antek;
 import objects.Ladder;
 using flixel.util.FlxSpriteUtil;
 
@@ -91,7 +93,7 @@ class PlayState extends FlxState
         addChild(LevelMap.obj);
 		//add(xx);
         //add(x);
-		addChildZ(xxx, 15);
+		//addChildZ(xxx, 15);
 		x.cameras = [FlxG.camera];
 		xx.cameras = [FlxG.camera];
 		xxx.cameras = [FlxG.camera];
@@ -126,12 +128,18 @@ class PlayState extends FlxState
         ladder.init(40 * 10, 40 * 15, 8);
         
         var loop = new FlxTimer();
-        loop.start(0.5, function(_) { loop.time = 1; ladder.step(); } , 100);
+        //loop.start(0.5, function(_) { loop.time = 1; ladder.step(); } , 100);
         
 		//FlxG.debugger.visible = true;
+        antek = Level.addAntek(Antek.A1, 450, 472);
+        act = new BuildLadder(antek, ladder);
+        act.action();
+        
     }
 
+    private var act: BuildLadder;
     private var ladder: Ladder;
+    private var antek: Antek;
     
     override public function update(elapsed:Float):Void
     {
