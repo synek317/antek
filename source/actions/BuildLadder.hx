@@ -20,14 +20,20 @@ class BuildLadder
     public function action()
     {
         antek.moveTo(350)
-        .then(function() {
-            antek.turnRight();
-            antek.build(function() { 
-                if (!ladder.step())
-                {
-                    antek.idle();
-                }
-            });
-        });
+             .then(startBuilding);
+    }
+    
+    private function startBuilding()
+    {
+        antek.turnRight();
+        antek.build(buildLadder);
+    }
+    
+    private function buildLadder()
+    {
+        if (!ladder.step())
+        {
+            antek.idle();
+        }
     }
 }

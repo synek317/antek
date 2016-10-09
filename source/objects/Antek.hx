@@ -3,6 +3,7 @@ import flash.geom.Point;
 import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.addons.display.FlxExtendedSprite;
+import flixel.animation.FlxAnimation;
 import flixel.util.FlxTimer;
 
 /**
@@ -23,8 +24,10 @@ class Antek extends FlxExtendedSprite
     private static inline var CLIMB  = 5;
     private static inline var GATHER = 6;
     
-    private var BuildAnimLengthSeconds = 0.5;
-    private var HorizontalSpeed        = 30;
+    private static inline var IdleAnimFps    = 20;
+    private static inline var WalkAnimSpeed = 19.0 / 40.0; //frames per pixels
+    
+    private var HorizontalSpeed        = 60;
     private var VerticalSpeed          = 40;
     
     private var destinations     : List<Point>;
@@ -32,6 +35,10 @@ class Antek extends FlxExtendedSprite
     private var state            : Int;
     private var onBuild          : Void -> Void;
     private var buildTime        : Float;
+    private var idleAnim         : FlxAnimation;
+    private var buildAnim        : FlxAnimation;
+    private var walkAnim         : FlxAnimation;
+    private var climbAnim        : FlxAnimation;
     
 	public function new(type: String, x: Float, y: Float)
 	{
@@ -42,15 +49,26 @@ class Antek extends FlxExtendedSprite
         destinations     = new List<Point>();
         scheduledActions = new List<Void->Void>();
         
-        frames = Textures.anteks;
-        animation.addByPrefix("walk",   type + "/walk/",   18);
-        animation.addByPrefix("attack", type + "/attack/", 20);
-        animation.addByPrefix("build",  type + "/build/",  Std.int(19 / BuildAnimLengthSeconds));
-        animation.addByPrefix("climb",  type + "/climb/",  20);
-        animation.addByPrefix("gather", type + "/gather/", 20);
-        animation.addByPrefix("idle",   type + "/idle/",   20);
+        frames    = Textures.anteks;
+        idleAnim  = addAnim(type, "idle");
+        buildAnim = addAnim(type, "build");
+        walkAnim  = addAnim(type, "walk");
+        climbAnim = addAnim(type, "climb");
         
+        recalculateAnimationsSpeed();
         idle();
+    }
+    
+    private function addAnim(type: String, name: String) : FlxAnimation
+    {
+        animation.addByPrefix(name, type + "/" + name + "/");
+        return animation.getByName(name);
+    }
+    
+    public function recalculateAnimationsSpeed()
+    {
+        //x px per klatka
+        walkAnim.frameRate = Std.int(HorizontalSpeed * WalkAnimSpeed);
     }
     
     override public function update(elapsed:Float):Void 
@@ -70,10 +88,10 @@ class Antek extends FlxExtendedSprite
                 {
                     buildTime += elapsed;
                     
-                    var hits = Math.floor(buildTime / BuildAnimLengthSeconds);
+                    var hits = Math.floor(buildTime / 2);// BuildAnimLengthSeconds);
                     if (hits > 0)
                     {
-                        buildTime -= hits * BuildAnimLengthSeconds;
+                        buildTime -= hits * 2;// BuildAnimLengthSeconds;
                         for (i in 0...hits)
                         {
                             onBuild();
@@ -85,7 +103,14 @@ class Antek extends FlxExtendedSprite
     
     public function then(action: Void -> Void) : Antek
     {
-        scheduledActions.push(action);
+        scheduledActions.add(action);
+        return this;
+    }
+    
+    public function teleportTo(?newX: Float, ?newY: Float) : Antek
+    {
+        if (newX != null) x = newX;
+        if (newY != null) y = newY;
         return this;
     }
     
@@ -113,9 +138,19 @@ class Antek extends FlxExtendedSprite
     {
         this.onBuild = onBuild;
         state        = BUILD;
-        buildTime    = -BuildAnimLengthSeconds/2;
+        buildTime    = -1;// BuildAnimLengthSeconds / 2;
         
         animation.play("build");
+        return this;
+    }
+    
+    public function climb() : Antek
+    {
+        //if (fallAt == null) fallAt = y;
+        destinations.add(new Point(x, y - 100));
+        state = WALK;
+        
+        animation.play("climb");
         return this;
     }
     

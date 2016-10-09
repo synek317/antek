@@ -72,6 +72,14 @@ class Ladder
         return state <= Done_Entered;
     }
     
+    public function createImmediately()
+    {
+        PlayState.obj.remove(skeleton);
+        skeleton        = null;
+        ladder.clipRect = null;
+        state           = Done_Entered + 1;
+    }
+    
     private function StretchLadderClip(step: Int)
     {
         ladder.clipRect.y      -= step;

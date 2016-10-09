@@ -47,6 +47,7 @@ import flixel.math.FlxRect;
 import flixel.math.FlxPoint;
 import objects.Antek;
 import objects.Ladder;
+import openfl.display.FPS;
 using flixel.util.FlxSpriteUtil;
 
 class PlayState extends FlxState
@@ -110,7 +111,7 @@ class PlayState extends FlxState
 		xxxx.animation.addByPrefix("walk", "c04/walk/", 19);
 		xxxx.animation.play("walk");
 		addChild(xxxx);
-		Fog.register(xxxx);
+		//Fog.register(xxxx);
 		FlxTween.tween(xxxx, {x: 10}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { xxxx.flipX = !xxxx.flipX; } } );
 		
         e = new FlxSprite(50, 24);
@@ -126,6 +127,7 @@ class PlayState extends FlxState
 		
         ladder = new Ladder();
         ladder.init(40 * 10, 40 * 15, 8);
+        ladder.createImmediately();
         
         var loop = new FlxTimer();
         //loop.start(0.5, function(_) { loop.time = 1; ladder.step(); } , 100);
@@ -133,16 +135,32 @@ class PlayState extends FlxState
 		//FlxG.debugger.visible = true;
         antek = Level.addAntek(Antek.A1, 450, 472);
         act = new BuildLadder(antek, ladder);
-        act.action();
+        //act.action();
         
+        //antek.climb();
+        
+        fps1 = new FlxText(10, 40);
+        //fps1.color = 0xffffffff;
+        addChild(fps1);
+        Fog.register(antek);
+        test();
     }
 
+    private function test()
+    {
+        antek
+        .teleportTo(650, 472)
+        .moveTo(385);
+    }
+    
+    private var fps1: FlxText;
     private var act: BuildLadder;
     private var ladder: Ladder;
     private var antek: Antek;
     
     override public function update(elapsed:Float):Void
     {
+        fps1.text = "FPS: " + (1 / elapsed) + " (" + elapsed + ")";
         super.update(elapsed);
 		ZoomController.update();
 		FreeCameraController.update();
@@ -156,6 +174,10 @@ class PlayState extends FlxState
 		{
 			Fog.obj.visible = !Fog.obj.visible;
 		}
+        if (FlxG.keys.justPressed.T)
+        {
+            test();
+        }
 		MouseHandler.update();
     }
     
