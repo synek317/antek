@@ -1,4 +1,5 @@
 package;
+import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import objects.Antek;
@@ -7,6 +8,10 @@ import objects.Antek;
  * ...
  * @author ...
  */
+typedef Constructible = {
+    public function new(): Void;
+}
+
 class Level
 {
     private static inline var ZIndex_Object = 100;
@@ -17,12 +22,12 @@ class Level
         return addSprite(new Antek(antekType, x, y), ZIndex_Antek, initFunction);
     }
     
-    public static function addObject(?initFunction: FlxSprite -> Void): FlxSprite
+    @:generic public static function addObject<T:(FlxBasic,Constructible)>(?initFunction: T -> Void): T
     {
-        return addSprite(new FlxSprite(), ZIndex_Object, initFunction);
+        return addSprite(new T(), ZIndex_Object, initFunction);
     }
     
-    private static function addSprite<T:FlxSprite>(sprite: T, zIndex: Int, ?initFunction: T -> Void) : T
+    @:generic private static function addSprite<T:FlxBasic>(sprite: T, zIndex: Int, ?initFunction: T -> Void) : T
     {
         sprite.ID      = zIndex;
         sprite.cameras = [FlxG.camera];

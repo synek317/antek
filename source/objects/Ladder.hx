@@ -4,6 +4,8 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxRandom;
 import flixel.math.FlxRect;
+import framework.ASprite;
+import framework.SubSprite;
 import objects.factories.LadderSpriteFactory;
 import openfl.display.BitmapData;
 using FlxSpriteExtender;
@@ -12,7 +14,7 @@ using FlxSpriteExtender;
  * ...
  * @author ...
  */
-class Ladder
+class Ladder extends ASprite
 {
     private static inline var Nothing          = 0;
     private static inline var Start            = 1;
@@ -26,17 +28,17 @@ class Ladder
     
     private static var random = new FlxRandom();
     
-    private var skeleton: FlxSprite;
-    private var ladder:   FlxSprite;
     private var progress: Int;
-    private var state:     Int = Start;
+    private var state:    Int = Start;
+    private var ladder:   FlxSprite;
+    private var skeleton: FlxSprite;
     
     public function new() {}
     
-    public function init(x: Int, y: Int, tiles_count: Int)
+    public function init(tiles_count: Int)
     {
-        skeleton          = LadderSpriteFactory.createSkeleton(tiles_count, x, y);
-        ladder            = LadderSpriteFactory.create(tiles_count, x, y);
+        skeleton          = addPart(LadderSpriteFactory.createSkeleton(tiles_count), 0).sprite;
+        ladder            = addPart(LadderSpriteFactory.create(tiles_count),         1).sprite;
         ladder.clipRect   = new FlxRect(0, ladder.height, ladder.width, 0);
         skeleton.clipRect = new FlxRect(0, 0, 0, skeleton.height);
     }
@@ -57,7 +59,7 @@ class Ladder
                 state++;
             case Building:
                 StretchLadderClip(progress % 3 < 2 ? SmallStep : BigStep);
-                if (ladder.clipRect.y <= 0)
+                if (ladder.clipRect.y <= LevelMap.TileHeight)
                 {
                     state++;
                 }
@@ -78,6 +80,16 @@ class Ladder
         skeleton        = null;
         ladder.clipRect = null;
         state           = Done_Entered + 1;
+    }
+    
+    private function addPart(sprite: FlxSprite, shiftZ: Int): SubSprite
+    {
+        return addSubSprite({
+           sprite: sprite,
+           shiftX: -LevelMap.TileWidth / 2.0,
+           shiftY: -sprite.height,
+           shiftZ: shiftZ
+        });
     }
     
     private function StretchLadderClip(step: Int)

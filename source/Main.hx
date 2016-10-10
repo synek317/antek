@@ -9,7 +9,7 @@ class Main extends Sprite
     public function new()
     {
         #if (debug && cpp)
-            new debugger.HaxeRemote(true, "localhost");
+            //new debugger.HaxeRemote(true, "localhost");
         #end
         
         super();

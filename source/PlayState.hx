@@ -53,7 +53,8 @@ using flixel.util.FlxSpriteUtil;
 class PlayState extends FlxState
 {
 	public static var obj : PlayState;
-	
+	private var shouldReorderZ: Bool;
+    
     private static var e: FlxSprite;
     
     override public function create():Void
@@ -125,9 +126,15 @@ class PlayState extends FlxState
 		FlxTween.tween(e, {x: 700}, 22, { type: FlxTween.PINGPONG, onComplete: function(_) { e.flipX = !e.flipX; } } );
 		Fog.obj.visible = false;
 		
+        
+        /*ladder = Level.addObject(function(s: Ladder) {
+            s.init(40 * 10, 40 * 15, 8);
+            s.createImmediately();
+        });*/
         ladder = new Ladder();
-        ladder.init(40 * 10, 40 * 15, 8);
-        ladder.createImmediately();
+        ladder.init(8);
+        ladder.tileX = 8;
+        ladder.tileY = 15;
         
         var loop = new FlxTimer();
         //loop.start(0.5, function(_) { loop.time = 1; ladder.step(); } , 100);
@@ -135,7 +142,7 @@ class PlayState extends FlxState
 		//FlxG.debugger.visible = true;
         antek = Level.addAntek(Antek.A1, 450, 472);
         act = new BuildLadder(antek, ladder);
-        //act.action();
+        act.action();
         
         //antek.climb();
         
@@ -143,7 +150,7 @@ class PlayState extends FlxState
         //fps1.color = 0xffffffff;
         addChild(fps1);
         Fog.register(antek);
-        test();
+        //test();
     }
 
     private function test()
@@ -166,6 +173,11 @@ class PlayState extends FlxState
 		FreeCameraController.update();
 		Fog.update();
 		
+        if (shouldReorderZ)
+        {
+            shouldReorderZ = false;
+            obj.members.sort(zOrderComparer);
+        }
 		if (FlxG.keys.justPressed.SPACE)
 		{
 			ladder.step();
@@ -181,6 +193,8 @@ class PlayState extends FlxState
 		MouseHandler.update();
     }
     
+    public static function scheduleZReorder() { obj.shouldReorderZ = true; }
+    
     public static function addChildZ(sprite: FlxBasic, zOrder: Int)
     {
         sprite.ID = zOrder;
@@ -190,6 +204,11 @@ class PlayState extends FlxState
     public static function addChild(sprite: FlxBasic)
     {
         PlayState.obj.add(sprite);
-        obj.members.sort(function(a, b) return a.ID - b.ID);
+        obj.members.sort(zOrderComparer);
+    }
+    
+    private static function zOrderComparer(a: FlxBasic, b: FlxBasic) : Int
+    {
+        return a.ID - b.ID;
     }
 }

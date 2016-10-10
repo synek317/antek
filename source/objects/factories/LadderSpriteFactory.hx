@@ -20,39 +20,39 @@ class LadderSpriteFactory
     private static var random = new FlxRandom();   
     private static var point  = new Point(0, 0);
     
-    public static function createSkeleton(tiles_height: Int, x: Float, y: Float) : FlxSprite
+    public static function createSkeleton(tiles_height: Int) : FlxSprite
     {
-        return Level.addObject(function(s) {
-            initSprite(s, tiles_height, x, y);
-            
-            for (i in 1...(tiles_height-1))
-            {
-                draw(s.pixels, PartIndex_Skeleton, i);
-            }
-            
-        });
+        var s = new FlxSprite();
+        
+        initSprite(s, tiles_height);
+
+        for (i in 1...(tiles_height-1))
+        {
+            draw(s.pixels, PartIndex_Skeleton, i);
+        }
+        
+        return s;
     }
     
-    public static function create(tiles_height: Int, x: Float, y: Float) : FlxSprite
+    public static function create(tiles_height: Int) : FlxSprite
     {
-        return Level.addObject(function(s) {
-            initSprite(s, tiles_height, x, y);
-            s.ID++;
-            
-            for (i in 1...(tiles_height-1))
-            {
-                draw(s.pixels, randomPartIndex(), i);
-            }
-        });
+        var s = new FlxSprite();
+        
+        initSprite(s, tiles_height);
+        
+        for (i in 1...(tiles_height-1))
+        {
+            draw(s.pixels, randomPartIndex(), i);
+        }
+        
+        return s;
     }
     
     private static inline function randomPartIndex() { return random.int(PartIndex_Mid_Min, PartIndex_Min_Max); }
     
-    private static function initSprite(s: FlxSprite, tiles_height: Int, x: Float, y: Float)
+    private static function initSprite(s: FlxSprite, tiles_height: Int)
     {
         s.pixels = new BitmapData(PixelWidth, tiles_height * LevelMap.TileHeight);
-        s.x      = x;
-        s.y      = y - s.pixels.height;
         
         draw(s.pixels, PartIndex_Top, 0);
         draw(s.pixels, PartIndex_Bot, tiles_height - 1);

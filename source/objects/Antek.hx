@@ -29,6 +29,7 @@ class Antek extends FlxExtendedSprite
     
     private var HorizontalSpeed        = 60;
     private var VerticalSpeed          = 40;
+    private var BuildsPerSecond        = 2;
     
     private var destinations     : List<Point>;
     private var scheduledActions : List<Void->Void>;
@@ -67,8 +68,8 @@ class Antek extends FlxExtendedSprite
     
     public function recalculateAnimationsSpeed()
     {
-        //x px per klatka
         walkAnim.frameRate = Std.int(HorizontalSpeed * WalkAnimSpeed);
+        buildAnim.frameRate = Std.int(buildAnim.numFrames * BuildsPerSecond);
     }
     
     override public function update(elapsed:Float):Void 
@@ -88,10 +89,10 @@ class Antek extends FlxExtendedSprite
                 {
                     buildTime += elapsed;
                     
-                    var hits = Math.floor(buildTime / 2);// BuildAnimLengthSeconds);
+                    var hits = Math.floor(buildTime * BuildsPerSecond);
                     if (hits > 0)
                     {
-                        buildTime -= hits * 2;// BuildAnimLengthSeconds;
+                        buildTime -= hits / BuildsPerSecond;
                         for (i in 0...hits)
                         {
                             onBuild();
@@ -138,7 +139,7 @@ class Antek extends FlxExtendedSprite
     {
         this.onBuild = onBuild;
         state        = BUILD;
-        buildTime    = -1;// BuildAnimLengthSeconds / 2;
+        buildTime    = (buildAnim.numFrames / 2 - 2) / buildAnim.frameRate;
         
         animation.play("build");
         return this;
@@ -178,4 +179,6 @@ class Antek extends FlxExtendedSprite
         if (y < p.y)     y = Math.min(y + VerticalSpeed * elapsed, p.y);
         else if(y > p.y) y = Math.max(y - VerticalSpeed * elapsed, p.y);
     }
+    
+    private inline function oneBuildHitTime() return buildAnim.numFrames / buildAnim.frameRate;
 }
