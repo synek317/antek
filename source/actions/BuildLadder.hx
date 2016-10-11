@@ -19,7 +19,7 @@ class BuildLadder
     
     public function action()
     {
-        antek.moveTo(350)
+        antek.moveToTileX(ladder.tileX - 1)
              .then(startBuilding);
     }
     

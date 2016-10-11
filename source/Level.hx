@@ -14,12 +14,12 @@ typedef Constructible = {
 
 class Level
 {
-    private static inline var ZIndex_Object = 100;
+    /*private static inline var ZIndex_Object = 100;
     private static inline var ZIndex_Antek  = 200;
     
-    public static function addAntek(antekType: String, x: Float, y: Float, ?initFunction: Antek -> Void): Antek
+    public static function addAntek(antekType: String, ?initFunction: Antek -> Void): Antek
     {
-        return addSprite(new Antek(antekType, x, y), ZIndex_Antek, initFunction);
+        return addSprite(new Antek(antekType), ZIndex_Antek, initFunction);
     }
     
     @:generic public static function addObject<T:(FlxBasic,Constructible)>(?initFunction: T -> Void): T
@@ -36,5 +36,5 @@ class Level
         PlayState.addChild(sprite);
         
         return sprite;
-    }
+    }*/
 }

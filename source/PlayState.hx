@@ -140,7 +140,9 @@ class PlayState extends FlxState
         //loop.start(0.5, function(_) { loop.time = 1; ladder.step(); } , 100);
         
 		//FlxG.debugger.visible = true;
-        antek = Level.addAntek(Antek.A1, 450, 472);
+        antek = new Antek(Antek.A1);// , 450, 472);
+        antek.tileX = 12;
+        antek.tileY = 14;
         act = new BuildLadder(antek, ladder);
         act.action();
         
@@ -149,7 +151,7 @@ class PlayState extends FlxState
         fps1 = new FlxText(10, 40);
         //fps1.color = 0xffffffff;
         addChild(fps1);
-        Fog.register(antek);
+        //Fog.register(antek);
         //test();
     }
 
@@ -191,6 +193,8 @@ class PlayState extends FlxState
             test();
         }
 		MouseHandler.update();
+        
+        antek.update(elapsed);
     }
     
     public static function scheduleZReorder() { obj.shouldReorderZ = true; }

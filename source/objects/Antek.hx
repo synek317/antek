@@ -2,20 +2,52 @@ package objects;
 import flash.geom.Point;
 import flixel.FlxBasic;
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.addons.display.FlxExtendedSprite;
 import flixel.animation.FlxAnimation;
 import flixel.util.FlxTimer;
+import framework.ASprite;
+import framework.SubSprite;
 
 /**
  * ...
  * @author ...
  */
-class Antek extends FlxExtendedSprite
+class Antek extends ASprite
 {
+    //{ Antek Types
     public static inline var A1 = "c01";
     public static inline var A2 = "c02";
     public static inline var A3 = "c03";
     public static inline var A4 = "c04";
+    //}
+    
+    //{ Properties
+    private var HorizontalSpeed        = 60;
+    private var VerticalSpeed          = 40;
+    private var BuildsPerSecond        = 2;
+    //}
+    
+	public function new(type: String)
+	{
+        subSprite = { sprite: new FlxSprite(), shiftX: 0, shiftY: 0, shiftZ: 0 };
+        
+        destinations     = new List<Point>();
+        scheduledActions = new List<Void->Void>();
+        
+        subSprite.sprite.frames = Textures.anteks;
+        idleAnim  = addAnim(type, "idle");
+        buildAnim = addAnim(type, "build");
+        walkAnim  = addAnim(type, "walk");
+        climbAnim = addAnim(type, "climb");
+        
+        recalculateAnimationsSpeed();
+        idle();
+        
+        addSubSprite(subSprite);
+    }
+    
+    //{ States
     
     private static inline var IDLE   = 1;
     private static inline var WALK   = 2;
@@ -24,57 +56,11 @@ class Antek extends FlxExtendedSprite
     private static inline var CLIMB  = 5;
     private static inline var GATHER = 6;
     
-    private static inline var IdleAnimFps    = 20;
-    private static inline var WalkAnimSpeed = 19.0 / 40.0; //frames per pixels
-    
-    private var HorizontalSpeed        = 60;
-    private var VerticalSpeed          = 40;
-    private var BuildsPerSecond        = 2;
-    
-    private var destinations     : List<Point>;
-    private var scheduledActions : List<Void->Void>;
     private var state            : Int;
-    private var onBuild          : Void -> Void;
-    private var buildTime        : Float;
-    private var idleAnim         : FlxAnimation;
-    private var buildAnim        : FlxAnimation;
-    private var walkAnim         : FlxAnimation;
-    private var climbAnim        : FlxAnimation;
+    private var scheduledActions : List<Void->Void>;
     
-	public function new(type: String, x: Float, y: Float)
-	{
-		super(x, y);
-		
-        clickable        = true;
-        
-        destinations     = new List<Point>();
-        scheduledActions = new List<Void->Void>();
-        
-        frames    = Textures.anteks;
-        idleAnim  = addAnim(type, "idle");
-        buildAnim = addAnim(type, "build");
-        walkAnim  = addAnim(type, "walk");
-        climbAnim = addAnim(type, "climb");
-        
-        recalculateAnimationsSpeed();
-        idle();
-    }
-    
-    private function addAnim(type: String, name: String) : FlxAnimation
+    public function update(elapsed:Float):Void 
     {
-        animation.addByPrefix(name, type + "/" + name + "/");
-        return animation.getByName(name);
-    }
-    
-    public function recalculateAnimationsSpeed()
-    {
-        walkAnim.frameRate = Std.int(HorizontalSpeed * WalkAnimSpeed);
-        buildAnim.frameRate = Std.int(buildAnim.numFrames * BuildsPerSecond);
-    }
-    
-    override public function update(elapsed:Float):Void 
-    {
-        super.update(elapsed);
         switch(state)
         {
             case WALK:
@@ -102,10 +88,53 @@ class Antek extends FlxExtendedSprite
         }
     }
     
+    private function finishState()
+    {
+        var action = scheduledActions.pop();
+        
+        if (action != null) action();
+        else                idle();
+    }
+    
     public function then(action: Void -> Void) : Antek
     {
         scheduledActions.add(action);
         return this;
+    }
+    //}
+    
+    //{ States: Idle
+    public function idle() : Antek
+    {
+        state = IDLE;
+        subSprite.sprite.animation.play("idle");
+        subSprite.shiftX = -30;
+        subSprite.shiftY = -87;
+        
+        return this;
+    }
+    //}
+    
+    //{ States: Walk 
+    private var destinations : List<Point>;
+    
+    public function moveTo(newX: Float) : Antek
+    {
+        state = WALK;
+        subSprite.sprite.flipX = newX < x;
+        
+        destinations.clear();
+        destinations.push(new Point(newX, y));
+        subSprite.sprite.animation.play("walk");
+        subSprite.shiftX = -30;
+        subSprite.shiftY = -87;
+        
+        return this;
+    }
+    
+    public function moveToTileX(newX: Int) : Antek
+    {
+        return moveTo(LevelMap.TileWidth * newX + LevelMap.HalfTileWidth);
     }
     
     public function teleportTo(?newX: Float, ?newY: Float) : Antek
@@ -113,62 +142,6 @@ class Antek extends FlxExtendedSprite
         if (newX != null) x = newX;
         if (newY != null) y = newY;
         return this;
-    }
-    
-    public function idle() : Antek
-    {
-        state = IDLE;
-        animation.play("idle");
-        
-        return this;
-    }
-    
-    public function moveTo(newX: Int) : Antek
-    {
-        state = WALK;
-        flipX = newX < x;
-        
-        destinations.clear();
-        destinations.push(new Point(newX, y));
-        animation.play("walk");
-        
-        return this;
-    }
-    
-    public function build(?onBuild: Void -> Void) : Antek
-    {
-        this.onBuild = onBuild;
-        state        = BUILD;
-        buildTime    = (buildAnim.numFrames / 2 - 2) / buildAnim.frameRate;
-        
-        animation.play("build");
-        return this;
-    }
-    
-    public function climb() : Antek
-    {
-        //if (fallAt == null) fallAt = y;
-        destinations.add(new Point(x, y - 100));
-        state = WALK;
-        
-        animation.play("climb");
-        return this;
-    }
-    
-    public function turnLeft()  { flipX = true; }
-    public function turnRight() { flipX = false; }
-    
-    public function at(p: Point) : Bool
-    {
-        return p.x == x && p.y == y;
-    }
-    
-    private function finishState()
-    {
-        var action = scheduledActions.pop();
-        
-        if (action != null) action();
-        else                idle();
     }
     
     private function stepTowards(p: Point, elapsed: Float)
@@ -179,6 +152,70 @@ class Antek extends FlxExtendedSprite
         if (y < p.y)     y = Math.min(y + VerticalSpeed * elapsed, p.y);
         else if(y > p.y) y = Math.max(y - VerticalSpeed * elapsed, p.y);
     }
+    //}
     
-    private inline function oneBuildHitTime() return buildAnim.numFrames / buildAnim.frameRate;
+    //{ States: Build
+    private var onBuild   : Void -> Void;
+    private var buildTime : Float;
+    
+    public function build(?onBuild: Void -> Void) : Antek
+    {
+        this.onBuild = onBuild;
+        state        = BUILD;
+        buildTime    = (buildAnim.numFrames / 2 - 2) / buildAnim.frameRate;
+        
+        subSprite.sprite.animation.play("build");
+        subSprite.shiftX = -30;
+        subSprite.shiftY = -87;
+        
+        return this;
+    }
+    //}
+    
+    //{ States: Climb
+    public function climb() : Antek
+    {
+        destinations.add(new Point(x, y - 100));
+        state = WALK;
+        
+        subSprite.sprite.animation.play("climb");
+        subSprite.shiftX = -30;
+        subSprite.shiftY = -100;
+        
+        return this;
+    }
+    //}
+    
+    //{ Others
+    public function turnLeft()  { subSprite.sprite.flipX = true; }
+    public function turnRight() { subSprite.sprite.flipX = false; }
+    
+    public function at(p: Point) : Bool
+    {
+        return p.x == x && p.y == y;
+    }
+    //}
+    
+    //{ Graphics
+    private static inline var IdleAnimFps    = 20;
+    private static inline var WalkAnimSpeed = 19.0 / 40.0; //frames per pixels
+    
+    private var subSprite : SubSprite;
+    private var idleAnim  : FlxAnimation;
+    private var buildAnim : FlxAnimation;
+    private var walkAnim  : FlxAnimation;
+    private var climbAnim : FlxAnimation;
+    
+    private function addAnim(type: String, name: String) : FlxAnimation
+    {
+        subSprite.sprite.animation.addByPrefix(name, type + "/" + name + "/");
+        return subSprite.sprite.animation.getByName(name);
+    }
+    
+    public function recalculateAnimationsSpeed()
+    {
+        walkAnim.frameRate = Std.int(HorizontalSpeed * WalkAnimSpeed);
+        buildAnim.frameRate = Std.int(buildAnim.numFrames * BuildsPerSecond);
+    }
+    //}
 }
