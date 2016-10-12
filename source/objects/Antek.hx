@@ -118,7 +118,7 @@ class Antek extends ASprite
     //{ States: Walk 
     private var destinations : List<Point>;
     
-    public function moveTo(newX: Float) : Antek
+    public function moveToX(newX: Float) : Antek
     {
         state = WALK;
         subSprite.sprite.flipX = newX < x;
@@ -134,7 +134,7 @@ class Antek extends ASprite
     
     public function moveToTileX(newX: Int) : Antek
     {
-        return moveTo(LevelMap.TileWidth * newX + LevelMap.HalfTileWidth);
+        return moveToX(LevelMap.TileWidth * newX + LevelMap.HalfTileWidth);
     }
     
     public function teleportTo(?newX: Float, ?newY: Float) : Antek
@@ -173,22 +173,25 @@ class Antek extends ASprite
     //}
     
     //{ States: Climb
-    public function climb() : Antek
+    public function climb(newY: Float) : Antek
     {
-        destinations.add(new Point(x, y - 100));
+        destinations.add(new Point(x, newY));
         state = WALK;
         
         subSprite.sprite.animation.play("climb");
         subSprite.shiftX = -30;
-        subSprite.shiftY = -100;
+        subSprite.shiftY = -87;
         
         return this;
     }
+    
+    public inline function climbBy(deltaY: Float) : Antek { return climb(y + deltaY); }
+    
     //}
     
     //{ Others
-    public function turnLeft()  { subSprite.sprite.flipX = true; }
-    public function turnRight() { subSprite.sprite.flipX = false; }
+    public function turnLeft()  { subSprite.sprite.flipX = true;  return this; }
+    public function turnRight() { subSprite.sprite.flipX = false; return this; }
     
     public function at(p: Point) : Bool
     {

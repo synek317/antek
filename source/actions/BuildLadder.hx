@@ -1,4 +1,5 @@
 package actions;
+import flixel.FlxG;
 import objects.Antek;
 import objects.Ladder;
 
@@ -19,13 +20,13 @@ class BuildLadder
     
     public function action()
     {
-        antek.moveToTileX(ladder.tileX - 1)
-             .then(startBuilding);
+        antek.moveToX(ladder.x - LevelMap.HalfTileWidth)
+            .then(antek.turnRight)
+            .then(build);
     }
     
-    private function startBuilding()
+    private function build()
     {
-        antek.turnRight();
         antek.build(buildLadder);
     }
     
@@ -33,7 +34,17 @@ class BuildLadder
     {
         if (!ladder.step())
         {
-            antek.idle();
+            antek.climb((ladder.tileY - 1) * LevelMap.TileHeight)
+                .then(antek.idle);
         }
+        else if (ladder.tileY - ladder.heightTiles < antek.tileY - 2)
+        {
+            climb().then(build);
+        }
+    }
+    
+    private function climb()
+    {
+        return antek.climbBy( -2 * LevelMap.TileHeight);
     }
 }

@@ -33,6 +33,8 @@ class Ladder extends ASprite
     private var ladder:   FlxSprite;
     private var skeleton: FlxSprite;
     
+    public var heightTiles: Int;
+    
     public function new() {}
     
     public function init(tiles_count: Int)
@@ -41,6 +43,7 @@ class Ladder extends ASprite
         ladder            = addPart(LadderSpriteFactory.create(tiles_count),         1).sprite;
         ladder.clipRect   = new FlxRect(0, ladder.height, ladder.width, 0);
         skeleton.clipRect = new FlxRect(0, 0, 0, skeleton.height);
+        heightTiles       = 0;
     }
     
     public function step() : Bool
@@ -59,7 +62,8 @@ class Ladder extends ASprite
                 state++;
             case Building:
                 StretchLadderClip(progress % 3 < 2 ? SmallStep : BigStep);
-                if (ladder.clipRect.y <= LevelMap.TileHeight)
+                heightTiles = Math.floor(ladder.clipRect.height / LevelMap.TileHeight);
+                if (ladder.clipRect.y <= 1.5 * LevelMap.TileHeight)
                 {
                     state++;
                 }

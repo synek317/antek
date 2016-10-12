@@ -106,15 +106,6 @@ class PlayState extends FlxState
 		
 		FlxTween.tween(x, {x: 730}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { x.flipX = !x.flipX; } } );
 		
-		var xxxx = new FlxSprite(780, 1076);
-		xxxx.frames = Textures.anteks;
-		xxxx.flipX = true;
-		xxxx.animation.addByPrefix("walk", "c04/walk/", 19);
-		xxxx.animation.play("walk");
-		addChild(xxxx);
-		//Fog.register(xxxx);
-		FlxTween.tween(xxxx, {x: 10}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { xxxx.flipX = !xxxx.flipX; } } );
-		
         e = new FlxSprite(50, 24);
 		
         e.frames = Textures.enemies;
@@ -146,11 +137,22 @@ class PlayState extends FlxState
         act = new BuildLadder(antek, ladder);
         act.action();
         
+        ladder2 = new Ladder();
+        ladder2.init(11);
+        ladder2.tileX = 12;
+        ladder2.tileY = 30;
+        antek2 = new Antek(Antek.A3);
+        antek2.tileX = 4;
+        antek2.tileY = 29;
+        act2 = new BuildLadder(antek2, ladder2);
+        act2.action();
+        
+        //ladder2.createImmediately();
         //antek.climb();
         
         fps1 = new FlxText(10, 40);
         //fps1.color = 0xffffffff;
-        addChild(fps1);
+        //addChild(fps1);
         //Fog.register(antek);
         //test();
     }
@@ -159,13 +161,16 @@ class PlayState extends FlxState
     {
         antek
         .teleportTo(650, 472)
-        .moveTo(385);
+        .moveToX(385);
     }
     
     private var fps1: FlxText;
     private var act: BuildLadder;
+    private var act2: BuildLadder;
     private var ladder: Ladder;
+    private var ladder2: Ladder;
     private var antek: Antek;
+    private var antek2: Antek;
     
     override public function update(elapsed:Float):Void
     {
@@ -195,6 +200,7 @@ class PlayState extends FlxState
 		MouseHandler.update();
         
         antek.update(elapsed);
+        antek2.update(elapsed);
     }
     
     public static function scheduleZReorder() { obj.shouldReorderZ = true; }
