@@ -8,10 +8,10 @@ import haxe.io.*;
 
 class LevelMap extends FlxTilemap
 {
-    public static inline var TileHeight     = 40;
-    public static inline var TileWidth      = 40;
-    public static inline var HalfTileHeight = 40;
-    public static inline var HalfTileWidth  = 20;
+    public static inline var TileHeight     : Int = 40;
+    public static inline var TileWidth      : Int = 40;
+    public static inline var HalfTileHeight : Int = 40;
+    public static inline var HalfTileWidth  : Int = 20;
     
 	public static var obj: LevelMap;
 	

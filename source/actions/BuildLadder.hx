@@ -9,7 +9,7 @@ import objects.Ladder;
  */
 class BuildLadder
 {
-    private var antek: Antek;
+    private var antek:  Antek;
     private var ladder: Ladder;
  
     public function new(antek: Antek, ladder: Ladder)
@@ -34,7 +34,7 @@ class BuildLadder
     {
         if (!ladder.step())
         {
-            antek.climb((ladder.tileY - 1) * LevelMap.TileHeight)
+            antek.climb((ladder.tileY - 1).htiles())
                 .then(antek.idle);
         }
         else if (ladder.tileY - ladder.heightTiles < antek.tileY - 2)
@@ -45,6 +45,6 @@ class BuildLadder
     
     private function climb()
     {
-        return antek.climbBy( -2 * LevelMap.TileHeight);
+        return antek.climbBy(-2.htiles());
     }
 }

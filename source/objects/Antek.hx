@@ -82,6 +82,7 @@ class Antek extends ASprite
                         for (i in 0...hits)
                         {
                             onBuild();
+                            FlxG.sound.play(AssetPaths.build__wav, 0.01);
                         }
                     }
                 }

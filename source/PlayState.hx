@@ -48,6 +48,7 @@ import flixel.math.FlxPoint;
 import objects.Antek;
 import objects.Ladder;
 import openfl.display.FPS;
+import tools.NumberExtenders;
 using flixel.util.FlxSpriteUtil;
 
 class PlayState extends FlxState
@@ -59,6 +60,8 @@ class PlayState extends FlxState
     
     override public function create():Void
     {
+        FlxG.log.redirectTraces = true;
+        
 		obj = this;
 		
         LevelMap.init("assets/data/levels/l0.tmx");
@@ -155,6 +158,8 @@ class PlayState extends FlxState
         //addChild(fps1);
         //Fog.register(antek);
         //test();
+        
+        FlxG.sound.playMusic(AssetPaths.bg01__wav);
     }
 
     private function test()
@@ -174,6 +179,7 @@ class PlayState extends FlxState
     
     override public function update(elapsed:Float):Void
     {
+        trace(FreeCameraController.obj.x, FreeCameraController.obj.y);
         fps1.text = "FPS: " + (1 / elapsed) + " (" + elapsed + ")";
         super.update(elapsed);
 		ZoomController.update();

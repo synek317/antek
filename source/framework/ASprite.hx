@@ -43,9 +43,9 @@ class ASprite
         return z;
     }
     
-    function get_tileX()   return Std.int(x / LevelMap.TileWidth);
-    function set_tileX(tx) return Std.int(x = tx * LevelMap.TileWidth + LevelMap.HalfTileWidth);
+    function get_tileX()        return x.to_htile();
+    function set_tileX(tx: Int) return Std.int(x = tx.htile() + LevelMap.HalfTileWidth);
     
-    function get_tileY()   return Std.int(y / LevelMap.TileHeight);
-    function set_tileY(ty) return Std.int(y = ty * LevelMap.TileHeight);
+    function get_tileY()        return y.to_htile();
+    function set_tileY(ty: Int) return Std.int(y = ty.vtile());
 }
