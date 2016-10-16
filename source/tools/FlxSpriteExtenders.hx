@@ -1,11 +1,6 @@
-package;
-import flixel.FlxSprite;
+package tools;
 
-/**
- * ...
- * @author ...
- */
-class FlxSpriteExtender
+class FlxSpriteExtenders
 {
     public static inline function setClipWidth(s: FlxSprite, w: Float)
     {

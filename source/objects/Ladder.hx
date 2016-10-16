@@ -1,19 +1,5 @@
 package objects;
-import flash.geom.Point;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.math.FlxRandom;
-import flixel.math.FlxRect;
-import framework.ASprite;
-import framework.SubSprite;
-import objects.factories.LadderSpriteFactory;
-import openfl.display.BitmapData;
-using FlxSpriteExtender;
 
-/**
- * ...
- * @author ...
- */
 class Ladder extends ASprite
 {
     private static inline var Nothing          = 0;
@@ -25,8 +11,6 @@ class Ladder extends ASprite
     
     private static inline var SmallStep       = 13;
     private static inline var BigStep         = 14;
-    
-    private static var random = new FlxRandom();
     
     private var progress: Int;
     private var state:    Int = Start;
@@ -88,12 +72,12 @@ class Ladder extends ASprite
     
     private function addPart(sprite: FlxSprite, shiftZ: Int): SubSprite
     {
-        return addSubSprite({
-           sprite: sprite,
-           shiftX: -LevelMap.TileWidth / 2.0,
-           shiftY: -sprite.height,
-           shiftZ: shiftZ
-        });
+        return addSubSprite(new SubSprite(
+           sprite,
+           -LevelMap.TileWidth / 2.0,
+           -sprite.height,
+           shiftZ
+        ));
     }
     
     private function StretchLadderClip(step: Int)

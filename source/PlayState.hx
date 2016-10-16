@@ -1,55 +1,4 @@
 package;
-import actions.BuildLadder;
-import flash.display.BitmapDataChannel;
-import flash.display.BlendMode;
-import flash.geom.*;
-import flixel.FlxBasic;
-import flixel.addons.util.FlxAsyncLoop;
-import flixel.system.scaleModes.FillScaleMode;
-import flixel.system.scaleModes.FixedScaleMode;
-import flixel.system.scaleModes.RatioScaleMode;
-import flixel.system.scaleModes.RelativeScaleMode;
-import flixel.FlxG;
-import flixel.FlxObject;
-import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.FlxCamera;
-import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.graphics.frames.FlxFrame;
-import flixel.addons.editors.tiled.TiledImageLayer;
-import flixel.addons.editors.tiled.TiledImageTile;
-import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
-import flixel.addons.editors.tiled.TiledMap;
-import flixel.addons.editors.tiled.TiledObject;
-import flixel.addons.editors.tiled.TiledObjectLayer;
-import flixel.addons.editors.tiled.TiledTileLayer;
-import flixel.addons.editors.tiled.TiledTileSet;
-import flixel.group.FlxGroup;
-import flixel.tile.FlxTilemap;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxSort;
-import flixel.util.FlxSpriteUtil;
-import flixel.util.FlxTimer;
-import haxe.io.Path;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.math.FlxMath;
-import flixel.math.FlxRandom;
-import flixel.system.scaleModes.FillScaleMode;
-import flixel.system.scaleModes.FixedScaleMode;
-import flixel.system.scaleModes.RatioScaleMode;
-import flixel.system.scaleModes.RelativeScaleMode;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.addons.display.FlxZoomCamera;
-import flixel.math.FlxRect;
-import flixel.math.FlxPoint;
-import objects.Antek;
-import objects.Ladder;
-import openfl.display.FPS;
-import tools.NumberExtenders;
-using flixel.util.FlxSpriteUtil;
 
 class PlayState extends FlxState
 {
@@ -65,108 +14,30 @@ class PlayState extends FlxState
 		obj = this;
 		
         LevelMap.init("assets/data/levels/l0.tmx");
-		
-        ZoomController.init();
-		FreeCameraController.init();
+
+        Framework.init();
 		Fog.init();
-		
-		FlxG.camera.follow(FreeCameraController.obj, FlxCameraFollowStyle.NO_DEAD_ZONE, 0);
-		FlxG.camera.pixelPerfectRender = true;
+        Fog.obj.visible = false;
         FlxG.camera.bgColor = 0xffCCE6E6;
-		
+		addChild(LevelMap.obj);
         
+        var antek1 = new Antek(Antek.A3);
         
-        var x = new FlxSprite(50, 76);
-
-        x.frames = Textures.anteks;
-        x.animation.addByPrefix("walk", "c02/walk/", 19);
-        x.animation.play("walk");
-
-		var xx = new FlxSprite(300, 72);
-
-        xx.frames = Textures.anteks;
-        xx.animation.addByPrefix("walk", "c01/idle/", 18);
-        xx.animation.play("walk");
-		
-		
-		var xxx = new FlxSprite(350, 472);
-
-        xxx.frames = Textures.anteks;
-        xxx.animation.addByPrefix("walk", "c03/build/", 19);
-        xxx.animation.play("walk");
-		
-        addChild(LevelMap.obj);
-		//add(xx);
-        //add(x);
-		//addChildZ(xxx, 15);
-		x.cameras = [FlxG.camera];
-		xx.cameras = [FlxG.camera];
-		xxx.cameras = [FlxG.camera];
-		
-		//Fog.register(x);
-		//Fog.register(xx);
-		Fog.register(xxx);
-		
-		FlxTween.tween(x, {x: 730}, 15, { type: FlxTween.PINGPONG, onComplete: function(_) { x.flipX = !x.flipX; } } );
-		
-        e = new FlxSprite(50, 24);
-		
-        e.frames = Textures.enemies;
-        e.animation.addByPrefix("walk", "e01/walk/", 15);
-        e.animation.play("walk");
-		e.cameras = [FlxG.camera];
-		Fog.register(e);
-		addChild(e);
-		FlxTween.tween(e, {x: 700}, 22, { type: FlxTween.PINGPONG, onComplete: function(_) { e.flipX = !e.flipX; } } );
-		Fog.obj.visible = false;
-		
-        
-        /*ladder = Level.addObject(function(s: Ladder) {
-            s.init(40 * 10, 40 * 15, 8);
-            s.createImmediately();
-        });*/
-        ladder = new Ladder();
-        ladder.init(8);
-        ladder.tileX = 8;
-        ladder.tileY = 15;
-        
-        var loop = new FlxTimer();
-        //loop.start(0.5, function(_) { loop.time = 1; ladder.step(); } , 100);
-        
-		//FlxG.debugger.visible = true;
-        antek = new Antek(Antek.A1);// , 450, 472);
-        antek.tileX = 12;
-        antek.tileY = 14;
-        act = new BuildLadder(antek, ladder);
-        act.action();
-        
-        ladder2 = new Ladder();
-        ladder2.init(11);
-        ladder2.tileX = 12;
-        ladder2.tileY = 30;
         antek2 = new Antek(Antek.A3);
+
+        antek1.tileX = 10;
+        antek1.tileY = 29;
         antek2.tileX = 4;
         antek2.tileY = 29;
-        act2 = new BuildLadder(antek2, ladder2);
-        act2.action();
-        
-        //ladder2.createImmediately();
-        //antek.climb();
-        
-        fps1 = new FlxText(10, 40);
-        //fps1.color = 0xffffffff;
-        //addChild(fps1);
-        //Fog.register(antek);
-        //test();
-        
-        FlxG.sound.playMusic(AssetPaths.bg01__wav);
-    }
 
-    private function test()
-    {
-        antek
-        .teleportTo(650, 472)
-        .moveToX(385);
+
+//        sprFilter.applyToSprite(antek1.subSprite.sprite, true, true);
+        //sprFilter.applyToSprite(antek2.subSprite.sprite, true, true);
+
+        //flixel.input.mouse.FlxMouseEventManager.add(subSprite.sprite, null, null, function(_) {
+        //    sprFilter.addFilter(filter);
+        //}, function(_) {sprFilter.removeFilter(filter); }, false, true, true);
+
     }
     
     private var fps1: FlxText;
@@ -179,13 +50,12 @@ class PlayState extends FlxState
     
     override public function update(elapsed:Float):Void
     {
-        trace(FreeCameraController.obj.x, FreeCameraController.obj.y);
-        fps1.text = "FPS: " + (1 / elapsed) + " (" + elapsed + ")";
         super.update(elapsed);
-		ZoomController.update();
-		FreeCameraController.update();
+        Framework.update();
 		Fog.update();
-		
+        Objects.update(elapsed);
+		Camera.updatePosition(5.htile(), 29.vtile());
+
         if (shouldReorderZ)
         {
             shouldReorderZ = false;
@@ -199,14 +69,22 @@ class PlayState extends FlxState
 		{
 			Fog.obj.visible = !Fog.obj.visible;
 		}
-        if (FlxG.keys.justPressed.T)
+        if (FlxG.keys.justPressed.Q)
         {
-            test();
+            antek2.moveToTileX(random_int(1, 20));
         }
-		MouseHandler.update();
-        
-        antek.update(elapsed);
-        antek2.update(elapsed);
+        if (FlxG.keys.justPressed.W)
+        {
+            antek2.idle();
+        }
+        if  (FlxG.keys.justPressed.E)
+        {
+            antek2.glowFilter.attach();
+        }
+        if  (FlxG.keys.justPressed.R)
+        {
+            antek2.glowFilter.dettach();
+        }
     }
     
     public static function scheduleZReorder() { obj.shouldReorderZ = true; }

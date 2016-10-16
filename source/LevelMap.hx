@@ -1,11 +1,5 @@
 package;
 
-import flixel.*;
-import flixel.addons.editors.tiled.*;
-import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
-import flixel.tile.*;
-import haxe.io.*;
-
 class LevelMap extends FlxTilemap
 {
     public static inline var TileHeight     : Int = 40;

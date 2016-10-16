@@ -1,19 +1,4 @@
 package;
-import flash.display.Graphics;
-import flash.geom.ColorTransform;
-import flash.geom.Rectangle;
-import flixel.FlxCamera;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.graphics.FlxGraphic;
-import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.math.FlxPoint;
-using flixel.util.FlxSpriteUtil;
-
-/**
- * ...
- * @author ...
- */
 
 class Fog
 {
@@ -56,8 +41,8 @@ class Fog
 	{
 		newFog = makeFog();
 		
-		viewStamp.scale.x =  ZoomController.zoomFactor;
-		viewStamp.scale.y =  ZoomController.zoomFactor;
+		viewStamp.scale.x =  Zoom.zoomFactor;
+		viewStamp.scale.y =  Zoom.zoomFactor;
 		
 		for (viewOwner in viewOwners) updateViewPosition(newFog, viewOwner);
 		
@@ -76,24 +61,24 @@ class Fog
 		newFog.stamp(
 			viewStamp,
 			Std.int(
-				ZoomController.zoomFactor * (
+				Zoom.zoomFactor * (
 					pos.x
 					- FlxG.camera.scroll.x
 					+ 0.5 * viewOwner.width
 				)
 				- 0.5 * viewStamp.width
 				+ FlxG.camera.x
-				+ ZoomController.cameraShiftX
+				+ Zoom.cameraShiftX
 			),
 			Std.int(
-				ZoomController.zoomFactor * (
+				Zoom.zoomFactor * (
 					pos.y
 					- FlxG.camera.scroll.y
 					+ 0.5 * viewOwner.height
 				)
 				- 0.5 * viewStamp.height
 				+ FlxG.camera.y
-				+ ZoomController.cameraShiftY
+				+ Zoom.cameraShiftY
 			)
 		);
 	}

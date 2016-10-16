@@ -1,13 +1,5 @@
 package objects.factories;
-import flash.display.BitmapData;
-import flash.geom.Point;
-import flixel.FlxSprite;
-import flixel.math.FlxRandom;
 
-/**
- * ...
- * @author ...
- */
 class LadderSpriteFactory
 {
     private static inline var PixelWidth         = 40;
@@ -15,9 +7,8 @@ class LadderSpriteFactory
     private static inline var PartIndex_Bot      = 12;
     private static inline var PartIndex_Skeleton = 13;
     private static inline var PartIndex_Mid_Min  = PartIndex_Top + 1;
-    private static inline var PartIndex_Min_Max  = PartIndex_Bot - 1;
- 
-    private static var random = new FlxRandom();   
+    private static inline var PartIndex_Mid_Max  = PartIndex_Bot - 1;
+  
     private static var point  = new Point(0, 0);
     
     public static function createSkeleton(tiles_height: Int) : FlxSprite
@@ -48,7 +39,7 @@ class LadderSpriteFactory
         return s;
     }
     
-    private static inline function randomPartIndex() { return random.int(PartIndex_Mid_Min, PartIndex_Min_Max); }
+    private static inline function randomPartIndex() return random_int(PartIndex_Mid_Min, PartIndex_Mid_Max);
     
     private static function initSprite(s: FlxSprite, tiles_height: Int)
     {

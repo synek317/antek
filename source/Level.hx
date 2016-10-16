@@ -1,13 +1,5 @@
 package;
-import flixel.FlxBasic;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import objects.Antek;
 
-/**
- * ...
- * @author ...
- */
 typedef Constructible = {
     public function new(): Void;
 }

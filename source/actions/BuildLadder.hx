@@ -1,12 +1,5 @@
 package actions;
-import flixel.FlxG;
-import objects.Antek;
-import objects.Ladder;
 
-/**
- * ...
- * @author ...
- */
 class BuildLadder
 {
     private var antek:  Antek;

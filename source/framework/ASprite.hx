@@ -1,7 +1,4 @@
 package framework;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import framework.SubSprite;
 
 class ASprite
 {

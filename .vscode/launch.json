@@ -1,32 +1,14 @@
 {
-    "version": "0.2.0",
+    "version": "0.1.0",
     "configurations": [
         {
-            "name": "Windows: Build and Debug",
-            "runtimeExecutable": "${execPath}",
-            "args": [
-                "compilePath=${workspaceRoot}",
-                "compileCommand=lime build windows -debug -DHXCPP_DEBUGGER",
-                "runPath=${workspaceRoot}/export/windows/cpp/bin/",
-                "runCommand=antek.exe",
-                "runInTerminal=false"
-            ],
-            "type": "hxcpp",
+            "name": "html5",
+            "type": "chrome",
             "request": "launch",
-            "stopOnEntry": true
-        },
-        {
-            "name": "Windows: Debug",
-            "runtimeExecutable": "${execPath}",
-            "args": [
-                "runPath=${workspaceRoot}/export/windows/cpp/bin/",
-                "runCommand=antek.exe",
-                "runInTerminal=false"
-            ],
-            "type": "hxcpp",
-            "request": "launch",
-            "program": "",
-            "stopOnEntry": true
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}/export/html5",
+            "sourceMaps": true,
+			"preLaunchTask": "html5 debug"
         }
     ]
 }

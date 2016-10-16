@@ -1,19 +1,6 @@
 package objects;
-import flash.geom.Point;
-import flixel.FlxBasic;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.addons.display.FlxExtendedSprite;
-import flixel.animation.FlxAnimation;
-import flixel.util.FlxTimer;
-import framework.ASprite;
-import framework.SubSprite;
 
-/**
- * ...
- * @author ...
- */
-class Antek extends ASprite
+class Antek extends ASprite implements IUpdateable implements ISelectable
 {
     //{ Antek Types
     public static inline var A1 = "c01";
@@ -23,28 +10,18 @@ class Antek extends ASprite
     //}
     
     //{ Properties
-    private var HorizontalSpeed        = 60;
-    private var VerticalSpeed          = 40;
-    private var BuildsPerSecond        = 2;
+    private var HorizontalSpeed = 60;
+    private var VerticalSpeed   = 40;
+    private var BuildsPerSecond = 2;
     //}
     
 	public function new(type: String)
 	{
-        subSprite = { sprite: new FlxSprite(), shiftX: 0, shiftY: 0, shiftZ: 0 };
-        
-        destinations     = new List<Point>();
-        scheduledActions = new List<Void->Void>();
-        
-        subSprite.sprite.frames = Textures.anteks;
-        idleAnim  = addAnim(type, "idle");
-        buildAnim = addAnim(type, "build");
-        walkAnim  = addAnim(type, "walk");
-        climbAnim = addAnim(type, "climb");
-        
-        recalculateAnimationsSpeed();
+        initGraphics(type);
+        initMouse();
         idle();
-        
-        addSubSprite(subSprite);
+
+        Objects.register(this);
     }
     
     //{ States
@@ -57,7 +34,7 @@ class Antek extends ASprite
     private static inline var GATHER = 6;
     
     private var state            : Int;
-    private var scheduledActions : List<Void->Void>;
+    private var scheduledActions = new List<Void->Void>();
     
     public function update(elapsed:Float):Void 
     {
@@ -117,7 +94,7 @@ class Antek extends ASprite
     //}
     
     //{ States: Walk 
-    private var destinations : List<Point>;
+    private var destinations = new List<Point>();
     
     public function moveToX(newX: Float) : Antek
     {
@@ -200,16 +177,74 @@ class Antek extends ASprite
     }
     //}
     
+    //{ ISelectable implementation
+    public function onSelected()
+    {
+        glowFilter.attach();
+    }
+
+    public function onDeselected()
+    {
+        //glowFilter.dettach();
+    }
+    //}
+
+    //{ Mouse
+    private function initMouse()
+    {
+        flixel.input.mouse.FlxMouseEventManager.add(
+            subSprite.sprite,
+            onMouseDown, onMouseUp, onMouseOver, onMouseOut,
+            true,
+            true
+        );
+    }
+
+    private function onMouseDown(_: FlxObject)
+    {
+    }
+
+    private function onMouseUp(_: FlxObject)
+    {
+        Game.switchSelect(this);
+    }
+
+    private function onMouseOver(_: FlxObject)
+    {
+        if(!Game.isSelected(this)) glowFilter.attach();
+    }
+
+    private function onMouseOut(_: FlxObject)
+    {
+        if(!Game.isSelected(this)) glowFilter.dettach();
+    }
+    //}
+
     //{ Graphics
     private static inline var IdleAnimFps    = 20;
     private static inline var WalkAnimSpeed = 19.0 / 40.0; //frames per pixels
     
-    private var subSprite : SubSprite;
-    private var idleAnim  : FlxAnimation;
-    private var buildAnim : FlxAnimation;
-    private var walkAnim  : FlxAnimation;
-    private var climbAnim : FlxAnimation;
-    
+    private var subSprite  = new SubSprite(new FlxSprite(), 0, 0, 0);
+
+    private var idleAnim   : FlxAnimation;
+    private var buildAnim  : FlxAnimation;
+    private var walkAnim   : FlxAnimation;
+    private var climbAnim  : FlxAnimation;
+    public var glowFilter : Filter;
+
+    private function initGraphics(type: String)
+    {
+        subSprite.sprite.frames = Textures.anteks;
+        idleAnim  = addAnim(type, "idle");
+        buildAnim = addAnim(type, "build");
+        walkAnim  = addAnim(type, "walk");
+        climbAnim = addAnim(type, "climb");
+        
+        recalculateAnimationsSpeed();
+        addSubSprite(subSprite);
+        glowFilter = FiltersFactory.createAntekGlowFilter(type, subSprite.sprite);
+    }
+
     private function addAnim(type: String, name: String) : FlxAnimation
     {
         subSprite.sprite.animation.addByPrefix(name, type + "/" + name + "/");

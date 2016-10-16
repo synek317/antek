@@ -1,4 +1,3 @@
-
 {
     "version": "0.1.0",
     "command": "haxelib",
@@ -97,8 +96,8 @@
         {
             "taskName": "neko debug",
             "suppressTaskName": true,
-            "isBuildCommand": true,
             "args": ["neko", "-Ddebug"],
+            "isBuildCommand": true,
             "problemMatcher": {
                 "owner": "haxe",
                 "pattern": {
@@ -170,7 +169,7 @@
         {
             "taskName": "cpp debug",
             "suppressTaskName": true,
-            "args": ["cpp", "-Ddebug"],            
+            "args": ["cpp", "-Ddebug"],
             "problemMatcher": {
                 "owner": "haxe",
                 "pattern": {

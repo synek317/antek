@@ -1,11 +1,5 @@
 package;
-import flixel.FlxG;
-import flixel.graphics.frames.FlxAtlasFrames;
 
-/**
- * ...
- * @author ...
- */
 class Textures
 {
     private static var _objects:           FlxAtlasFrames;
