@@ -1,4 +1,7 @@
 package objects;
+import flixel.addons.effects.chainable.FlxEffectSprite;
+import flixel.addons.effects.chainable.FlxOutlineEffect;
+import framework.SubSprite;
 
 class Antek extends ASprite implements IUpdateable implements ISelectable
 {
@@ -180,11 +183,13 @@ class Antek extends ASprite implements IUpdateable implements ISelectable
     //{ ISelectable implementation
     public function onSelected()
     {
+        trace(i, "selected");
         glowFilter.attach();
     }
 
     public function onDeselected()
     {
+        trace(i, "deselected");
         //glowFilter.dettach();
     }
     //}
@@ -211,11 +216,13 @@ class Antek extends ASprite implements IUpdateable implements ISelectable
 
     private function onMouseOver(_: FlxObject)
     {
+        trace(i, "mouse over");
         if(!Game.isSelected(this)) glowFilter.attach();
     }
 
     private function onMouseOut(_: FlxObject)
     {
+        trace(i, "mouse out");
         if(!Game.isSelected(this)) glowFilter.dettach();
     }
     //}
@@ -231,7 +238,9 @@ class Antek extends ASprite implements IUpdateable implements ISelectable
     private var walkAnim   : FlxAnimation;
     private var climbAnim  : FlxAnimation;
     public var glowFilter : Filter;
-
+    private var ii: Int;
+    private static var i = 0;
+    
     private function initGraphics(type: String)
     {
         subSprite.sprite.frames = Textures.anteks;
@@ -243,6 +252,8 @@ class Antek extends ASprite implements IUpdateable implements ISelectable
         recalculateAnimationsSpeed();
         addSubSprite(subSprite);
         glowFilter = FiltersFactory.createAntekGlowFilter(type, subSprite.sprite);
+        i = i + 1;
+        ii = i;
     }
 
     private function addAnim(type: String, name: String) : FlxAnimation

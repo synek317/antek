@@ -2,16 +2,17 @@ package objects.factories;
 
 class FiltersFactory
 {
-    private static var antekGlow = new GlowFilter(0xEEEEEE, 0.95, 5, 5, 50, 1);
+    //private static var antekGlow = new GlowFilter(0xEEEEEE, 0.95, 5, 5, 50, 1);
 
     private static var antekGlowFilters = new Map<String, FlxFilterFrames>();
 
     public static function createAntekGlowFilter(antekType: String, sprite: FlxSprite)
     {
-        var filter = antekGlowFilters.get(antekType);
+        var filter = null;// antekGlowFilters.get(antekType);
 
         if(filter == null)
         {
+            var antekGlow = new GlowFilter(0xEEEEEE, 0.95, 5, 5, 50, 1);
             filter = FlxFilterFrames.fromFrames(sprite.frames);
 
             filter.addFilter(antekGlow);

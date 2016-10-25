@@ -1,0 +1,19 @@
+others.png
+size: 369, 350
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+inverted_fog
+  rotate: false
+  xy: 0, 0
+  size: 350, 350
+  orig: 350, 350
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 350, 0
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1

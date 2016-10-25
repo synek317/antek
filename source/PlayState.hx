@@ -18,7 +18,7 @@ class PlayState extends FlxState
         Framework.init();
 		Fog.init();
         Fog.obj.visible = false;
-        FlxG.camera.bgColor = 0xffCCE6E6;
+        FlxG.camera.bgColor = 0xff80c8f8;
 		addChild(LevelMap.obj);
         
         var antek1 = new Antek(Antek.A3);
@@ -37,6 +37,7 @@ class PlayState extends FlxState
         //flixel.input.mouse.FlxMouseEventManager.add(subSprite.sprite, null, null, function(_) {
         //    sprFilter.addFilter(filter);
         //}, function(_) {sprFilter.removeFilter(filter); }, false, true, true);
+		Camera.updatePosition(5.htile(), 29.vtile());
 
     }
     
@@ -54,7 +55,6 @@ class PlayState extends FlxState
         Framework.update();
 		Fog.update();
         Objects.update(elapsed);
-		Camera.updatePosition(5.htile(), 29.vtile());
 
         if (shouldReorderZ)
         {
