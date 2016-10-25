@@ -188,32 +188,32 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">bird_1.png</key>
-            <key type="filename">bird_2.png</key>
-            <key type="filename">bird_3.png</key>
-            <key type="filename">bridge_tile_end_L.png</key>
-            <key type="filename">bridge_tile_end_R.png</key>
-            <key type="filename">bridge_tile_middle.png</key>
-            <key type="filename">bush_1.png</key>
-            <key type="filename">bush_2.png</key>
-            <key type="filename">bush_anima_1.png</key>
-            <key type="filename">bush_anima_2.png</key>
-            <key type="filename">bush_anima_3.png</key>
-            <key type="filename">bush_anima_4.png</key>
-            <key type="filename">bush_flowers.png</key>
-            <key type="filename">deco_1.png</key>
-            <key type="filename">flag1.png</key>
-            <key type="filename">flag2.png</key>
-            <key type="filename">flag3.png</key>
-            <key type="filename">flag4.png</key>
-            <key type="filename">flag5.png</key>
-            <key type="filename">rabbit.png</key>
-            <key type="filename">rocks_1.png</key>
-            <key type="filename">rocks_2.png</key>
-            <key type="filename">rocks_3.png</key>
-            <key type="filename">rocks_4.png</key>
-            <key type="filename">tree_1.png</key>
-            <key type="filename">tree_2.png</key>
+            <key type="filename">images/bird_1.png</key>
+            <key type="filename">images/bird_2.png</key>
+            <key type="filename">images/bird_3.png</key>
+            <key type="filename">images/bridge_tile_end_L.png</key>
+            <key type="filename">images/bridge_tile_end_R.png</key>
+            <key type="filename">images/bridge_tile_middle.png</key>
+            <key type="filename">images/bush_1.png</key>
+            <key type="filename">images/bush_2.png</key>
+            <key type="filename">images/bush_anima_1.png</key>
+            <key type="filename">images/bush_anima_2.png</key>
+            <key type="filename">images/bush_anima_3.png</key>
+            <key type="filename">images/bush_anima_4.png</key>
+            <key type="filename">images/bush_flowers.png</key>
+            <key type="filename">images/deco_1.png</key>
+            <key type="filename">images/flag1.png</key>
+            <key type="filename">images/flag2.png</key>
+            <key type="filename">images/flag3.png</key>
+            <key type="filename">images/flag4.png</key>
+            <key type="filename">images/flag5.png</key>
+            <key type="filename">images/rabbit.png</key>
+            <key type="filename">images/rocks_1.png</key>
+            <key type="filename">images/rocks_2.png</key>
+            <key type="filename">images/rocks_3.png</key>
+            <key type="filename">images/rocks_4.png</key>
+            <key type="filename">images/tree_1.png</key>
+            <key type="filename">images/tree_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -221,32 +221,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>bird_1.png</filename>
-            <filename>bird_2.png</filename>
-            <filename>bird_3.png</filename>
-            <filename>bridge_tile_end_L.png</filename>
-            <filename>bridge_tile_end_R.png</filename>
-            <filename>bridge_tile_middle.png</filename>
-            <filename>bush_1.png</filename>
-            <filename>bush_2.png</filename>
-            <filename>bush_anima_1.png</filename>
-            <filename>bush_anima_2.png</filename>
-            <filename>bush_anima_3.png</filename>
-            <filename>bush_anima_4.png</filename>
-            <filename>bush_flowers.png</filename>
-            <filename>deco_1.png</filename>
-            <filename>flag1.png</filename>
-            <filename>flag2.png</filename>
-            <filename>flag3.png</filename>
-            <filename>flag4.png</filename>
-            <filename>flag5.png</filename>
-            <filename>rabbit.png</filename>
-            <filename>rocks_1.png</filename>
-            <filename>rocks_2.png</filename>
-            <filename>rocks_3.png</filename>
-            <filename>rocks_4.png</filename>
-            <filename>tree_1.png</filename>
-            <filename>tree_2.png</filename>
+            <filename>images</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

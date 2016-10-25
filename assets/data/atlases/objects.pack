@@ -1,103 +1,103 @@
 objects.png
 size: 120, 200
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-ladder0
-  rotate: false
+fomat: RGBA8888
+filte: Linea,Linea
+epeat: none
+ladde0
+  otate: false
   xy: 0, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder1
-  rotate: false
+ladde1
+  otate: false
   xy: 40, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder2
-  rotate: false
+ladde2
+  otate: false
   xy: 80, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder3
-  rotate: false
+ladde3
+  otate: false
   xy: 0, 40
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder4
-  rotate: false
+ladde4
+  otate: false
   xy: 40, 40
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder5
-  rotate: false
+ladde5
+  otate: false
   xy: 80, 40
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder6
-  rotate: false
+ladde6
+  otate: false
   xy: 0, 80
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder7
-  rotate: false
+ladde7
+  otate: false
   xy: 40, 80
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder8
-  rotate: false
+ladde8
+  otate: false
   xy: 80, 80
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder9
-  rotate: false
+ladde9
+  otate: false
   xy: 0, 120
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder10
-  rotate: false
+ladde10
+  otate: false
   xy: 40, 120
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder11
-  rotate: false
+ladde11
+  otate: false
   xy: 80, 120
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder12
-  rotate: false
+ladde12
+  otate: false
   xy: 0, 160
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ladder13
-  rotate: false
+ladde13
+  otate: false
   xy: 40, 160
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1

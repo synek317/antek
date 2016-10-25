@@ -188,11 +188,11 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">ground_tile_end_L.png</key>
-            <key type="filename">ground_tile_end_R.png</key>
-            <key type="filename">ground_tile_middle_1.png</key>
-            <key type="filename">ground_tile_middle_2.png</key>
-            <key type="filename">ground_tile_middle_3.png</key>
+            <key type="filename">images/ground_tile_end_L.png</key>
+            <key type="filename">images/ground_tile_end_R.png</key>
+            <key type="filename">images/ground_tile_middle_1.png</key>
+            <key type="filename">images/ground_tile_middle_2.png</key>
+            <key type="filename">images/ground_tile_middle_3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -200,11 +200,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>ground_tile_middle_3.png</filename>
-            <filename>ground_tile_end_L.png</filename>
-            <filename>ground_tile_end_R.png</filename>
-            <filename>ground_tile_middle_1.png</filename>
-            <filename>ground_tile_middle_2.png</filename>
+            <filename>images</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

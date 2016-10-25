@@ -243,7 +243,7 @@ class Antek extends ASprite implements IUpdateable implements ISelectable
     
     private function initGraphics(type: String)
     {
-        subSprite.sprite.frames = Textures.anteks;
+        subSprite.sprite.frames = Textures.characters;
         idleAnim  = addAnim(type, "idle");
         buildAnim = addAnim(type, "build");
         walkAnim  = addAnim(type, "walk");

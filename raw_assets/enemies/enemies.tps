@@ -188,44 +188,44 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">e01/attack/01.png</key>
-            <key type="filename">e01/attack/02.png</key>
-            <key type="filename">e01/attack/03.png</key>
-            <key type="filename">e01/attack/04.png</key>
-            <key type="filename">e01/attack/05.png</key>
-            <key type="filename">e01/attack/06.png</key>
-            <key type="filename">e01/attack/07.png</key>
-            <key type="filename">e01/attack/08.png</key>
-            <key type="filename">e01/attack/09.png</key>
-            <key type="filename">e01/attack/10.png</key>
-            <key type="filename">e01/attack/11.png</key>
-            <key type="filename">e01/attack/12.png</key>
-            <key type="filename">e01/attack/13.png</key>
-            <key type="filename">e01/attack/14.png</key>
-            <key type="filename">e01/attack/15.png</key>
-            <key type="filename">e01/attack/16.png</key>
-            <key type="filename">e01/attack/17.png</key>
-            <key type="filename">e01/attack/18.png</key>
-            <key type="filename">e01/attack/19.png</key>
-            <key type="filename">e01/walk/01.png</key>
-            <key type="filename">e01/walk/02.png</key>
-            <key type="filename">e01/walk/03.png</key>
-            <key type="filename">e01/walk/04.png</key>
-            <key type="filename">e01/walk/05.png</key>
-            <key type="filename">e01/walk/06.png</key>
-            <key type="filename">e01/walk/07.png</key>
-            <key type="filename">e01/walk/08.png</key>
-            <key type="filename">e01/walk/09.png</key>
-            <key type="filename">e01/walk/10.png</key>
-            <key type="filename">e01/walk/11.png</key>
-            <key type="filename">e01/walk/12.png</key>
-            <key type="filename">e01/walk/13.png</key>
-            <key type="filename">e01/walk/14.png</key>
-            <key type="filename">e01/walk/15.png</key>
-            <key type="filename">e01/walk/16.png</key>
-            <key type="filename">e01/walk/17.png</key>
-            <key type="filename">e01/walk/18.png</key>
-            <key type="filename">e01/walk/19.png</key>
+            <key type="filename">images/e01/attack/01.png</key>
+            <key type="filename">images/e01/attack/02.png</key>
+            <key type="filename">images/e01/attack/03.png</key>
+            <key type="filename">images/e01/attack/04.png</key>
+            <key type="filename">images/e01/attack/05.png</key>
+            <key type="filename">images/e01/attack/06.png</key>
+            <key type="filename">images/e01/attack/07.png</key>
+            <key type="filename">images/e01/attack/08.png</key>
+            <key type="filename">images/e01/attack/09.png</key>
+            <key type="filename">images/e01/attack/10.png</key>
+            <key type="filename">images/e01/attack/11.png</key>
+            <key type="filename">images/e01/attack/12.png</key>
+            <key type="filename">images/e01/attack/13.png</key>
+            <key type="filename">images/e01/attack/14.png</key>
+            <key type="filename">images/e01/attack/15.png</key>
+            <key type="filename">images/e01/attack/16.png</key>
+            <key type="filename">images/e01/attack/17.png</key>
+            <key type="filename">images/e01/attack/18.png</key>
+            <key type="filename">images/e01/attack/19.png</key>
+            <key type="filename">images/e01/walk/01.png</key>
+            <key type="filename">images/e01/walk/02.png</key>
+            <key type="filename">images/e01/walk/03.png</key>
+            <key type="filename">images/e01/walk/04.png</key>
+            <key type="filename">images/e01/walk/05.png</key>
+            <key type="filename">images/e01/walk/06.png</key>
+            <key type="filename">images/e01/walk/07.png</key>
+            <key type="filename">images/e01/walk/08.png</key>
+            <key type="filename">images/e01/walk/09.png</key>
+            <key type="filename">images/e01/walk/10.png</key>
+            <key type="filename">images/e01/walk/11.png</key>
+            <key type="filename">images/e01/walk/12.png</key>
+            <key type="filename">images/e01/walk/13.png</key>
+            <key type="filename">images/e01/walk/14.png</key>
+            <key type="filename">images/e01/walk/15.png</key>
+            <key type="filename">images/e01/walk/16.png</key>
+            <key type="filename">images/e01/walk/17.png</key>
+            <key type="filename">images/e01/walk/18.png</key>
+            <key type="filename">images/e01/walk/19.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -233,7 +233,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>e01</filename>
+            <filename>images</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

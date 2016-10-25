@@ -1,187 +1,187 @@
-decorations.png
+decoations.png
 size: 244, 517
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-bird
-  rotate: false
+fomat: RGBA8888
+filte: Linea,Linea
+epeat: none
+bid
+  otate: false
   xy: 180, 30
   size: 45, 45
-  orig: 45, 45
+  oig: 45, 45
   offset: 0, 0
   index: 1
-bird
-  rotate: false
+bid
+  otate: false
   xy: 0, 75
   size: 45, 45
-  orig: 45, 45
+  oig: 45, 45
   offset: 0, 0
   index: 2
-bird
-  rotate: false
+bid
+  otate: false
   xy: 45, 75
   size: 45, 45
-  orig: 45, 45
+  oig: 45, 45
   offset: 0, 0
   index: 3
-bridge_tile_end_L
-  rotate: false
+bidge_tile_end_L
+  otate: false
   xy: 132, 0
   size: 39, 29
-  orig: 39, 29
+  oig: 39, 29
   offset: 0, 0
   index: -1
-bridge_tile_end_R
-  rotate: false
+bidge_tile_end_R
+  otate: false
   xy: 90, 0
   size: 42, 29
-  orig: 42, 29
+  oig: 42, 29
   offset: 0, 0
   index: -1
-bridge_tile_middle
-  rotate: false
+bidge_tile_middle
+  otate: false
   xy: 0, 0
   size: 40, 23
-  orig: 40, 23
+  oig: 40, 23
   offset: 0, 0
   index: -1
 bush
-  rotate: false
+  otate: false
   xy: 68, 175
   size: 87, 59
-  orig: 87, 59
+  oig: 87, 59
   offset: 0, 0
   index: 1
 bush
-  rotate: false
+  otate: false
   xy: 160, 75
   size: 68, 50
-  orig: 68, 50
+  oig: 68, 50
   offset: 0, 0
   index: 2
 bush_anima
-  rotate: false
+  otate: false
   xy: 0, 125
   size: 68, 50
-  orig: 68, 50
+  oig: 68, 50
   offset: 0, 0
   index: 1
 bush_anima
-  rotate: false
+  otate: false
   xy: 68, 125
   size: 68, 50
-  orig: 68, 50
+  oig: 68, 50
   offset: 0, 0
   index: 2
 bush_anima
-  rotate: false
+  otate: false
   xy: 136, 125
   size: 68, 50
-  orig: 68, 50
+  oig: 68, 50
   offset: 0, 0
   index: 3
 bush_anima
-  rotate: false
+  otate: false
   xy: 0, 175
   size: 68, 50
-  orig: 68, 50
+  oig: 68, 50
   offset: 0, 0
   index: 4
-bush_flowers
-  rotate: false
+bush_flowes
+  otate: false
   xy: 90, 75
   size: 70, 47
-  orig: 70, 47
+  oig: 70, 47
   offset: 0, 0
   index: -1
 deco
-  rotate: false
+  otate: false
   xy: 171, 0
   size: 33, 30
-  orig: 33, 30
+  oig: 33, 30
   offset: 0, 0
   index: 1
 flag1
-  rotate: false
+  otate: false
   xy: 0, 245
   size: 47, 98
-  orig: 47, 98
+  oig: 47, 98
   offset: 0, 0
   index: -1
 flag2
-  rotate: false
+  otate: false
   xy: 94, 245
   size: 47, 98
-  orig: 47, 98
+  oig: 47, 98
   offset: 0, 0
   index: -1
 flag3
-  rotate: false
+  otate: false
   xy: 47, 245
   size: 47, 98
-  orig: 47, 98
+  oig: 47, 98
   offset: 0, 0
   index: -1
 flag4
-  rotate: false
+  otate: false
   xy: 141, 245
   size: 47, 98
-  orig: 47, 98
+  oig: 47, 98
   offset: 0, 0
   index: -1
 flag5
-  rotate: false
+  otate: false
   xy: 188, 245
   size: 47, 98
-  orig: 47, 98
+  oig: 47, 98
   offset: 0, 0
   index: -1
-rabbit
-  rotate: false
+abbit
+  otate: false
   xy: 155, 175
   size: 70, 70
-  orig: 70, 70
+  oig: 70, 70
   offset: 0, 0
   index: -1
-rocks
-  rotate: false
+ocks
+  otate: false
   xy: 52, 30
   size: 53, 33
-  orig: 53, 33
+  oig: 53, 33
   offset: 0, 0
   index: 1
-rocks
-  rotate: false
+ocks
+  otate: false
   xy: 40, 0
   size: 50, 23
-  orig: 50, 23
+  oig: 50, 23
   offset: 0, 0
   index: 2
-rocks
-  rotate: false
+ocks
+  otate: false
   xy: 0, 30
   size: 52, 32
-  orig: 52, 32
+  oig: 52, 32
   offset: 0, 0
   index: 3
-rocks
-  rotate: false
+ocks
+  otate: false
   xy: 105, 30
   size: 75, 40
-  orig: 75, 40
+  oig: 75, 40
   offset: 0, 0
   index: 4
-tree
-  rotate: false
+tee
+  otate: false
   xy: 0, 343
   size: 112, 150
-  orig: 112, 150
+  oig: 112, 150
   offset: 0, 0
   index: 1
-tree
-  rotate: false
+tee
+  otate: false
   xy: 112, 343
   size: 132, 174
-  orig: 132, 174
+  oig: 132, 174
   offset: 0, 0
   index: 2

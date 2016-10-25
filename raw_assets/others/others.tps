@@ -188,8 +188,8 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">inverted_fog.png</key>
-            <key type="filename">star.png</key>
+            <key type="filename">images/inverted_fog.png</key>
+            <key type="filename">images/star.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -197,8 +197,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>inverted_fog.png</filename>
-            <filename>star.png</filename>
+            <filename>images</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

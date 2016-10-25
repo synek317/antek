@@ -1,271 +1,271 @@
 enemies.png
 size: 1950, 450
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-attack/01
-  rotate: false
+fomat: RGBA8888
+filte: Linea,Linea
+epeat: none
+e01/attack/01
+  otate: false
   xy: 0, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/02
-  rotate: false
+e01/attack/02
+  otate: false
   xy: 150, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/03
-  rotate: false
+e01/attack/03
+  otate: false
   xy: 300, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/04
-  rotate: false
+e01/attack/04
+  otate: false
   xy: 450, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/05
-  rotate: false
+e01/attack/05
+  otate: false
   xy: 600, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/06
-  rotate: false
+e01/attack/06
+  otate: false
   xy: 750, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/07
-  rotate: false
+e01/attack/07
+  otate: false
   xy: 900, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/08
-  rotate: false
+e01/attack/08
+  otate: false
   xy: 1050, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/09
-  rotate: false
+e01/attack/09
+  otate: false
   xy: 1200, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/10
-  rotate: false
+e01/attack/10
+  otate: false
   xy: 1350, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/11
-  rotate: false
+e01/attack/11
+  otate: false
   xy: 1500, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/12
-  rotate: false
+e01/attack/12
+  otate: false
   xy: 1650, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/13
-  rotate: false
+e01/attack/13
+  otate: false
   xy: 1800, 0
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/14
-  rotate: false
+e01/attack/14
+  otate: false
   xy: 0, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/15
-  rotate: false
+e01/attack/15
+  otate: false
   xy: 150, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/16
-  rotate: false
+e01/attack/16
+  otate: false
   xy: 300, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/17
-  rotate: false
+e01/attack/17
+  otate: false
   xy: 450, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/18
-  rotate: false
+e01/attack/18
+  otate: false
   xy: 600, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-attack/19
-  rotate: false
+e01/attack/19
+  otate: false
   xy: 750, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/01
-  rotate: false
+e01/walk/01
+  otate: false
   xy: 900, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/02
-  rotate: false
+e01/walk/02
+  otate: false
   xy: 1050, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/03
-  rotate: false
+e01/walk/03
+  otate: false
   xy: 1200, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/04
-  rotate: false
+e01/walk/04
+  otate: false
   xy: 1350, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/05
-  rotate: false
+e01/walk/05
+  otate: false
   xy: 1500, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/06
-  rotate: false
+e01/walk/06
+  otate: false
   xy: 1650, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/07
-  rotate: false
+e01/walk/07
+  otate: false
   xy: 1800, 150
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/08
-  rotate: false
+e01/walk/08
+  otate: false
   xy: 0, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/09
-  rotate: false
+e01/walk/09
+  otate: false
   xy: 150, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/10
-  rotate: false
+e01/walk/10
+  otate: false
   xy: 300, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/11
-  rotate: false
+e01/walk/11
+  otate: false
   xy: 450, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/12
-  rotate: false
+e01/walk/12
+  otate: false
   xy: 600, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/13
-  rotate: false
+e01/walk/13
+  otate: false
   xy: 750, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/14
-  rotate: false
+e01/walk/14
+  otate: false
   xy: 900, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/15
-  rotate: false
+e01/walk/15
+  otate: false
   xy: 1050, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/16
-  rotate: false
+e01/walk/16
+  otate: false
   xy: 1200, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/17
-  rotate: false
+e01/walk/17
+  otate: false
   xy: 1350, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/18
-  rotate: false
+e01/walk/18
+  otate: false
   xy: 1500, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1
-walk/19
-  rotate: false
+e01/walk/19
+  otate: false
   xy: 1650, 300
   size: 150, 150
-  orig: 150, 150
+  oig: 150, 150
   offset: 0, 0
   index: -1

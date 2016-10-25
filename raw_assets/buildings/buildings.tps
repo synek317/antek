@@ -188,16 +188,16 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">home2_stage3.png</key>
-            <key type="filename">home2_stage4.png</key>
-            <key type="filename">home_stage3.png</key>
-            <key type="filename">home_stage4.png</key>
-            <key type="filename">stage1.png</key>
-            <key type="filename">stage2.png</key>
-            <key type="filename">workshop2_stage3.png</key>
-            <key type="filename">workshop2_stage4.png</key>
-            <key type="filename">workshop_stage3.png</key>
-            <key type="filename">workshop_stage4.png</key>
+            <key type="filename">images/home2_stage3.png</key>
+            <key type="filename">images/home2_stage4.png</key>
+            <key type="filename">images/home_stage3.png</key>
+            <key type="filename">images/home_stage4.png</key>
+            <key type="filename">images/stage1.png</key>
+            <key type="filename">images/stage2.png</key>
+            <key type="filename">images/workshop2_stage3.png</key>
+            <key type="filename">images/workshop2_stage4.png</key>
+            <key type="filename">images/workshop_stage3.png</key>
+            <key type="filename">images/workshop_stage4.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -205,16 +205,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>home_stage3.png</filename>
-            <filename>home_stage4.png</filename>
-            <filename>home2_stage3.png</filename>
-            <filename>home2_stage4.png</filename>
-            <filename>stage1.png</filename>
-            <filename>stage2.png</filename>
-            <filename>workshop_stage3.png</filename>
-            <filename>workshop_stage4.png</filename>
-            <filename>workshop2_stage3.png</filename>
-            <filename>workshop2_stage4.png</filename>
+            <filename>images</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

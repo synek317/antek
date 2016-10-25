@@ -188,20 +188,20 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">ladder0.png</key>
-            <key type="filename">ladder1.png</key>
-            <key type="filename">ladder10.png</key>
-            <key type="filename">ladder11.png</key>
-            <key type="filename">ladder12.png</key>
-            <key type="filename">ladder13.png</key>
-            <key type="filename">ladder2.png</key>
-            <key type="filename">ladder3.png</key>
-            <key type="filename">ladder4.png</key>
-            <key type="filename">ladder5.png</key>
-            <key type="filename">ladder6.png</key>
-            <key type="filename">ladder7.png</key>
-            <key type="filename">ladder8.png</key>
-            <key type="filename">ladder9.png</key>
+            <key type="filename">images/ladder0.png</key>
+            <key type="filename">images/ladder1.png</key>
+            <key type="filename">images/ladder10.png</key>
+            <key type="filename">images/ladder11.png</key>
+            <key type="filename">images/ladder12.png</key>
+            <key type="filename">images/ladder13.png</key>
+            <key type="filename">images/ladder2.png</key>
+            <key type="filename">images/ladder3.png</key>
+            <key type="filename">images/ladder4.png</key>
+            <key type="filename">images/ladder5.png</key>
+            <key type="filename">images/ladder6.png</key>
+            <key type="filename">images/ladder7.png</key>
+            <key type="filename">images/ladder8.png</key>
+            <key type="filename">images/ladder9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -209,20 +209,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>ladder5.png</filename>
-            <filename>ladder6.png</filename>
-            <filename>ladder7.png</filename>
-            <filename>ladder8.png</filename>
-            <filename>ladder9.png</filename>
-            <filename>ladder10.png</filename>
-            <filename>ladder11.png</filename>
-            <filename>ladder12.png</filename>
-            <filename>ladder13.png</filename>
-            <filename>ladder0.png</filename>
-            <filename>ladder1.png</filename>
-            <filename>ladder2.png</filename>
-            <filename>ladder3.png</filename>
-            <filename>ladder4.png</filename>
+            <filename>images</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

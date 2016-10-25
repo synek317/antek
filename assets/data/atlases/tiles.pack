@@ -1,40 +1,40 @@
 tiles.png
 size: 200, 40
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-ground_tile_end_L
-  rotate: false
+fomat: RGBA8888
+filte: Linea,Linea
+epeat: none
+gound_tile_end_L
+  otate: false
   xy: 0, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ground_tile_end_R
-  rotate: false
+gound_tile_end_R
+  otate: false
   xy: 40, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: -1
-ground_tile_middle
-  rotate: false
+gound_tile_middle
+  otate: false
   xy: 80, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: 1
-ground_tile_middle
-  rotate: false
+gound_tile_middle
+  otate: false
   xy: 120, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: 2
-ground_tile_middle
-  rotate: false
+gound_tile_middle
+  otate: false
   xy: 160, 0
   size: 40, 40
-  orig: 40, 40
+  oig: 40, 40
   offset: 0, 0
   index: 3

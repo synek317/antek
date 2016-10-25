@@ -3,266 +3,266 @@ size: 1950, 450
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-attack/01
+e01/attack/01
   rotate: false
   xy: 0, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/02
+e01/attack/02
   rotate: false
   xy: 150, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/03
+e01/attack/03
   rotate: false
   xy: 300, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/04
+e01/attack/04
   rotate: false
   xy: 450, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/05
+e01/attack/05
   rotate: false
   xy: 600, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/06
+e01/attack/06
   rotate: false
   xy: 750, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/07
+e01/attack/07
   rotate: false
   xy: 900, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/08
+e01/attack/08
   rotate: false
   xy: 1050, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/09
+e01/attack/09
   rotate: false
   xy: 1200, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/10
+e01/attack/10
   rotate: false
   xy: 1350, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/11
+e01/attack/11
   rotate: false
   xy: 1500, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/12
+e01/attack/12
   rotate: false
   xy: 1650, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/13
+e01/attack/13
   rotate: false
   xy: 1800, 0
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/14
+e01/attack/14
   rotate: false
   xy: 0, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/15
+e01/attack/15
   rotate: false
   xy: 150, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/16
+e01/attack/16
   rotate: false
   xy: 300, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/17
+e01/attack/17
   rotate: false
   xy: 450, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/18
+e01/attack/18
   rotate: false
   xy: 600, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-attack/19
+e01/attack/19
   rotate: false
   xy: 750, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/01
+e01/walk/01
   rotate: false
   xy: 900, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/02
+e01/walk/02
   rotate: false
   xy: 1050, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/03
+e01/walk/03
   rotate: false
   xy: 1200, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/04
+e01/walk/04
   rotate: false
   xy: 1350, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/05
+e01/walk/05
   rotate: false
   xy: 1500, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/06
+e01/walk/06
   rotate: false
   xy: 1650, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/07
+e01/walk/07
   rotate: false
   xy: 1800, 150
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/08
+e01/walk/08
   rotate: false
   xy: 0, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/09
+e01/walk/09
   rotate: false
   xy: 150, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/10
+e01/walk/10
   rotate: false
   xy: 300, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/11
+e01/walk/11
   rotate: false
   xy: 450, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/12
+e01/walk/12
   rotate: false
   xy: 600, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/13
+e01/walk/13
   rotate: false
   xy: 750, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/14
+e01/walk/14
   rotate: false
   xy: 900, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/15
+e01/walk/15
   rotate: false
   xy: 1050, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/16
+e01/walk/16
   rotate: false
   xy: 1200, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/17
+e01/walk/17
   rotate: false
   xy: 1350, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/18
+e01/walk/18
   rotate: false
   xy: 1500, 300
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
-walk/19
+e01/walk/19
   rotate: false
   xy: 1650, 300
   size: 150, 150
