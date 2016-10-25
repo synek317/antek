@@ -1,4 +1,4 @@
-objects.pack.png
+objects.png
 size: 120, 200
 format: RGBA8888
 filter: Linear,Linear

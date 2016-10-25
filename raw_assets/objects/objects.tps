@@ -36,7 +36,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename>objects.pack.png</filename>
+        <filename>objects.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
