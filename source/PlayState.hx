@@ -29,14 +29,6 @@ class PlayState extends FlxState
         antek1.tileY = 29;
         antek2.tileX = 4;
         antek2.tileY = 29;
-
-
-//        sprFilter.applyToSprite(antek1.subSprite.sprite, true, true);
-        //sprFilter.applyToSprite(antek2.subSprite.sprite, true, true);
-
-        //flixel.input.mouse.FlxMouseEventManager.add(subSprite.sprite, null, null, function(_) {
-        //    sprFilter.addFilter(filter);
-        //}, function(_) {sprFilter.removeFilter(filter); }, false, true, true);
 		Camera.updatePosition(5.htile(), 29.vtile());
 
     }
@@ -76,14 +68,6 @@ class PlayState extends FlxState
         if (FlxG.keys.justPressed.W)
         {
             antek2.idle();
-        }
-        if  (FlxG.keys.justPressed.E)
-        {
-            antek2.glowFilter.attach();
-        }
-        if  (FlxG.keys.justPressed.R)
-        {
-            antek2.glowFilter.dettach();
         }
     }
     
