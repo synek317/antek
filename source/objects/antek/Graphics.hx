@@ -1,4 +1,5 @@
 package objects.antek;
+import objects.Antek;
 
 class Graphics
 {
@@ -10,8 +11,13 @@ class Graphics
         a.walkAnim  = addAnim(a, type, "walk");
         a.climbAnim = addAnim(a, type, "climb");
         
+        a.starSprite.sprite.visible = false;
+        
         recalculateAnimationsSpeed(a);
         a.addSubSprite(a.subSprite);
+        a.addSubSprite(a.starSprite);
+        
+        a.orgFrames = a.subSprite.sprite.frames;
     }
 
     private static function addAnim(a: Antek, type: String, name: String) : FlxAnimation
@@ -28,4 +34,11 @@ class Graphics
     
     public static function turnLeft(a: Antek)  { a.subSprite.sprite.flipX = true;  return a; }
     public static function turnRight(a: Antek) { a.subSprite.sprite.flipX = false; return a; }
+    
+    public static function playBuildAnim(a: Antek)
+    {
+        a.subSprite.sprite.animation.play("build");
+        a.subSprite.shiftX = -30;
+        a.subSprite.shiftY = -87;
+    }
 }

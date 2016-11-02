@@ -39,8 +39,9 @@ class Zoom
         {
             zoomTo(zoomFactor - ZOOM_STEP);
         }
-        else if(FlxG.keys.justPressed.ZERO)
+        else if(FlxG.keys.justPressed.A)
         {
+            trace("ZERO");
             zoomTo(1);
         }
     }
@@ -81,7 +82,7 @@ class Zoom
         var diffHeight      = FlxG.height - newCameraHeight;
     
         FlxG.camera.setSize(int(newCameraWidth), int(newCameraHeight));
-        FlxG.camera.setScale(zoomFactor, zoomFactor);
+        FlxG.camera.zoom = zoomFactor;
         FlxG.camera.setPosition(diffWidth/2, diffHeight/2);
         
 		cameraShiftX = -0.5 * (zoomFactor * FlxG.camera.width  - FlxG.camera.width);

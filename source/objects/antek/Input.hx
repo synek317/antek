@@ -6,7 +6,7 @@ class Input
     {
         flixel.input.mouse.FlxMouseEventManager.add(
             a.subSprite.sprite,
-            onMouseDown, onMouseUp, onMouseOver, onMouseOut,
+            onMouseDown, a.onMouseUp, a.onMouseOver, a.onMouseOut,
             true,
             true
         );
@@ -16,15 +16,18 @@ class Input
     {
     }
 
-    private static function onMouseUp(_: FlxObject)
+    public static function onMouseUp(a: Antek, o: FlxObject)
     {
+        a.selected = !a.selected;
     }
 
-    private static function onMouseOver(_: FlxObject)
+    private static function onMouseOver(a: Antek, _: FlxObject)
     {
+        Textures.getGlowedAntek(a.type, a.subSprite.sprite).applyToSprite(a.subSprite.sprite, true);
     }
 
-    private static function onMouseOut(_: FlxObject)
+    private static function onMouseOut(a: Antek, _: FlxObject)
     {
+        a.subSprite.sprite.setFrames(a.orgFrames, true);
     }
 }

@@ -34,6 +34,7 @@ import objects.factories.*;
 using tools.NumberExtenders;
 using tools.GlobalFunctions;
 using tools.FlxSpriteExtenders;
+using tools.FlxAtlasFramesExtenders;
 using objects.antek.Graphics;
 using objects.antek.Input;
 using objects.antek.States;

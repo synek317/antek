@@ -23,7 +23,7 @@ class PlayState extends FlxState
         
         var antek1 = new Antek(Antek.A3);
         
-        antek2 = new Antek(Antek.A3);
+        antek2 = new Antek(Antek.A1);
 
         antek1.tileX = 10;
         antek1.tileY = 29;

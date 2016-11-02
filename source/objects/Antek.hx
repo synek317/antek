@@ -1,6 +1,7 @@
 package objects;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxOutlineEffect;
+import flixel.graphics.FlxGraphic;
 import framework.SubSprite;
 
 class Antek extends ASprite implements IUpdateable
@@ -25,14 +26,18 @@ class Antek extends ASprite implements IUpdateable
     public var scheduledActions = new List<Void->Void>();
     
     public var destinations = new List<Point>();
-
+    public var type: String;
+    
 	public function new(type: String)
 	{
+        this.type = type;
+        
         initGraphics(type);
         initInput();
         idle();
 
         Objects.register(this);
+        subSprite.sprite.graphic.persist = true;
     }
     
     public function update(elapsed:Float):Void 
@@ -48,9 +53,15 @@ class Antek extends ASprite implements IUpdateable
     public static inline var WalkAnimSpeed = 19.0 / 40.0; //frames per pixels
     
     public var subSprite  = new SubSprite(new FlxSprite(), 0, 0, 0);
-
+    public var starSprite = new SubSprite(Textures.others.createSprite("star"), -10, -115, 1);
+    
     public var idleAnim   : FlxAnimation;
     public var buildAnim  : FlxAnimation;
     public var walkAnim   : FlxAnimation;
     public var climbAnim  : FlxAnimation;
+    
+    public var orgFrames: FlxFramesCollection;
+    
+    public var selected(default, set): Bool = false;
+    private function set_selected(val) return starSprite.sprite.visible = selected = val;
 }

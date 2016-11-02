@@ -27,9 +27,7 @@ class Build
         a.state     = Antek.BUILD;
         a.buildTime = (a.buildAnim.numFrames / 2 - 2) / a.buildAnim.frameRate;
         
-        a.subSprite.sprite.animation.play("build");
-        a.subSprite.shiftX = -30;
-        a.subSprite.shiftY = -87;
+        a.playBuildAnim();
         
         return a;
     }

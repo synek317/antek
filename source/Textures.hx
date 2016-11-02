@@ -1,4 +1,6 @@
 package;
+import flixel.FlxSprite;
+import haxe.ds.Vector;
 
 class Textures
 {
@@ -39,5 +41,23 @@ class Textures
     private static function Load(name: String): FlxAtlasFrames
     {
         return FlxAtlasFrames.fromLibGdx("assets/images/" + name + ".png", "assets/data/atlases/" + name + ".pack");
+    }
+    
+    private static var antekGlowFilters = new Map<String, FlxFilterFrames>();
+    
+    public static function getGlowedAntek(type: String, sprite: FlxSprite)
+    {
+        var result = antekGlowFilters.get(type);
+        
+        if (result == null)
+        {
+            var glowFilter = new GlowFilter(0xffffff, 1, 8, 8, 3.5, 1);
+            var filterFrames = FlxFilterFrames.fromFrames(sprite.frames, 0, 0, [glowFilter]);
+            
+            antekGlowFilters[type] = filterFrames;
+            result = filterFrames;
+        }
+        
+        return result;
     }
 }

@@ -20,10 +20,8 @@ class Fog
 		fogRect          = new Rectangle(0, 0, obj.width, obj.height);
 		colorTransform   = new ColorTransform(0, 0, 0, -1, 0, 0, 0, 255);
 		viewOwners       = new List<FlxSprite>();
-		viewStamp        = new FlxSprite();
-		
-        viewStamp.frames = Textures.objects;
-        viewStamp.frame  = Textures.objects.getByName("inverted_fog");
+		viewStamp        = Textures.objects.createSprite("inverted_fog");
+        
 		PlayState.obj.add(obj);
 		
 		cam = new FlxCamera(0, 0, Std.int(obj.width), Std.int(obj.height), 1);
@@ -39,6 +37,7 @@ class Fog
 	
 	public static function update()
 	{
+        /*
 		newFog = makeFog();
 		
 		viewStamp.scale.x =  Zoom.zoomFactor;
@@ -50,7 +49,7 @@ class Fog
 		
 		oldGraphic = obj.graphic;
 		obj.pixels = newFog.pixels;
-		FlxG.bitmap.remove(oldGraphic);
+		FlxG.bitmap.remove(oldGraphic);*/
 	}
 	
 	private static function updateViewPosition(newFog: FlxSprite, viewOwner: FlxSprite)

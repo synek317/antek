@@ -1,75 +1,75 @@
 buildings.png
 size: 1689, 151
-fomat: RGBA8888
-filte: Linea,Linea
-epeat: none
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 home2_stage3
-  otate: false
+  rotate: false
   xy: 0, 0
   size: 158, 146
-  oig: 158, 146
+  orig: 158, 146
   offset: 0, 0
   index: -1
 home2_stage4
-  otate: false
+  rotate: false
   xy: 158, 0
   size: 156, 150
-  oig: 156, 150
+  orig: 156, 150
   offset: 0, 0
   index: -1
 home_stage3
-  otate: false
+  rotate: false
   xy: 314, 0
   size: 156, 145
-  oig: 156, 145
+  orig: 156, 145
   offset: 0, 0
   index: -1
 home_stage4
-  otate: false
+  rotate: false
   xy: 470, 0
   size: 157, 151
-  oig: 157, 151
+  orig: 157, 151
   offset: 0, 0
   index: -1
 stage1
-  otate: false
+  rotate: false
   xy: 627, 0
   size: 139, 93
-  oig: 139, 93
+  orig: 139, 93
   offset: 0, 0
   index: -1
 stage2
-  otate: false
+  rotate: false
   xy: 766, 0
   size: 145, 111
-  oig: 145, 111
+  orig: 145, 111
   offset: 0, 0
   index: -1
-wokshop2_stage3
-  otate: false
+workshop2_stage3
+  rotate: false
   xy: 911, 0
   size: 203, 148
-  oig: 203, 148
+  orig: 203, 148
   offset: 0, 0
   index: -1
-wokshop2_stage4
-  otate: false
+workshop2_stage4
+  rotate: false
   xy: 1114, 0
   size: 187, 150
-  oig: 187, 150
+  orig: 187, 150
   offset: 0, 0
   index: -1
-wokshop_stage3
-  otate: false
+workshop_stage3
+  rotate: false
   xy: 1301, 0
   size: 203, 148
-  oig: 203, 148
+  orig: 203, 148
   offset: 0, 0
   index: -1
-wokshop_stage4
-  otate: false
+workshop_stage4
+  rotate: false
   xy: 1504, 0
   size: 185, 148
-  oig: 185, 148
+  orig: 185, 148
   offset: 0, 0
   index: -1
