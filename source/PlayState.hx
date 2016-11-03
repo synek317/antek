@@ -55,7 +55,7 @@ class PlayState extends FlxState
         }
 		if (FlxG.keys.justPressed.SPACE)
 		{
-			ladder.step();
+			Game.state = GameStates.Idle;
 		}
 		if (FlxG.keys.justPressed.F)
 		{

@@ -1,6 +1,6 @@
 package objects.antek;
 
-class States
+class Logic
 {
     public static function updateState(a: Antek, elapsed:Float):Void 
     {

@@ -18,16 +18,23 @@ class Input
 
     public static function onMouseUp(a: Antek, o: FlxObject)
     {
+        if (Game.state != GameStates.Idle) return;
+        
         a.selected = !a.selected;
+        Game.selected = a.selected ? a : null;
     }
 
     private static function onMouseOver(a: Antek, _: FlxObject)
     {
+        if (Game.state != GameStates.Idle) return;
+        
         Textures.getGlowedAntek(a.type, a.subSprite.sprite).applyToSprite(a.subSprite.sprite, true);
     }
 
     private static function onMouseOut(a: Antek, _: FlxObject)
     {
+        if (Game.state != GameStates.Idle) return;
+        
         a.subSprite.sprite.setFrames(a.orgFrames, true);
     }
 }

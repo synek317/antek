@@ -62,6 +62,8 @@ class Antek extends ASprite implements IUpdateable
     
     public var orgFrames: FlxFramesCollection;
     
-    public var selected(default, set): Bool = false;
-    private function set_selected(val) return starSprite.sprite.visible = selected = val;
+    public var _selected = false;
+    public var selected(get, set): Bool;
+    public function get_selected() return _selected;
+    public function set_selected(val) return this.setSelected(val);
 }
