@@ -1,19 +1,22 @@
 package;
 
-class LevelMap extends FlxTilemap
+class LevelMap
 {
     public static inline var TileHeight     : Int = 40;
     public static inline var TileWidth      : Int = 40;
     public static inline var HalfTileHeight : Int = 40;
     public static inline var HalfTileWidth  : Int = 20;
-    
-	public static var obj: LevelMap;
-	
-    private var layer: TiledTileLayer;
+
+	private static var obj: FlxTilemap;
+
+    public static var widthInPixels(get, never): Float;
+    public static var heightInPixels(get, never): Float;
+    public static var widthInTiles(get, never): Int;
+    public static var heightInTiles(get, never): Int;
 	
 	public static function init(tiledLevel:String)
 	{
-		obj = new LevelMap();
+		obj = new FlxTilemap();
 
 		var tiledMap = new TiledMap(tiledLevel);
 
@@ -26,12 +29,13 @@ class LevelMap extends FlxTilemap
         }
 		
 		obj.cameras = [FlxG.camera];
+        PlayState.addChild(obj);
 	}
-
+    
+    public static inline function updateBuffers() return obj.updateBuffers();
+    
     private static function createLayer(layer: TiledTileLayer): Void
     {
-        obj.layer = layer;
-
         var tileSet          = findTileSet(layer);
         var tileSetImageFile = getTileSetImageFile(tileSet);
 
@@ -75,4 +79,9 @@ class LevelMap extends FlxTilemap
 
         throw "Tileset '" + tileSheetName + " not found. Did you misspell the 'tilesheet' property in " + layer.name + "' layer?";
     }
+    
+    private static inline function get_widthInPixels()  return obj.width;
+    private static inline function get_heightInPixels() return obj.height;
+    private static inline function get_widthInTiles()   return obj.widthInTiles;
+    private static inline function get_heightInTiles()  return obj.heightInTiles;
 }

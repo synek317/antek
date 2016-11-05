@@ -18,8 +18,8 @@ class Zoom
 
     public static function init()
     {
-        var minXZoomFactory = FlxG.width  / LevelMap.obj.width;
-        var minYZoomFactory = FlxG.height / LevelMap.obj.height;
+        var minXZoomFactory = FlxG.width  / LevelMap.widthInPixels;
+        var minYZoomFactory = FlxG.height / LevelMap.heightInPixels;
         var maxXZoomFactory = 2;
         var maxYZoomFactory = 2;
 		
@@ -92,6 +92,6 @@ class Zoom
             initialCenter.x + (destinationCenter.x - initialCenter.x) * progressPercentage,
             initialCenter.y + (destinationCenter.y - initialCenter.y) * progressPercentage
         );
-        LevelMap.obj.updateBuffers();
+        LevelMap.updateBuffers();
     }
 }

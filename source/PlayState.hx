@@ -19,7 +19,6 @@ class PlayState extends FlxState
 		Fog.init();
         Fog.obj.visible = false;
         FlxG.camera.bgColor = 0xff80c8f8;
-		addChild(LevelMap.obj);
         
         var antek1 = new Antek(Antek.A3);
         

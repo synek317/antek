@@ -57,12 +57,12 @@ class Camera
 
 	public static inline function boundX(x: Float, zoom: Float)
 	{
-		return FlxMath.bound(x, FlxG.width / zoom / 2 , LevelMap.obj.width - FlxG.width / zoom / 2); 
+		return FlxMath.bound(x, FlxG.width / zoom / 2 , LevelMap.widthInPixels - FlxG.width / zoom / 2); 
 	}
 
 	public static inline function boundY(y: Float, zoom: Float)
 	{
-		return FlxMath.bound(y, FlxG.height / zoom / 2 , LevelMap.obj.height - FlxG.height / zoom / 2); 
+		return FlxMath.bound(y, FlxG.height / zoom / 2 , LevelMap.heightInPixels - FlxG.height / zoom / 2); 
 	}
 
 	public static inline function forceUpdate()

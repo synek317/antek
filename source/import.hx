@@ -1,9 +1,11 @@
 import haxe.io.Path;
+import haxe.ds.Vector;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.geom.ColorTransform;
 import flash.display.BitmapData;
 import flash.filters.GlowFilter;
+
 
 import openfl.display.Sprite;
 
