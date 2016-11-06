@@ -1,4 +1,4 @@
-package framework.game;
+package game;
 
 class Logic
 {

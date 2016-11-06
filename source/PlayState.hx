@@ -12,11 +12,8 @@ class PlayState extends FlxState
         FlxG.log.redirectTraces = true;
         
 		obj = this;
-		
-        LevelMap.init("assets/data/levels/l0.tmx");
 
-        Framework.init();
-		Fog.init();
+        Engine.init("assets/data/levels/l0.tmx");
         Fog.obj.visible = false;
         FlxG.camera.bgColor = 0xff80c8f8;
         
@@ -43,7 +40,7 @@ class PlayState extends FlxState
     override public function update(elapsed:Float):Void
     {
         super.update(elapsed);
-        Framework.update();
+        Engine.update();
 		Fog.update();
         Objects.update(elapsed);
 

@@ -1,5 +1,4 @@
 package objects.antek;
-import objects.Antek;
 
 class Graphics
 {

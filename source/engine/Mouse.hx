@@ -1,4 +1,4 @@
-package framework;
+package engine;
 
 class Mouse
 {
@@ -10,10 +10,8 @@ class Mouse
 
 	public static function update()
 	{
-		FlxG.mouse.getScreenPosition(mousePos);
-		mousePos.x = (FlxG.mouse.screenX - Zoom.cameraShiftX) / Zoom.zoomFactor + FlxG.camera.scroll.x;
-		mousePos.y = (FlxG.mouse.screenY - Zoom.cameraShiftY) / Zoom.zoomFactor + FlxG.camera.scroll.y;
-		
+		FlxG.mouse.getPosition(mousePos);
+        
 		if(FlxG.mouse.justPressed)
 		{
 			justPressedPos.x = mousePos.x;
@@ -21,7 +19,11 @@ class Mouse
 		}
 		else if (FlxG.mouse.justReleased && mousePos.equals(justPressedPos))
 		{	
-			FlxG.log.notice(mousePos);
+			trace(
+                "s:", "(", mousePos.x, ",", mousePos.y, ")",
+                "t:", "(", mousePos.x.to_htile(), ",", mousePos.y.to_vtile(), ":", LevelMap.at(mousePos.x.to_htile(), mousePos.y.to_vtile()), ")",
+                "c:", "(", mousePos.x.to_hcell(), ",", mousePos.y.to_vcell(), ":", PathMap.at(mousePos.x.to_hcell(), mousePos.y.to_vcell()), ")"
+            );
 		}
 	}
 

@@ -1,8 +1,4 @@
 package objects;
-import flixel.addons.effects.chainable.FlxEffectSprite;
-import flixel.addons.effects.chainable.FlxOutlineEffect;
-import flixel.graphics.FlxGraphic;
-import framework.SubSprite;
 
 class Antek extends ASprite implements IUpdateable
 {

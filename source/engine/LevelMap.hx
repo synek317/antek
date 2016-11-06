@@ -1,4 +1,4 @@
-package;
+package engine;
 
 class LevelMap
 {
@@ -32,7 +32,8 @@ class LevelMap
         PlayState.addChild(obj);
 	}
     
-    public static inline function updateBuffers() return obj.updateBuffers();
+    public static inline function updateBuffers()    return obj.updateBuffers();
+    public static inline function at(x: Int, y: Int) return obj.getTile(x, y);
     
     private static function createLayer(layer: TiledTileLayer): Void
     {

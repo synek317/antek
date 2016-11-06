@@ -1,11 +1,14 @@
-package framework;
+package engine;
 
-class Framework
+class Engine
 {
-    public static function init()
+    public static function init(tiledLevel: String)
     {
+        LevelMap.init(tiledLevel);
         Camera.init();
         Zoom.init();
+        PathMap.init();
+        Fog.init();
     }
 
     public static function update()

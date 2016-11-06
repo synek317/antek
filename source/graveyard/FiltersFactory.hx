@@ -1,4 +1,4 @@
-package objects.factories;
+/*package objects.factories;
 
 class FiltersFactory
 {
@@ -21,4 +21,4 @@ class FiltersFactory
 
         return new Filter(filter, sprite);
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package framework;
+/*package engine;
 
 class Screen
 {
@@ -46,4 +46,4 @@ class Screen
         visibleWidth = screenWidth / zoom;
         visibleHeight = screenHeight / zoom;
     }
-}
+}*/

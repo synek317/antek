@@ -1,3 +1,4 @@
+import Std.*;
 import haxe.io.Path;
 import haxe.ds.Vector;
 import flash.geom.Point;
@@ -5,7 +6,6 @@ import flash.geom.Rectangle;
 import flash.geom.ColorTransform;
 import flash.display.BitmapData;
 import flash.filters.GlowFilter;
-
 
 import openfl.display.Sprite;
 
@@ -24,16 +24,16 @@ import flixel.input.mouse.FlxMouseEventManager;
 import flixel.addons.editors.tiled.*;
 import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
 
-import framework.*;
+import engine.*;
 import tools.*;
 import tools.GlobalFunctions.*;
-import Std.*;
 
 import actions.*;
 import objects.*;
 import objects.factories.*;
 
-using tools.NumberExtenders;
+using tools.IntExtenders;
+using tools.FloatExtenders;
 using tools.GlobalFunctions;
 using tools.FlxSpriteExtenders;
 using tools.FlxAtlasFramesExtenders;

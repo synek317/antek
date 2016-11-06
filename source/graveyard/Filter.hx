@@ -1,4 +1,4 @@
-package framework;
+/*package engine;
 
 class Filter
 {
@@ -47,4 +47,4 @@ class Filter
 		sprite.offset.copyFrom(orgOffset);
 		sprite.setSize(orgWidth, orgHeight);
     }
-}
+}*/
