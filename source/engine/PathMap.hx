@@ -30,7 +30,6 @@ class PathMap
     
     private static function ground(x: Int, y: Int)
     {
-        
         for (xx in x*CellsPerHTile...(x+1)*CellsPerHTile)
         {
             fields.setAt(xx, y*CellsPerVTile, 1);

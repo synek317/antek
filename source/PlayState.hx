@@ -26,8 +26,9 @@ class PlayState extends FlxState
         antek2.tileX = 4;
         antek2.tileY = 29;
 		Camera.updatePosition(5.htile(), 29.vtile());
-
     }
+    
+    private function cmp(a: Int, b: Int) return a - b;
     
     private var fps1: FlxText;
     private var act: BuildLadder;

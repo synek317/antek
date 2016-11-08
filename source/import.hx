@@ -25,6 +25,7 @@ import flixel.addons.editors.tiled.*;
 import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
 
 import engine.*;
+import structures.*;
 import tools.*;
 import tools.GlobalFunctions.*;
 
