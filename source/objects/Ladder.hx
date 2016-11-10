@@ -53,10 +53,11 @@ class Ladder extends ASprite
                 }
                 progress++;
             case Done_Entered:
-                PlayState.obj.remove(skeleton);
+                PlayState.removeChild(skeleton);
                 ladder.clipRect = null;
                 skeleton        = null;
                 state++;
+                finish();
         }
         
         return state <= Done_Entered;
@@ -64,10 +65,23 @@ class Ladder extends ASprite
     
     public function createImmediately()
     {
-        PlayState.obj.remove(skeleton);
+        PlayState.removeChild(skeleton);
         skeleton        = null;
         ladder.clipRect = null;
         state           = Done_Entered + 1;
+        finish();
+    }
+    
+    private function finish()
+    {
+        var top_cell = ladder.y.to_vcell() +  PathMap.CellsPerVTile;
+        var bottom_cell = top_cell + ladder.height.to_vcell() - 2 * PathMap.CellsPerVTile;
+        var x = ladder.x.to_hcell() + int(PathMap.CellsPerHTile / 2);
+        
+        for (y in top_cell...bottom_cell)
+        {
+            PathMap.setAt(x, y, 1);
+        }
     }
     
     private function addPart(sprite: FlxSprite, shiftZ: Int): SubSprite

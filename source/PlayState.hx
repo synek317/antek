@@ -1,8 +1,10 @@
 package;
+import flixel.FlxBasic;
+import objects.Ladder;
 
 class PlayState extends FlxState
 {
-	public static var obj : PlayState;
+	private static var obj : PlayState;
 	private var shouldReorderZ: Bool;
     
     private static var e: FlxSprite;
@@ -26,6 +28,15 @@ class PlayState extends FlxState
         antek2.tileX = 4;
         antek2.tileY = 29;
 		Camera.updatePosition(5.htile(), 29.vtile());
+        
+        
+        ladder = new Ladder();
+        ladder.init(11);
+        ladder.tileX = 12;
+        ladder.tileY = 30;
+        ladder.createImmediately();
+        
+        antek2.moveByPath(AStar.obj.findPath(17, 116, 54, 80));
     }
     
     private function cmp(a: Int, b: Int) return a - b;
@@ -78,8 +89,17 @@ class PlayState extends FlxState
     
     public static function addChild(sprite: FlxBasic)
     {
+        if (sprite == null)    return;
+        if (sprite.ID == null) sprite.ID = 0;
+        
         PlayState.obj.add(sprite);
-        obj.members.sort(zOrderComparer);
+        PlayState.scheduleZReorder();
+    }
+    
+    public static function removeChild(sprite: FlxBasic)
+    {
+        PlayState.obj.members.remove(sprite);
+        PlayState.obj.remove(sprite);
     }
     
     private static function zOrderComparer(a: FlxBasic, b: FlxBasic) : Int

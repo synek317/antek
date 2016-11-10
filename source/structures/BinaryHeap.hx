@@ -18,6 +18,12 @@ class BinaryHeap<T>
         this.lastItemIndex = 0;
     }
     
+    public function clear()
+    {
+        this.items = new Array<T>();
+        this.lastItemIndex = 0;
+    }
+    
     public function insert(item: T)
     {
         if (lastItemIndex == 0)

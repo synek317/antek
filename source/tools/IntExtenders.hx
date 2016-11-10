@@ -11,4 +11,6 @@ class IntExtenders
     public static inline function hcell(x: Int)            return x * PathMap.CellWidth;
     public static inline function vcells(y: Int)           return y * PathMap.CellHeight;
     public static inline function vcell(y: Int)            return y * PathMap.CellHeight;
+    
+    public static inline function abs(x: Int)              return x >= 0 ? x : -x;
 }

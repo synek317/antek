@@ -1,4 +1,5 @@
 package objects.antek.states;
+import objects.Antek;
 
 class Walk
 {
@@ -6,23 +7,38 @@ class Walk
     {
         var destination = a.destinations.first(); 
         
-        if (destination == null)    a.finishState();
-        else if (a.at(destination)) a.destinations.pop();
-        else                        a.stepTowards(destination, elapsed);
+        if (destination == null)
+        {
+            a.finishState();
+        }
+        else if (a.at(destination))
+        {
+            a.destinations.pop();
+            a.moveToNextDestination();
+        }
+        else
+        {
+            a.stepTowards(destination, elapsed);
+        }
     }
     
     public static function moveToX(a: Antek, newX: Float) : Antek
     {
-        a.state = Antek.WALK;
-        a.subSprite.sprite.flipX = newX < a.x;
-        
         a.destinations.clear();
         a.destinations.push(new Point(newX, a.y));
+        
+        return walkToNextDestination(a);
+    }
+    
+    public static function walkToNextDestination(a: Antek) : Antek
+    {
+        a.state = Antek.WALK;
+        a.subSprite.sprite.flipX = a.destinations.first().x < a.x;
         a.subSprite.sprite.animation.play("walk");
         a.subSprite.shiftX = -30;
         a.subSprite.shiftY = -87;
         
-        return a;
+        return a;   
     }
     
     public static function moveToTileX(a: Antek, newX: Int) : Antek

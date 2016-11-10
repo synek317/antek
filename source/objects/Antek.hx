@@ -48,8 +48,8 @@ class Antek extends ASprite implements IUpdateable
     public static inline var IdleAnimFps    = 20;
     public static inline var WalkAnimSpeed = 19.0 / 40.0; //frames per pixels
     
-    public var subSprite  = new SubSprite(new FlxSprite(), 0, 0, 0);
-    public var starSprite = new SubSprite(Textures.others.createSprite("star"), -10, -115, 1);
+    public var subSprite  = new SubSprite(new FlxSprite(), 0, 0, 10);
+    public var starSprite = new SubSprite(Textures.others.createSprite("star"), -10, -115, 9999999);
     
     public var idleAnim   : FlxAnimation;
     public var buildAnim  : FlxAnimation;

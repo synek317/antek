@@ -17,6 +17,7 @@ class Graphics
         a.addSubSprite(a.starSprite);
         
         a.orgFrames = a.subSprite.sprite.frames;
+        a.z = ZOrder.Antek;
     }
 
     private static function addAnim(a: Antek, type: String, name: String) : FlxAnimation

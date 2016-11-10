@@ -22,7 +22,7 @@ class Fog
 		viewOwners       = new List<FlxSprite>();
 		viewStamp        = Textures.objects.createSprite("inverted_fog");
         
-		PlayState.obj.add(obj);
+		PlayState.addChild(obj);
 		
 		cam = new FlxCamera(0, 0, Std.int(obj.width), Std.int(obj.height), 1);
 		cam.bgColor = 0x00000000;

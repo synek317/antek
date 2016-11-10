@@ -1,6 +1,7 @@
 import Std.*;
 import haxe.io.Path;
 import haxe.ds.Vector;
+import haxe.ds.IntMap;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.geom.ColorTransform;
@@ -26,6 +27,7 @@ import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
 
 import engine.*;
 import structures.*;
+import algorithms.*;
 import tools.*;
 import tools.GlobalFunctions.*;
 
@@ -42,6 +44,7 @@ using objects.antek.Graphics;
 using objects.antek.Input;
 using objects.antek.Logic;
 using objects.antek.Selectable;
+using objects.antek.Movement;
 using objects.antek.states.Build;
 using objects.antek.states.Climb;
 using objects.antek.states.Idle;

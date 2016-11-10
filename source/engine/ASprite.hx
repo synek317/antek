@@ -14,7 +14,7 @@ class ASprite
     {
         this.subSprites.add(subSprite);
         subSprite.sprite.cameras = [FlxG.camera];
-        PlayState.obj.add(subSprite.sprite);
+        PlayState.addChild(subSprite.sprite);
         return subSprite;
     }
     

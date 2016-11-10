@@ -18,7 +18,7 @@ class Camera
 		obj.visible = false;
 		obj.cameras = [FlxG.camera];
 		
-        PlayState.obj.add(obj);
+        PlayState.addChild(obj);
 
 		FlxG.camera.follow(obj, FlxCameraFollowStyle.NO_DEAD_ZONE, 0);
 		FlxG.camera.pixelPerfectRender = true;
