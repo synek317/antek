@@ -101,3 +101,10 @@ ladder13
   orig: 40, 40
   offset: 0, 0
   index: -1
+ladder14
+  rotate: false
+  xy: 80, 160
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1

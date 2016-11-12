@@ -33,11 +33,9 @@ class Walk
     public static function walkToNextDestination(a: Antek) : Antek
     {
         a.state = Antek.WALK;
-        a.subSprite.sprite.flipX = a.destinations.first().x < a.x;
-        a.subSprite.sprite.animation.play("walk");
-        a.subSprite.shiftX = -30;
-        a.subSprite.shiftY = -87;
-        
+        a.playWalkAnim();
+        a.lookAt(a.destinations.first().x);
+    
         return a;   
     }
     

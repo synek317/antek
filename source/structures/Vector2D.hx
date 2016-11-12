@@ -1,4 +1,4 @@
-package engine;
+package structures;
 
 class Vector2D<T>
 {

@@ -194,6 +194,7 @@
             <key type="filename">images/ladder11.png</key>
             <key type="filename">images/ladder12.png</key>
             <key type="filename">images/ladder13.png</key>
+            <key type="filename">images/ladder14.png</key>
             <key type="filename">images/ladder2.png</key>
             <key type="filename">images/ladder3.png</key>
             <key type="filename">images/ladder4.png</key>

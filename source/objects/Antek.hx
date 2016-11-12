@@ -2,10 +2,10 @@ package objects;
 
 class Antek extends ASprite implements IUpdateable
 {
-    public static inline var A1 = "c01";
-    public static inline var A2 = "c02";
-    public static inline var A3 = "c03";
-    public static inline var A4 = "c04";
+    public static inline var A1     = "c01";
+    public static inline var A2     = "c02";
+    public static inline var A3     = "c03";
+    public static inline var A4     = "c04";
     
     public static inline var IDLE   = 1;
     public static inline var WALK   = 2;
@@ -14,18 +14,22 @@ class Antek extends ASprite implements IUpdateable
     public static inline var CLIMB  = 5;
     public static inline var GATHER = 6;
     
-    public var HorizontalSpeed = 60;
-    public var VerticalSpeed   = 40;
-    public var BuildsPerSecond = 2;
+    public var HorizontalSpeed      = 60;
+    public var VerticalSpeed        = 40;
+    public var BuildsPerSecond      = 7;
     
-    public var state            : Int;
-    public var scheduledActions = new List<Void->Void>();
-    
+    public var state                : Int;
+    public var scheduledActions     = new List<Void->Void>();
+    public var busy                 = false;
+    public var isMouseOver          = false;
+
     public var destinations = new List<Point>();
     public var type: String;
     
 	public function new(type: String)
 	{
+        super();
+        
         this.type = type;
         
         initGraphics(type);
@@ -45,17 +49,23 @@ class Antek extends ASprite implements IUpdateable
     public var onBuild   : Void -> Void;
     public var buildTime : Float;
 
-    public static inline var IdleAnimFps    = 20;
+    public static inline var IdleAnimFps   = 20;
     public static inline var WalkAnimSpeed = 19.0 / 40.0; //frames per pixels
     
-    public var subSprite  = new SubSprite(new FlxSprite(), 0, 0, 10);
-    public var starSprite = new SubSprite(Textures.others.createSprite("star"), -10, -115, 9999999);
+    public var subSprite       : SubSprite; 
+    public var starSprite      : SubSprite;
     
-    public var idleAnim   : FlxAnimation;
-    public var buildAnim  : FlxAnimation;
-    public var walkAnim   : FlxAnimation;
-    public var climbAnim  : FlxAnimation;
+    public var idleAnim        : FlxAnimation;
+    public var buildAnim       : FlxAnimation;
+    public var walkAnim        : FlxAnimation;
+    public var climbAnim       : FlxAnimation;
     
+    public var faceLeftShiftX  : Int = 0;
+    public var faceLeftShiftY  : Int = 0;
+    public var faceRightShiftX : Int = 0;
+    public var faceRightShiftY : Int = 0;
+
+
     public var orgFrames: FlxFramesCollection;
     
     public var _selected = false;

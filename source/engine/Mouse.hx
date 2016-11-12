@@ -2,11 +2,15 @@ package engine;
 
 class Mouse
 {
-	private static var mousePos = new FlxPoint();
-	private static var justPressedPos  = new FlxPoint();
+	private static inline var MaxDblClickTime     = 0.6; //seconds
 
-	public static var x(get, never): Float;
-	public static var y(get, never): Float;
+	private static var mousePos                  = new FlxPoint();
+	private static var justPressedPos            = new FlxPoint();
+	private static var lastClickStamp            = 0.0;
+
+	public static var x(get, never)              : Float;
+	public static var y(get, never)              : Float;
+	public static var isDblClick(default, null) : Bool;
 
 	public static function update()
 	{
@@ -16,6 +20,8 @@ class Mouse
 		{
 			justPressedPos.x = mousePos.x;
 			justPressedPos.y = mousePos.y;
+			isDblClick       = Timer.stamp() - lastClickStamp < MaxDblClickTime;
+			lastClickStamp   = Timer.stamp();
 		}
 		else if (FlxG.mouse.justReleased && mousePos.equals(justPressedPos))
 		{	

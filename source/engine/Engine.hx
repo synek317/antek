@@ -16,5 +16,6 @@ class Engine
         Zoom.update();
         Camera.update();
         Mouse.update();
+        PathMap.update();
     }
 }

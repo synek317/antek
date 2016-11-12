@@ -8,6 +8,7 @@ class LadderSpriteFactory
     private static inline var PartIndex_Skeleton = 13;
     private static inline var PartIndex_Mid_Min  = PartIndex_Top + 1;
     private static inline var PartIndex_Mid_Max  = PartIndex_Bot - 1;
+    private static inline var PartIndex_Broken   = 14;
   
     private static var point  = new Point(0, 0);
     
@@ -38,6 +39,10 @@ class LadderSpriteFactory
         
         return s;
     }
+
+    public static function createTop()    return Textures.objects.createSprite("ladder" + PartIndex_Top);
+    public static function createBroken() return Textures.objects.createSprite("ladder" + PartIndex_Broken);
+    public static function createBot()    return Textures.objects.createSprite("ladder" + PartIndex_Bot);
     
     private static inline function randomPartIndex() return random_int(PartIndex_Mid_Min, PartIndex_Mid_Max);
     
@@ -51,7 +56,7 @@ class LadderSpriteFactory
     
     private static function draw(bmp: BitmapData, partIndex: Int, tile: Int)
     {
-        point.y = tile * 40;
+        point.y = tile * LevelMap.TileHeight;
         Textures.objects.getByName("ladder" + partIndex).paint(bmp, point);
     }
 }

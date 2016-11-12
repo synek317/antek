@@ -34,7 +34,16 @@ class LevelMap
     
     public static inline function updateBuffers()    return obj.updateBuffers();
     public static inline function at(x: Int, y: Int) return obj.getTile(x, y);
-    
+
+    public static inline function isGroundAt(x: Int, y: Int)
+    {
+        switch(at(x, y))
+        {
+            case 1 | 2 | 3 | 4 | 5: return true;
+            default:                return false;
+        }
+    }
+
     private static function createLayer(layer: TiledTileLayer): Void
     {
         var tileSet          = findTileSet(layer);

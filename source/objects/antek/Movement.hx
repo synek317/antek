@@ -32,10 +32,14 @@ class Movement
         
         for (node in path)
         {
-            trace(new Point(node.x, node.y));
             a.destinations.add(new Point(node.x.hcell(), node.y.vcell()));
         }
         
         return moveToNextDestination(a);
+    }
+
+    public static function moveTo(a: Antek, cellX: Int, cellY: Int)
+    {
+        return a.moveByPath(AStar.obj.findPath(a.x.to_hcell(), a.y.to_hcell(), cellX, cellY));
     }
 }

@@ -13,31 +13,43 @@ class BuildLadder
     
     public function action()
     {
-        antek.moveToX(ladder.x - LevelMap.HalfTileWidth)
+        antek.busy = true;
+        antek.moveTo(ladder.x.to_hcell() - 2, ladder.y.to_vcell())
             .then(antek.turnRight)
             .then(build);
     }
     
-    private function build()
+    public static function start(antek: Antek, tileX: Int, tileY: Int, height: Int)
     {
-        antek.build(buildLadder);
+        var ladder = Ladder.create(tileX, tileY, height);
+
+        new BuildLadder(antek, ladder).action();
     }
     
     private function buildLadder()
     {
         if (!ladder.step())
         {
-            antek.climb((ladder.tileY - 1).htiles())
-                .then(antek.idle);
+            if(antek.tileY < ladder.tileY)
+            {
+                antek.climb((ladder.tileY - ladder.heightTiles).htiles())
+                    .then(climbOnTop)
+                    .then(stopBuilding);
+            }
+            else
+            {
+                stopBuilding();
+            }
         }
         else if (ladder.tileY - ladder.heightTiles < antek.tileY - 2)
         {
-            climb().then(build);
+            climbStep().then(build);
         }
     }
     
-    private function climb()
-    {
-        return antek.climbBy(-2.htiles());
-    }
+
+    private function build()        antek.build(buildLadder);
+    private function climbStep()    return antek.climbBy(-2.htiles());
+    private function climbOnTop()   antek.moveTo(antek.x.to_hcell()+2, antek.y.to_vcell());
+    private function stopBuilding() { antek.busy = false; antek.idle(); }
 }

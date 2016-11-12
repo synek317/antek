@@ -18,7 +18,7 @@ class Input
 
     public static function onMouseUp(a: Antek, o: FlxObject)
     {
-        if (Game.state != GameStates.Idle) return;
+        if (Game.state != GameState.Idle) return;
         
         a.selected = !a.selected;
         Game.selected = a.selected ? a : null;
@@ -26,15 +26,17 @@ class Input
 
     private static function onMouseOver(a: Antek, _: FlxObject)
     {
-        if (Game.state != GameStates.Idle) return;
+        if (Game.state != GameState.Idle) return;
         
         Textures.getGlowedAntek(a.type, a.subSprite.sprite).applyToSprite(a.subSprite.sprite, true);
+        a.isMouseOver = true;
     }
 
     private static function onMouseOut(a: Antek, _: FlxObject)
     {
-        if (Game.state != GameStates.Idle) return;
+        if (!a.isMouseOver) return;
         
         a.subSprite.sprite.setFrames(a.orgFrames, true);
+        a.isMouseOver = false;
     }
 }
