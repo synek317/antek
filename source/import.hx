@@ -39,6 +39,7 @@ import game.*;
 import actions.*;
 import objects.*;
 import objects.factories.*;
+import objects.decorations.*;
 
 using tools.IntExtenders;
 using tools.FloatExtenders;

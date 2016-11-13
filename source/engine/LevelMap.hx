@@ -12,7 +12,7 @@ class LevelMap
 	public static function init(tiledMap: TiledMap)
 	{
 		obj = new FlxTilemap();
-        
+
 		for (layer in tiledMap.layers)
 		{
             if (layer.type == TiledLayerType.TILE)

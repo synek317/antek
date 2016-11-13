@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.2.3</string>
         <key>fileName</key>
-        <string>C:/haxe/antek/raw_assets/decorations/decorations.tps</string>
+        <string>/g/antek/raw_assets/decorations/decorations.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -188,32 +188,22 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">images/bird_1.png</key>
-            <key type="filename">images/bird_2.png</key>
-            <key type="filename">images/bird_3.png</key>
-            <key type="filename">images/bridge_tile_end_L.png</key>
-            <key type="filename">images/bridge_tile_end_R.png</key>
-            <key type="filename">images/bridge_tile_middle.png</key>
-            <key type="filename">images/bush_1.png</key>
-            <key type="filename">images/bush_2.png</key>
-            <key type="filename">images/bush_anima_1.png</key>
-            <key type="filename">images/bush_anima_2.png</key>
-            <key type="filename">images/bush_anima_3.png</key>
-            <key type="filename">images/bush_anima_4.png</key>
+            <key type="filename">images/bird/01.png</key>
+            <key type="filename">images/bird/02.png</key>
+            <key type="filename">images/bird/03.png</key>
+            <key type="filename">images/bush1.png</key>
+            <key type="filename">images/bush2.png</key>
             <key type="filename">images/bush_flowers.png</key>
-            <key type="filename">images/deco_1.png</key>
-            <key type="filename">images/flag1.png</key>
-            <key type="filename">images/flag2.png</key>
-            <key type="filename">images/flag3.png</key>
-            <key type="filename">images/flag4.png</key>
-            <key type="filename">images/flag5.png</key>
+            <key type="filename">images/bush_rabbit/01.png</key>
+            <key type="filename">images/bush_rabbit/02.png</key>
+            <key type="filename">images/bush_rabbit/03.png</key>
+            <key type="filename">images/bush_rabbit/04.png</key>
             <key type="filename">images/rabbit.png</key>
-            <key type="filename">images/rocks_1.png</key>
-            <key type="filename">images/rocks_2.png</key>
-            <key type="filename">images/rocks_3.png</key>
-            <key type="filename">images/rocks_4.png</key>
-            <key type="filename">images/tree_1.png</key>
-            <key type="filename">images/tree_2.png</key>
+            <key type="filename">images/rocks1.png</key>
+            <key type="filename">images/rocks2.png</key>
+            <key type="filename">images/rocks3.png</key>
+            <key type="filename">images/rocks4.png</key>
+            <key type="filename">images/shroom.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.2.3</string>
         <key>fileName</key>
-        <string>C:/haxe/antek/raw_assets/objects/objects.tps</string>
+        <string>/g/antek/raw_assets/objects/objects.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -188,6 +188,14 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">images/bridge1.png</key>
+            <key type="filename">images/bridge2.png</key>
+            <key type="filename">images/bridge3.png</key>
+            <key type="filename">images/flag1.png</key>
+            <key type="filename">images/flag2.png</key>
+            <key type="filename">images/flag3.png</key>
+            <key type="filename">images/flag4.png</key>
+            <key type="filename">images/flag5.png</key>
             <key type="filename">images/ladder0.png</key>
             <key type="filename">images/ladder1.png</key>
             <key type="filename">images/ladder10.png</key>
@@ -203,6 +211,8 @@
             <key type="filename">images/ladder7.png</key>
             <key type="filename">images/ladder8.png</key>
             <key type="filename">images/ladder9.png</key>
+            <key type="filename">images/tree1.png</key>
+            <key type="filename">images/tree2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

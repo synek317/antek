@@ -27,17 +27,17 @@ class Decorations
     {
         switch(id)
         {
-            case Consts.DecoBird:        DecoBird.create(o);
-            case Consts.DecoBush1:       DecoStatic.create("bush_1", o);
-            case Consts.DecoBush2:       DecoStatic.create("bush_2", o);
-            case Consts.DecoBushFlowers: DecoStatic.create("bush_flowers", o);
-            case Consts.DecoBushRabbit:  DecoAnimated.create("bush_anima", o);
-            case Consts.DecoRabbit:      DecoStatic.create("rabbit", o);
-            case Consts.DecoRock1:       DecoStatic.create("rocks_1", o);
-            case Consts.DecoRock2:       DecoStatic.create("rocks_2", o);
-            case Consts.DecoRock3:       DecoStatic.create("rocks_3", o);
-            case Consts.DecoRock4:       DecoStatic.create("rocks_4", o);
-            case Consts.DecoShroom:      DecoStatic.create("deco_1", o);
+            case Consts.DecoBird:        DecoBird.create("bird", obj);
+            case Consts.DecoBush1:       DecoStatic.create("bush1", obj);
+            case Consts.DecoBush2:       DecoStatic.create("bush2", obj);
+            case Consts.DecoBushFlowers: DecoStatic.create("bush_flowers", obj);
+            case Consts.DecoBushRabbit:  DecoAnim.create("bush_rabbit", obj);
+            case Consts.DecoRabbit:      DecoStatic.create("rabbit", obj);
+            case Consts.DecoRock1:       DecoStatic.create("rocks1", obj);
+            case Consts.DecoRock2:       DecoStatic.create("rocks2", obj);
+            case Consts.DecoRock3:       DecoStatic.create("rocks3", obj);
+            case Consts.DecoRock4:       DecoStatic.create("rocks4", obj);
+            case Consts.DecoShroom:      DecoStatic.create("shroom", obj);
         }
     }
 }

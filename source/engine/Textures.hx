@@ -4,15 +4,17 @@ import haxe.ds.Vector;
 
 class Textures
 {
-    private static var _objects:              FlxAtlasFrames;
-    private static var _characters:           FlxAtlasFrames;
-    private static var _enemies:              FlxAtlasFrames;
-    private static var _others:               FlxAtlasFrames;
+    private static var _objects:               FlxAtlasFrames;
+    private static var _characters:            FlxAtlasFrames;
+    private static var _enemies:               FlxAtlasFrames;
+    private static var _others:                FlxAtlasFrames;
+    private static var _decorations:           FlxAtlasFrames;
 
-    public static var objects(get, never):    FlxAtlasFrames;
-    public static var characters(get, never): FlxAtlasFrames;
-    public static var enemies(get, never):    FlxAtlasFrames;
-    public static var others(get, never):     FlxAtlasFrames;
+    public static var objects(get, never):     FlxAtlasFrames;
+    public static var characters(get, never):  FlxAtlasFrames;
+    public static var enemies(get, never):     FlxAtlasFrames;
+    public static var others(get, never):      FlxAtlasFrames;
+    public static var decorations(get, never): FlxAtlasFrames;
     
     private static function get_objects()
     {
@@ -36,6 +38,12 @@ class Textures
     {
         if (_enemies == null) _enemies = Load("others");
         return _enemies;
+    }
+
+    private static function get_decorations()
+    {
+        if (_decorations == null) _decorations = Load("decorations");
+        return _decorations;
     }
     
     private static function Load(name: String): FlxAtlasFrames
