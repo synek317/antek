@@ -30,7 +30,7 @@ class BuildLadder
 
         if(FlxG.mouse.justDblClicked() && Game.ladder.visible)
         {
-            actions.BuildLadder.start(Game.selected, Game.ladder.tileX, Game.ladder.tileY, Game.ladder.heightTiles);
+            actions.BuildLadder.start(Game.selected, Game.ladder.position, Game.ladder.size.heightInTiles);
             exit();
         }
     }
@@ -44,7 +44,7 @@ class BuildLadder
 
     private static function initLadder()
     {
-        Game.ladder              = Ladder.createDummy(0, 0, 1);
+        Game.ladder              = Ladder.createDummy(Position.fromTile(0, 0), 1);
         Game.invalidLadder       = new InvalidLadder();
 
         Game.ladder.alpha        = 0.5;
@@ -78,24 +78,26 @@ class BuildLadder
         }
 
         if (top != -1 && bot != -1
-            && AStar.obj.isAchievable(Game.selected.x.to_hcell(), Game.selected.y.to_vcell(), Game.mouseTileX * Consts.CellsPerHTile, bot * Consts.CellsPerVTile))
+            && ObjectsMap.canPlaceXYTiles(Game.mouseTileX, top, Game.mouseTileX + 1, bot + 1)
+            && AStar.obj.isAchievable(Game.selected.position, Game.mouseTileX * Consts.CellsPerHTile, bot * Consts.CellsPerVTile))
         {
             var height = (top-bot).abs()+2;
-            if(height != Game.ladder.heightTiles)
+            if(height != Game.ladder.size.heightInTiles)
             {
                 Game.ladder.init(height);
                 Game.ladder.createImmediately();
             }
-            Game.ladder.tileX = Game.mouseTileX;
-            Game.ladder.tileY = bot;
-            Game.ladder.visible = true;
+            
+            Game.ladder.position.tileX = Game.mouseTileX;
+            Game.ladder.position.tileY = bot;
+            Game.ladder.show();
         }
         else
         {
             Game.ladder.visible = false;
             
-            Game.invalidLadder.tileX = Game.mouseTileX;
-            Game.invalidLadder.tileY = Game.mouseTileY - (if (LevelMap.isGroundAt(Game.mouseTileX, Game.mouseTileY)) { 1; } else { 0; });
+            Game.invalidLadder.position.tileX = Game.mouseTileX;
+            Game.invalidLadder.position.tileY = Game.mouseTileY - (if (LevelMap.isGroundAt(Game.mouseTileX, Game.mouseTileY)) { 1; } else { 0; });
         }
 
         Game.invalidLadder.visible = !Game.ladder.visible;

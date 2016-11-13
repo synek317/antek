@@ -6,8 +6,8 @@ class Movement
 {
     public static function moveToCell(a: Antek, x: Int, y: Int) : Antek
     {
-        if (a.x.to_hcell() != x) return a.moveToX(x.hcell());
-        if (a.y.to_vcell() != y) return a.climb(y.vcell());
+        if (a.position.cellX != x) return a.moveToX(x.hcell());
+        if (a.position.cellY != y) return a.climb(y.vcell());
         
         return a;
     }
@@ -18,8 +18,8 @@ class Movement
         
         if (next == null) return a;
         
-        if (a.x.to_hcell() != next.x.to_hcell()) return a.walkToNextDestination();
-        if (a.y.to_vcell() != next.y.to_vcell()) return a.climbToNextDestination();
+        if (a.position.cellX != next.x.to_hcell()) return a.walkToNextDestination();
+        if (a.position.cellY != next.y.to_vcell()) return a.climbToNextDestination();
         
         return a;
     }
@@ -40,6 +40,6 @@ class Movement
 
     public static function moveTo(a: Antek, cellX: Int, cellY: Int)
     {
-        return a.moveByPath(AStar.obj.findPath(a.x.to_hcell(), a.y.to_hcell(), cellX, cellY));
+        return a.moveByPath(AStar.obj.findPath(a.position, cellX, cellY));
     }
 }

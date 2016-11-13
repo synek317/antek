@@ -2,11 +2,6 @@ package engine;
 
 class LevelMap
 {
-    public static inline var TileHeight     : Int = 40;
-    public static inline var TileWidth      : Int = 40;
-    public static inline var HalfTileHeight : Int = 40;
-    public static inline var HalfTileWidth  : Int = 20;
-
 	private static var obj: FlxTilemap;
 
     public static var widthInPixels(get, never): Float;
@@ -14,12 +9,10 @@ class LevelMap
     public static var widthInTiles(get, never): Int;
     public static var heightInTiles(get, never): Int;
 	
-	public static function init(tiledLevel:String)
+	public static function init(tiledMap: TiledMap)
 	{
 		obj = new FlxTilemap();
-
-		var tiledMap = new TiledMap(tiledLevel);
-
+        
 		for (layer in tiledMap.layers)
 		{
             if (layer.type == TiledLayerType.TILE)

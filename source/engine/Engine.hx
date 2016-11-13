@@ -4,10 +4,14 @@ class Engine
 {
     public static function init(tiledLevel: String)
     {
-        LevelMap.init(tiledLevel);
+        var tiledMap = new TiledMap(tiledLevel);
+
+        LevelMap.init(tiledMap);
         Camera.init();
         Zoom.init();
         PathMap.init();
+        ObjectsMap.init();
+        Decorations.init(tiledMap);
         Fog.init();
     }
 

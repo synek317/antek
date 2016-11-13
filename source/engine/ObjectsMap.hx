@@ -1,43 +1,90 @@
 package engine;
 
-interface IObject
-{
-    var position: Position;
-    var size: Size;
-    var objectType(get, never);
-}
-
-class ObjectsMap
+    class ObjectsMap
 {
     private static var map : CellMap;
-
-    public static var width(get, never)  : Int;
-    public static var height(get, never) : Int;
 
     public static function init()
     {
         map = new CellMap(LevelMap.widthInTiles * Consts.CellsPerHTile, LevelMap.heightInTiles * Consts.CellsPerVTile);
     }
 
-    public static function place(obj: IObject)
+    public inline static function place(obj: IObject)
     {
-        for(y in obj.position.cellY...(obj.position.cellY + obj.size.heightInCells))
+        return placeXYCells(
+            obj.position.cellX,
+            obj.position.cellY,
+            obj.position.cellX + obj.size.widthInCells,
+            obj.position.cellY + obj.size.heightInCells,
+            obj.objectType
+        );
+    }
+
+    public static inline function placeXYTiles(leftTile: Int, topTile: Int, rightTile: Int, botTile: Int, objType: Int)
+    {
+        return placeXYCells(
+            leftTile  * Consts.CellsPerHTile,
+            topTile   * Consts.CellsPerVTile,
+            rightTile * Consts.CellsPerHTile,
+            botTile   * Consts.CellsPerVTile,
+            objType
+        );
+    }
+
+    public static function placeXYCells(leftCell: Int, topCell: Int, rightCell: Int, botCell: Int, objType: Int)
+    {
+        trace('Place $leftCell, $topCell, $rightCell, $botCell, $objType');
+        var x: Int;
+        var y: Int = topCell;
+
+        while(y < botCell)
         {
-            for(x in obj.position.cellX...(obj.position.cellX + obj.size.widthInCells))
+            x = leftCell;
+            while(x < rightCell)
             {
-                map.setAt(x, y, obj.objectType);
+                map.setAt(x, y, objType);
+                ++x;
             }
+            ++y;
         }
     }
 
-    public static function canPlace(obj: IObject)
+    public inline static function canPlace(obj: IObject)
     {
-        for(y in obj.position.cellY...(obj.position.cellY + obj.size.heightInCells))
+        return canPlaceXYCells(
+            obj.position.cellX,
+            obj.position.cellY,
+            obj.position.cellX + obj.size.widthInCells,
+            obj.position.cellY + obj.size.heightInCells
+        );
+    }
+
+    public static inline function canPlaceXYTiles(leftTile: Int, topTile: Int, rightTile: Int, botTile: Int)
+    {
+        return canPlaceXYCells(
+            leftTile  * Consts.CellsPerHTile,
+            topTile   * Consts.CellsPerVTile,
+            rightTile * Consts.CellsPerHTile,
+            botTile   * Consts.CellsPerVTile
+        );
+    }
+
+    public static function canPlaceXYCells(leftCell: Int, topCell: Int, rightCell: Int, botCell: Int)
+    {
+        trace('CanPlace? $leftCell, $topCell, $rightCell, $botCell');
+
+        var x: Int;
+        var y: Int = topCell;
+
+        while(y < botCell)
         {
-            for(x in obj.position.cellX...(obj.position.cellX + obj.size.widthInCells))
+            x = leftCell;
+            while(x < rightCell)
             {
                 if (map.at(x, y) != 0) return false;
+                ++x;
             }
+            ++y;
         }
 
         return true;

@@ -14,9 +14,9 @@ class Antek extends ASprite implements IUpdateable
     public static inline var CLIMB  = 5;
     public static inline var GATHER = 6;
     
-    public var HorizontalSpeed      = 60;
+    public var HorizontalSpeed      = 50;
     public var VerticalSpeed        = 40;
-    public var BuildsPerSecond      = 7;
+    public var BuildsPerSecond      = 3;
     
     public var state                : Int;
     public var scheduledActions     = new List<Void->Void>();
@@ -29,6 +29,7 @@ class Antek extends ASprite implements IUpdateable
 	public function new(type: String)
 	{
         super();
+        this.position.tileShiftX = Consts.HalfTileWidth;
         
         this.type = type;
         
@@ -38,6 +39,7 @@ class Antek extends ASprite implements IUpdateable
 
         Objects.register(this);
         subSprite.sprite.graphic.persist = true;
+        Fog.register(subSprite.sprite);
     }
     
     public function update(elapsed:Float):Void 

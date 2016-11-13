@@ -48,7 +48,7 @@ class LadderSpriteFactory
     
     private static function initSprite(s: FlxSprite, tiles_height: Int)
     {
-        s.pixels = new BitmapData(PixelWidth, tiles_height * LevelMap.TileHeight);
+        s.pixels = new BitmapData(PixelWidth, tiles_height * Consts.TileHeight);
         
         draw(s.pixels, PartIndex_Top, 0);
         draw(s.pixels, PartIndex_Bot, tiles_height - 1);
@@ -56,7 +56,7 @@ class LadderSpriteFactory
     
     private static function draw(bmp: BitmapData, partIndex: Int, tile: Int)
     {
-        point.y = tile * LevelMap.TileHeight;
+        point.y = tile * Consts.TileHeight;
         Textures.objects.getByName("ladder" + partIndex).paint(bmp, point);
     }
 }

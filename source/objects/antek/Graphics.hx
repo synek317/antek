@@ -31,7 +31,7 @@ class Graphics
 
     public static inline function lookAt(a: Antek, x: Float)
     {
-        if(x < a.x) a.turnLeft(); else a.turnRight();
+        if(x < a.position.x) a.turnLeft(); else a.turnRight();
     }
 
     public static function playBuildAnim(a: Antek) a.playAnim("build", -30, -87, -30, -87);

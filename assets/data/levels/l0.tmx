@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="22" height="30" tilewidth="40" tileheight="40" backgroundcolor="#b0d8e6" nextobjectid="12">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="22" height="30" tilewidth="40" tileheight="40" backgroundcolor="#b0d8e6" nextobjectid="52">
  <tileset firstgid="1" name="tiles" tilewidth="40" tileheight="40" tilecount="5" columns="5">
   <image source="../../images/tiles.png" width="200" height="40"/>
+ </tileset>
+ <tileset firstgid="6" name="decorations" tilewidth="87" tileheight="70" tilecount="11" columns="0">
+  <tile id="0">
+   <image width="45" height="45" source="../../../raw_assets/decorations/images/bird_1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="87" height="59" source="../../../raw_assets/decorations/images/bush_1.png"/>
+  </tile>
+  <tile id="2">
+   <image width="68" height="50" source="../../../raw_assets/decorations/images/bush_2.png"/>
+  </tile>
+  <tile id="3">
+   <image width="68" height="50" source="../../../raw_assets/decorations/images/bush_anima_1.png"/>
+  </tile>
+  <tile id="4">
+   <image width="70" height="47" source="../../../raw_assets/decorations/images/bush_flowers.png"/>
+  </tile>
+  <tile id="5">
+   <image width="33" height="30" source="../../../raw_assets/decorations/images/deco_1.png"/>
+  </tile>
+  <tile id="6">
+   <image width="70" height="70" source="../../../raw_assets/decorations/images/rabbit.png"/>
+  </tile>
+  <tile id="7">
+   <image width="53" height="33" source="../../../raw_assets/decorations/images/rocks_1.png"/>
+  </tile>
+  <tile id="8">
+   <image width="50" height="23" source="../../../raw_assets/decorations/images/rocks_2.png"/>
+  </tile>
+  <tile id="9">
+   <image width="52" height="32" source="../../../raw_assets/decorations/images/rocks_3.png"/>
+  </tile>
+  <tile id="10">
+   <image width="75" height="40" source="../../../raw_assets/decorations/images/rocks_4.png"/>
+  </tile>
  </tileset>
  <layer name="tiles" width="22" height="30">
   <properties>
@@ -40,4 +75,32 @@
 0,1,4,4,3,3,4,4,3,3,4,4,4,4,4,4,5,4,4,5,2,0
 </data>
  </layer>
+ <objectgroup name="objects">
+  <object id="27" gid="6" x="-55.3333" y="928.061" width="45" height="45"/>
+  <object id="28" gid="6" x="899.212" y="452.303" width="45" height="45"/>
+  <object id="29" gid="6" x="-55.3333" y="100.788" width="45" height="45"/>
+  <object id="30" gid="9" x="84.1818" y="1173.48" width="68" height="50"/>
+  <object id="31" gid="2147483657" x="547.818" y="328.03" width="68" height="50"/>
+  <object id="32" gid="8" x="575.091" y="809.848" width="68" height="50"/>
+  <object id="33" gid="8" x="190.242" y="809.848" width="68" height="50"/>
+  <object id="34" gid="7" x="111.545" y="965.364" width="87" height="59"/>
+  <object id="35" gid="2147483655" x="723.667" y="162.333" width="87" height="59"/>
+  <object id="36" gid="13" x="343.697" y="567.515" width="53" height="33"/>
+  <object id="37" gid="14" x="787.121" y="807.97" width="50" height="23"/>
+  <object id="38" gid="15" x="301.273" y="970.545" width="52" height="32"/>
+  <object id="39" gid="15" x="367.939" y="328.121" width="52" height="32"/>
+  <object id="40" gid="11" x="353.697" y="1172.58" width="33" height="30"/>
+  <object id="41" gid="11" x="368.848" y="1166.52" width="33" height="30"/>
+  <object id="42" gid="11" x="387.03" y="1172.58" width="33" height="30"/>
+  <object id="43" gid="11" x="90.0606" y="805.909" width="33" height="30"/>
+  <object id="44" gid="11" x="408.242" y="563.485" width="33" height="30"/>
+  <object id="45" gid="11" x="608.242" y="805.909" width="33" height="30"/>
+  <object id="46" gid="11" x="229.455" y="327.121" width="33" height="30"/>
+  <object id="47" gid="16" x="747.848" y="577.576" width="75" height="40"/>
+  <object id="48" gid="16" x="47.8485" y="171.515" width="75" height="40"/>
+  <object id="49" gid="16" x="76.2424" y="175.545" width="75" height="40"/>
+  <object id="50" gid="10" x="737.727" y="592.697" width="70" height="47"/>
+  <object id="51" gid="10" x="434.697" y="1192.7" width="70" height="47"/>
+ </objectgroup>
+ <objectgroup name="decorations"/>
 </map>

@@ -27,9 +27,11 @@ import flixel.input.mouse.FlxMouseEventManager;
 import flixel.addons.editors.tiled.*;
 import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
 
-import engine.*;
+import interfaces.*;
+import types.*;
 import structures.*;
 import algorithms.*;
+import engine.*;
 import tools.*;
 import tools.GlobalFunctions.*;
 import game.*;

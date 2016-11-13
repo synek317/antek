@@ -21,14 +21,14 @@ class SubSprite
     private inline function set_shiftX(val)
     {
         this.shiftX = val;
-        parent.updateSubSpritesX();
+        parent.updateSubSpritesX(parent.position.x);
         return this.shiftX;
     }
 
     private inline function set_shiftY(val)
     {
         this.shiftY = val;
-        parent.updateSubSpritesY();
+        parent.updateSubSpritesY(parent.position.y);
         return this.shiftY;
     }
 

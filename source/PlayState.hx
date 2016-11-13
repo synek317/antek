@@ -23,10 +23,10 @@ class PlayState extends FlxState
 
         antek2 = new Antek(Antek.A1);
 
-        antek1.tileX = 2;
-        antek1.tileY = 29;
-        antek2.tileX = 4;
-        antek2.tileY = 29;
+        antek1.position.tileX = 2;
+        antek1.position.tileY = 29;
+        antek2.position.tileX = 4;
+        antek2.position.tileY = 29;
 		Camera.updatePosition(5.htile(), 29.vtile());
 
         // ladder = new Ladder();
@@ -36,14 +36,14 @@ class PlayState extends FlxState
 
         var antek3 = new Antek(Antek.A3);
 
-        antek3.tileX = 14;
-        antek3.tileY = 29;
+        antek3.position.tileX = 14;
+        antek3.position.tileY = 29;
 
 
         var antek4 = new Antek(Antek.A4);
 
-        antek4.tileX = 20;
-        antek4.tileY = 29;
+        antek4.position.tileX = 20;
+        antek4.position.tileY = 29;
 
         // ladder.createImmediately();
 

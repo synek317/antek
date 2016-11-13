@@ -14,14 +14,14 @@ class BuildLadder
     public function action()
     {
         antek.busy = true;
-        antek.moveTo(ladder.x.to_hcell() - 2, ladder.y.to_vcell())
+        antek.moveTo(ladder.position.cellX - 2, ladder.position.cellY)
             .then(antek.turnRight)
             .then(build);
     }
     
-    public static function start(antek: Antek, tileX: Int, tileY: Int, height: Int)
+    public static function start(antek: Antek, pos: Position, height: Int)
     {
-        var ladder = Ladder.create(tileX, tileY, height);
+        var ladder = Ladder.createReal(pos, height);
 
         new BuildLadder(antek, ladder).action();
     }
@@ -30,9 +30,9 @@ class BuildLadder
     {
         if (!ladder.step())
         {
-            if(antek.tileY < ladder.tileY)
+            if(antek.position.tileY < ladder.position.tileY)
             {
-                antek.climb((ladder.tileY - ladder.heightTiles).htiles())
+                antek.climb((ladder.position.tileY - ladder.currentHeightInTiles).htiles())
                     .then(climbOnTop)
                     .then(stopBuilding);
             }
@@ -41,7 +41,7 @@ class BuildLadder
                 stopBuilding();
             }
         }
-        else if (ladder.tileY - ladder.heightTiles < antek.tileY - 2)
+        else if (ladder.position.tileY - ladder.currentHeightInTiles < antek.position.tileY - 2)
         {
             climbStep().then(build);
         }
@@ -50,6 +50,6 @@ class BuildLadder
 
     private function build()        antek.build(buildLadder);
     private function climbStep()    return antek.climbBy(-2.htiles());
-    private function climbOnTop()   antek.moveTo(antek.x.to_hcell()+2, antek.y.to_vcell());
+    private function climbOnTop()   antek.moveTo(antek.position.cellX + 2, antek.position.cellY);
     private function stopBuilding() { antek.busy = false; antek.idle(); }
 }

@@ -20,15 +20,15 @@ class AStar
 
     public function new() {}
 
-    public function findPath(fromX: Int, fromY: Int, toX: Int, toY: Int) : List<AStarNode>
+    public function findPath(from: Position, toX: Int, toY: Int) : List<AStarNode>
     {
-        if(isAchievable(fromX, fromY, toX, toY)) return createPath(); else return EmptyPath;
+        if(isAchievable(from, toX, toY)) return createPath(); else return EmptyPath;
     }
 
-    public function isAchievable(fromX: Int, fromY: Int, toX: Int, toY: Int) : Bool
+    public function isAchievable(from: Position, toX: Int, toY: Int) : Bool
     {
         init();
-        open(new AStarNode(fromX, fromY, null));
+        open(new AStarNode(from.cellX, from.cellY, null));
 
         while (!openedList.isEmpty())
         {

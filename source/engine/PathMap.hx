@@ -84,8 +84,8 @@ class PathMap
 
     private static function debugDrawCell(x: Int, y: Int)
     {
-        var cellWidth  = LevelMap.TileWidth  / Consts.CellsPerHTile;
-        var cellHeight = LevelMap.TileHeight / Consts.CellsPerVTile;
+        var cellWidth  = Consts.TileWidth  / Consts.CellsPerHTile;
+        var cellHeight = Consts.TileHeight / Consts.CellsPerVTile;
 
         switch(at(x, y))
         {

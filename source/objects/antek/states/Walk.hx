@@ -25,7 +25,7 @@ class Walk
     public static function moveToX(a: Antek, newX: Float) : Antek
     {
         a.destinations.clear();
-        a.destinations.push(new Point(newX, a.y));
+        a.destinations.push(new Point(newX, a.position.y));
         
         return walkToNextDestination(a);
     }
@@ -41,27 +41,27 @@ class Walk
     
     public static function moveToTileX(a: Antek, newX: Int) : Antek
     {
-        return a.moveToX(LevelMap.TileWidth * newX + LevelMap.HalfTileWidth);
+        return a.moveToX(Consts.TileWidth * newX + Consts.HalfTileWidth);
     }
     
-    public static function teleportTo(a: Antek, ?newX: Float, ?newY: Float) : Antek
+    public static function teleportTo(a: Antek, ?newX: Int, ?newY: Int) : Antek
     {
-        if (newX != null) a.x = newX;
-        if (newY != null) a.y = newY;
+        if (newX != null) a.position.x = newX;
+        if (newY != null) a.position.y = newY;
         return a;
     }
     
     public static function stepTowards(a: Antek, p: Point, elapsed: Float)
     {
-        if (a.x < p.x)      a.x = Math.min(a.x + a.HorizontalSpeed * elapsed, p.x);
-        else if (a.x > p.x) a.x = Math.max(a.x - a.HorizontalSpeed * elapsed, p.x);
+        if (a.position.x < p.x)      a.position.x = min(a.position.x + a.HorizontalSpeed * elapsed, p.x);
+        else if (a.position.x > p.x) a.position.x = max(a.position.x - a.HorizontalSpeed * elapsed, p.x);
         
-        if (a.y < p.y)     a.y = Math.min(a.y + a.VerticalSpeed * elapsed, p.y);
-        else if(a.y > p.y) a.y = Math.max(a.y - a.VerticalSpeed * elapsed, p.y);
+        if (a.position.y < p.y)      a.position.y = min(a.position.y + a.VerticalSpeed * elapsed, p.y);
+        else if(a.position.y > p.y)  a.position.y = max(a.position.y - a.VerticalSpeed * elapsed, p.y);
     }
     
     public static function at(a: Antek, p: Point) : Bool
     {
-        return p.x == a.x && p.y == a.y;
+        return p.x == a.position.x && p.y == a.position.y;
     }
 }
