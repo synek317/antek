@@ -1,187 +1,117 @@
 decorations.png
-size: 244, 517
+size: 210, 248
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-bird
+bird/01
   rotate: false
-  xy: 180, 30
+  xy: 75, 33
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
-  index: 1
-bird
+  index: -1
+bird/02
   rotate: false
-  xy: 0, 75
+  xy: 165, 33
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
-  index: 2
-bird
+  index: -1
+bird/03
   rotate: false
-  xy: 45, 75
+  xy: 120, 33
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
-  index: 3
-bridge_tile_end_L
-  rotate: false
-  xy: 132, 0
-  size: 39, 29
-  orig: 39, 29
-  offset: 0, 0
   index: -1
-bridge_tile_end_R
+bush1
   rotate: false
-  xy: 90, 0
-  size: 42, 29
-  orig: 42, 29
-  offset: 0, 0
-  index: -1
-bridge_tile_middle
-  rotate: false
-  xy: 0, 0
-  size: 40, 23
-  orig: 40, 23
-  offset: 0, 0
-  index: -1
-bush
-  rotate: false
-  xy: 68, 175
+  xy: 0, 178
   size: 87, 59
   orig: 87, 59
   offset: 0, 0
-  index: 1
-bush
+  index: -1
+bush2
   rotate: false
-  xy: 160, 75
+  xy: 138, 78
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
-  index: 2
-bush_anima
-  rotate: false
-  xy: 0, 125
-  size: 68, 50
-  orig: 68, 50
-  offset: 0, 0
-  index: 1
-bush_anima
-  rotate: false
-  xy: 68, 125
-  size: 68, 50
-  orig: 68, 50
-  offset: 0, 0
-  index: 2
-bush_anima
-  rotate: false
-  xy: 136, 125
-  size: 68, 50
-  orig: 68, 50
-  offset: 0, 0
-  index: 3
-bush_anima
-  rotate: false
-  xy: 0, 175
-  size: 68, 50
-  orig: 68, 50
-  offset: 0, 0
-  index: 4
+  index: -1
 bush_flowers
   rotate: false
-  xy: 90, 75
+  xy: 0, 78
   size: 70, 47
   orig: 70, 47
   offset: 0, 0
   index: -1
-deco
+bush_rabbit/01
   rotate: false
-  xy: 171, 0
-  size: 33, 30
-  orig: 33, 30
-  offset: 0, 0
-  index: 1
-flag1
-  rotate: false
-  xy: 0, 245
-  size: 47, 98
-  orig: 47, 98
+  xy: 70, 78
+  size: 68, 50
+  orig: 68, 50
   offset: 0, 0
   index: -1
-flag2
+bush_rabbit/02
   rotate: false
-  xy: 94, 245
-  size: 47, 98
-  orig: 47, 98
+  xy: 0, 128
+  size: 68, 50
+  orig: 68, 50
   offset: 0, 0
   index: -1
-flag3
+bush_rabbit/03
   rotate: false
-  xy: 47, 245
-  size: 47, 98
-  orig: 47, 98
+  xy: 68, 128
+  size: 68, 50
+  orig: 68, 50
   offset: 0, 0
   index: -1
-flag4
+bush_rabbit/04
   rotate: false
-  xy: 141, 245
-  size: 47, 98
-  orig: 47, 98
-  offset: 0, 0
-  index: -1
-flag5
-  rotate: false
-  xy: 188, 245
-  size: 47, 98
-  orig: 47, 98
+  xy: 136, 128
+  size: 68, 50
+  orig: 68, 50
   offset: 0, 0
   index: -1
 rabbit
   rotate: false
-  xy: 155, 175
+  xy: 87, 178
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
   index: -1
-rocks
+rocks1
   rotate: false
-  xy: 52, 30
+  xy: 135, 0
   size: 53, 33
   orig: 53, 33
   offset: 0, 0
-  index: 1
-rocks
+  index: -1
+rocks2
   rotate: false
-  xy: 40, 0
+  xy: 0, 0
   size: 50, 23
   orig: 50, 23
   offset: 0, 0
-  index: 2
-rocks
+  index: -1
+rocks3
   rotate: false
-  xy: 0, 30
+  xy: 83, 0
   size: 52, 32
   orig: 52, 32
   offset: 0, 0
-  index: 3
-rocks
+  index: -1
+rocks4
   rotate: false
-  xy: 105, 30
+  xy: 0, 33
   size: 75, 40
   orig: 75, 40
   offset: 0, 0
-  index: 4
-tree
+  index: -1
+shroom
   rotate: false
-  xy: 0, 343
-  size: 112, 150
-  orig: 112, 150
+  xy: 50, 0
+  size: 33, 30
+  orig: 33, 30
   offset: 0, 0
-  index: 1
-tree
-  rotate: false
-  xy: 112, 343
-  size: 132, 174
-  orig: 132, 174
-  offset: 0, 0
-  index: 2
+  index: -1

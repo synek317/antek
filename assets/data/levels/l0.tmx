@@ -5,37 +5,37 @@
  </tileset>
  <tileset firstgid="6" name="decorations" tilewidth="87" tileheight="70" tilecount="11" columns="0">
   <tile id="0">
-   <image width="45" height="45" source="../../../raw_assets/decorations/images/bird_1.png"/>
+   <image width="45" height="45" source="../../../raw_assets/decorations/images/bird/01.png"/>
   </tile>
   <tile id="1">
-   <image width="87" height="59" source="../../../raw_assets/decorations/images/bush_1.png"/>
+   <image width="87" height="59" source="../../../raw_assets/decorations/images/bush1.png"/>
   </tile>
   <tile id="2">
-   <image width="68" height="50" source="../../../raw_assets/decorations/images/bush_2.png"/>
+   <image width="68" height="50" source="../../../raw_assets/decorations/images/bush2.png"/>
   </tile>
   <tile id="3">
-   <image width="68" height="50" source="../../../raw_assets/decorations/images/bush_anima_1.png"/>
+   <image width="68" height="50" source="../../../raw_assets/decorations/images/bush_rabbit/01.png"/>
   </tile>
   <tile id="4">
    <image width="70" height="47" source="../../../raw_assets/decorations/images/bush_flowers.png"/>
   </tile>
   <tile id="5">
-   <image width="33" height="30" source="../../../raw_assets/decorations/images/deco_1.png"/>
+   <image width="33" height="30" source="../../../raw_assets/decorations/images/shroom.png"/>
   </tile>
   <tile id="6">
    <image width="70" height="70" source="../../../raw_assets/decorations/images/rabbit.png"/>
   </tile>
   <tile id="7">
-   <image width="53" height="33" source="../../../raw_assets/decorations/images/rocks_1.png"/>
+   <image width="53" height="33" source="../../../raw_assets/decorations/images/rocks1.png"/>
   </tile>
   <tile id="8">
-   <image width="50" height="23" source="../../../raw_assets/decorations/images/rocks_2.png"/>
+   <image width="50" height="23" source="../../../raw_assets/decorations/images/rocks2.png"/>
   </tile>
   <tile id="9">
-   <image width="52" height="32" source="../../../raw_assets/decorations/images/rocks_3.png"/>
+   <image width="52" height="32" source="../../../raw_assets/decorations/images/rocks3.png"/>
   </tile>
   <tile id="10">
-   <image width="75" height="40" source="../../../raw_assets/decorations/images/rocks_4.png"/>
+   <image width="75" height="40" source="../../../raw_assets/decorations/images/rocks4.png"/>
   </tile>
  </tileset>
  <layer name="tiles" width="22" height="30">
@@ -75,7 +75,7 @@
 0,1,4,4,3,3,4,4,3,3,4,4,4,4,4,4,5,4,4,5,2,0
 </data>
  </layer>
- <objectgroup name="objects">
+ <objectgroup name="decorations">
   <object id="27" gid="6" x="-55.3333" y="928.061" width="45" height="45"/>
   <object id="28" gid="6" x="899.212" y="452.303" width="45" height="45"/>
   <object id="29" gid="6" x="-55.3333" y="100.788" width="45" height="45"/>
@@ -102,5 +102,4 @@
   <object id="50" gid="10" x="737.727" y="592.697" width="70" height="47"/>
   <object id="51" gid="10" x="434.697" y="1192.7" width="70" height="47"/>
  </objectgroup>
- <objectgroup name="decorations"/>
 </map>
