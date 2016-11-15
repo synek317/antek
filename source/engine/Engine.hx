@@ -20,6 +20,9 @@ class Engine
         Zoom.update();
         Camera.update();
         Mouse.update();
-        PathMap.update();
+        #if (debug)
+        PathMap.updateDebug();
+        ObjectsMap.updateDebug();
+        #end
     }
 }

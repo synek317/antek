@@ -9,6 +9,13 @@ package engine;
         map = new CellMap(LevelMap.widthInTiles * Consts.CellsPerHTile, LevelMap.heightInTiles * Consts.CellsPerVTile);
     }
 
+    #if (debug)
+    public static function updateDebug()
+    {
+        if(FlxG.keys.justPressed.A) map.debugLayer.visible = !map.debugLayer.visible;   
+    }
+    #end
+    
     public inline static function place(obj: IObject)
     {
         return placeXYCells(
@@ -33,7 +40,6 @@ package engine;
 
     public static function placeXYCells(leftCell: Int, topCell: Int, rightCell: Int, botCell: Int, objType: Int)
     {
-        trace('Place $leftCell, $topCell, $rightCell, $botCell, $objType');
         var x: Int;
         var y: Int = topCell;
 
@@ -71,8 +77,6 @@ package engine;
 
     public static function canPlaceXYCells(leftCell: Int, topCell: Int, rightCell: Int, botCell: Int)
     {
-        trace('CanPlace? $leftCell, $topCell, $rightCell, $botCell');
-
         var x: Int;
         var y: Int = topCell;
 

@@ -6,10 +6,9 @@ class DecoStatic
     {
         var sprite = Textures.decorations.createSprite(type);
         
-        sprite.x = obj.x;
-        sprite.y = obj.y - sprite.height;
         sprite.cameras = [FlxG.camera];
+        sprite.x = obj.x;
+        sprite.y = obj.y - obj.height;
 
         PlayState.addChildZ(sprite, ZOrder.Deco);
     }
-}

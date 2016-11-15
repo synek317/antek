@@ -37,6 +37,7 @@ class Fog
 	
 	public static function update()
 	{
+        return;
 		newFog = makeFog();
 		
 		viewStamp.scale.x =  Zoom.zoomFactor;

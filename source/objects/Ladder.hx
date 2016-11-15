@@ -47,17 +47,21 @@ class Ladder extends ASprite implements IObject
     public function init(tiles_count: Int)
     {
         this.removeAllSubSprites();
-        
-        skeleton           = addPart(LadderSpriteFactory.createSkeleton(tiles_count), 0).sprite;
-        ladder             = addPart(LadderSpriteFactory.create(tiles_count),         1).sprite;
-        bottom             = addPart(LadderSpriteFactory.createBot(),                 2).sprite;
-        ladder.clipRect    = new FlxRect(0, ladder.height, ladder.width, 0);
-        skeleton.clipRect  = new FlxRect(0, 0, 0, skeleton.height);
         size.heightInTiles = tiles_count;
+        
+        skeleton            = addPart(LadderSpriteFactory.createSkeleton(tiles_count), 0).sprite;
+        ladder              = addPart(LadderSpriteFactory.create(tiles_count),         1).sprite;
+        var botSubSprite    = addPart(LadderSpriteFactory.createBot(),                 -1);
+        bottom              = botSubSprite.sprite;
+        
+        botSubSprite.shiftY = 0;
+        ladder.clipRect     = new FlxRect(0, ladder.height, ladder.width, 0);
+        skeleton.clipRect   = new FlxRect(0, 0, 0, skeleton.height);
     }
     
     public function step() : Bool
     {
+        if (FlxG.keys.pressed.S) { bottom.visible = !bottom.visible; }
         switch(state)
         {
             case Start:
@@ -65,7 +69,7 @@ class Ladder extends ASprite implements IObject
                 state++;
             case PartialSkeleton:
                 skeleton.clipRect = null;
-                PlayState.removeChild(bottom);
+                //PlayState.removeChild(bottom);
                 state++;
             case Building_Entered:
                 progress = 1;
@@ -122,8 +126,8 @@ class Ladder extends ASprite implements IObject
         return addSubSprite(new SubSprite(
            this,
            sprite,
-           -Consts.TileWidth / 2.0,
-           -sprite.height + Consts.TileHeight,
+           -Consts.HalfTileWidth,
+           -Consts.TileHeight * (size.heightInTiles-1),
            shiftZ
         ));
     }
