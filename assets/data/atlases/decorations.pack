@@ -73,6 +73,41 @@ bush_rabbit/04
   orig: 68, 50
   offset: 0, 0
   index: -1
+bush_rabbit/05
+  rotate: false
+  xy: 136, 128
+  size: 68, 50
+  orig: 68, 50
+  offset: 0, 0
+  index: -1
+bush_rabbit/06
+  rotate: false
+  xy: 136, 128
+  size: 68, 50
+  orig: 68, 50
+  offset: 0, 0
+  index: -1
+bush_rabbit/07
+  rotate: false
+  xy: 136, 128
+  size: 68, 50
+  orig: 68, 50
+  offset: 0, 0
+  index: -1
+bush_rabbit/08
+  rotate: false
+  xy: 0, 128
+  size: 68, 50
+  orig: 68, 50
+  offset: 0, 0
+  index: -1
+bush_rabbit/09
+  rotate: false
+  xy: 70, 78
+  size: 68, 50
+  orig: 68, 50
+  offset: 0, 0
+  index: -1
 rabbit
   rotate: false
   xy: 87, 178

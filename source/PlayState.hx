@@ -120,8 +120,8 @@ class PlayState extends FlxState
 
     public static function addChild(sprite: FlxBasic)
     {
-        if (sprite == null)    return;
-        if (sprite.ID == null) sprite.ID = 0;
+        if (sprite == null)                 return;
+        if (sprite.ID == Consts.DefaultInt) sprite.ID = 0;
 
         PlayState.obj.add(sprite);
         PlayState.scheduleZReorder();

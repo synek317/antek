@@ -23,7 +23,11 @@ class Ladder extends ASprite implements IObject
 
     override public function get_objectType() return Consts.Ladder;
 
-    public function new() { super(); }
+    public function new()
+    {
+        super();
+        this.z = ZOrder.Ladder;
+    }
     
     public static inline function createReal(pos: Position, height: Int)  return create(pos, height, true);
     public static inline function createDummy(pos: Position, height: Int) return create(pos, height, false);

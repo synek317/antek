@@ -2,6 +2,9 @@ package;
 
 class ZOrder
 {
-    public static inline var Antek = 100;
-    public static inline var Deco  = 10;
+    public static inline var DecoFront : Int = 6000;
+    public static inline var Antek     : Int = 5000;
+    public static inline var Ladder    : Int = 4000;
+    public static inline var DecoBack  : Int = 3000;
+    
 }

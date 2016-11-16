@@ -9,21 +9,21 @@ class InvalidLadder extends ASprite
         addSubSprite(new SubSprite(
            this,
            LadderSpriteFactory.createTop(),
-           -Consts.TileWidth / 2.0,
+           0,
            -Consts.TileHeight,
            0
         ));
         addSubSprite(new SubSprite(
            this,
            LadderSpriteFactory.createBroken(),
-           -Consts.TileWidth / 2.0,
+           0,
            0,
            0
         ));
         addSubSprite(new SubSprite(
            this,
            LadderSpriteFactory.createBot(),
-           -Consts.TileWidth / 2.0,
+           0,
            Consts.TileHeight,
            0
         ));

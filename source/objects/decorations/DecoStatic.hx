@@ -2,13 +2,14 @@ package objects.decorations;
 
 class DecoStatic
 {
-    public static function create(type: String, obj: TiledObject)
+    public static function create(deco: DecoInfo, obj: TiledObject)
     {
-        var sprite = Textures.decorations.createSprite(type);
+        var sprite = Textures.decorations.createSprite(deco.name);
         
         sprite.cameras = [FlxG.camera];
         sprite.x = obj.x;
         sprite.y = obj.y - obj.height;
 
-        PlayState.addChildZ(sprite, ZOrder.Deco);
+        PlayState.addChildZ(sprite, deco.z);
     }
+}

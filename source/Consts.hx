@@ -1,5 +1,7 @@
 class Consts
 {
+    public static        var DefaultInt     : Int; //God, why? :( BECAUSE INT IS NULL ON DYNAMIC PLATFORMS AND 0 ON STATIC ONES
+    
     public static inline var Ladder         : Int = 1;
     
     public static inline var TileHeight     : Int = 40;
@@ -14,18 +16,20 @@ class Consts
     public static inline var HalfCellWidth  : Int = Std.int(CellWidth / 2);
     public static inline var HalfCellHeight : Int = Std.int(CellHeight / 2);
 
-    public static inline var DecoBird        : Int = 0;
-    public static inline var DecoBush1       : Int = 1;
-    public static inline var DecoBush2       : Int = 2;
-    public static inline var DecoBushRabbit  : Int = 3;
-    public static inline var DecoBushFlowers : Int = 4;
-    public static inline var DecoShroom      : Int = 5;
-    public static inline var DecoRabbit      : Int = 6;
-    public static inline var DecoRock1       : Int = 7;
-    public static inline var DecoRock2       : Int = 8;
-    public static inline var DecoRock3       : Int = 9;
-    public static inline var DecoRock4       : Int = 10;
+    public static  var Deco = [
+        { name: "bird",         creator: DecoBird.create  , z: ZOrder.DecoBack,  frameRate: 5, animChance: 9 },
+        { name: "bush1",        creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
+        { name: "bush2",        creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
+        { name: "bush_rabbit",  creator: DecoAnim.create  , z: ZOrder.DecoBack,  frameRate: 6, animChance: 0.0005 },
+        { name: "bush_flowers", creator: DecoStatic.create, z: ZOrder.DecoFront, frameRate: 0, animChance: 0 },
+        { name: "shroom",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
+        { name: "rabbit",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
+        { name: "rocks1",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
+        { name: "rocks2",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
+        { name: "rocks3",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
+        { name: "rocks4",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 }
+    ];
     
-    public static function EmptyFunFloatVoid(_: Float) {}    
-    public static function EmptyFunIntVoid(_: Int)     {}    
+    public static function EmptyFunFloatVoid(_: Float) {}
+    public static function EmptyFunIntVoid(_: Int)     {}
 }
