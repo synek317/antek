@@ -33,7 +33,7 @@ class BuildLadder
             if(antek.position.tileY < ladder.position.tileY)
             {
                 antek.climb((ladder.position.tileY - ladder.currentHeightInTiles).htiles())
-                    .then(climbOnTop)
+                    .then(moveRight)
                     .then(stopBuilding);
             }
             else
@@ -50,6 +50,6 @@ class BuildLadder
 
     private function build()        antek.build(buildLadder);
     private function climbStep()    return antek.climbBy(-2.htiles());
-    private function climbOnTop()   antek.moveTo(antek.position.cellX + 2, antek.position.cellY);
+    private function moveRight()   antek.moveTo(antek.position.cellX + 2, antek.position.cellY);
     private function stopBuilding() { antek.busy = false; antek.idle(); }
 }
