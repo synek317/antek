@@ -3,8 +3,9 @@ package types;
 typedef DecoInfo =
 {
     name:       String,
-	creator:    DecoInfo -> TiledObject -> Void,
+	creator:    DecoInfo -> TiledObject -> Bool -> Bool -> Void,
     z:          Int,
     frameRate:  Int,
-    animChance: Float
+    animChance: Float,
+    speed:      Int
 }

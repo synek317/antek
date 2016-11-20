@@ -73,17 +73,19 @@ class CellMap
     {
         var cellWidth  = Consts.TileWidth  / Consts.CellsPerHTile;
         var cellHeight = Consts.TileHeight / Consts.CellsPerVTile;
-
-        switch(at(x, y))
+        var val = at(x, y);
+        
+        if (val == 0 || val == Consts.DefaultInt)
         {
-            case 0 | null:
-                debugLayer.pixels.fillRect(new Rectangle(x * cellWidth,       y * cellHeight,       cellWidth,           1),            0x55ffffff);
-                debugLayer.pixels.fillRect(new Rectangle(x * cellWidth,       (y+1) * cellHeight,   cellWidth,           1),            0x55ffffff);
-                debugLayer.pixels.fillRect(new Rectangle(x * cellWidth,       y * cellHeight,       1,                   cellHeight),   0x55ffffff);
-                debugLayer.pixels.fillRect(new Rectangle((x+1) * cellWidth,   y * cellHeight,       1,                   cellHeight),   0x55ffffff);
-                debugLayer.pixels.fillRect(new Rectangle((x+1) * cellWidth+1, y * cellHeight+1,     cellWidth-2,         cellHeight-2), 0x00000000);
-            default:
-                debugLayer.pixels.fillRect(new Rectangle(x * cellWidth, y * cellHeight, cellWidth, cellHeight), 0xddffffff);
+            debugLayer.pixels.fillRect(new Rectangle(x * cellWidth,           y * cellHeight,       cellWidth,           1),              0x55ffffff);
+            debugLayer.pixels.fillRect(new Rectangle(x * cellWidth,           (y+1) * cellHeight,   cellWidth,           1),              0x55ffffff);
+            debugLayer.pixels.fillRect(new Rectangle(x * cellWidth,           y * cellHeight,       1,                   cellHeight),     0x55ffffff);
+            debugLayer.pixels.fillRect(new Rectangle((x+1) * cellWidth,       y * cellHeight,       1,                   cellHeight),     0x55ffffff);
+            debugLayer.pixels.fillRect(new Rectangle((x + 1) * cellWidth + 1, y * cellHeight + 1,    cellWidth - 2,      cellHeight - 2), 0x00000000);
+        }
+        else
+        {
+            debugLayer.pixels.fillRect(new Rectangle(x * cellWidth, y * cellHeight, cellWidth, cellHeight), 0xddffffff);
         }
     }
     #end

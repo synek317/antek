@@ -16,18 +16,18 @@ class Consts
     public static inline var HalfCellWidth  : Int = Std.int(CellWidth / 2);
     public static inline var HalfCellHeight : Int = Std.int(CellHeight / 2);
 
-    public static  var Deco = [
-        { name: "bird",         creator: DecoBird.create  , z: ZOrder.DecoBack,  frameRate: 5, animChance: 9 },
-        { name: "bush1",        creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
-        { name: "bush2",        creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
-        { name: "bush_rabbit",  creator: DecoAnim.create  , z: ZOrder.DecoBack,  frameRate: 6, animChance: 0.0005 },
-        { name: "bush_flowers", creator: DecoStatic.create, z: ZOrder.DecoFront, frameRate: 0, animChance: 0 },
-        { name: "shroom",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
-        { name: "rabbit",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
-        { name: "rocks1",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
-        { name: "rocks2",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
-        { name: "rocks3",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 },
-        { name: "rocks4",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0 }
+    public static var Deco = [
+        { name: "bird",         creator: DecoBird.create  , z: ZOrder.DecoBack,  frameRate: 4, animChance: 0.5,    speed: 80 },
+        { name: "bush1",        creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "bush2",        creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "bush_rabbit",  creator: DecoAnim.create  , z: ZOrder.DecoBack,  frameRate: 6, animChance: 0.0005, speed: 0  },
+        { name: "bush_flowers", creator: DecoStatic.create, z: ZOrder.DecoFront, frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "shroom",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "rabbit",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "rocks1",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "rocks2",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "rocks3",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "rocks4",       creator: DecoStatic.create, z: ZOrder.DecoBack,  frameRate: 0, animChance: 0,      speed: 0  }
     ];
     
     public static function EmptyFunFloatVoid(_: Float) {}

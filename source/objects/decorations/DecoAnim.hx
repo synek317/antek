@@ -5,24 +5,20 @@ class DecoAnim implements IUpdateable
     private var deco: DecoInfo;
     private var sprite: FlxSprite;
     
-    public function new(deco: DecoInfo, obj: TiledObject)
+    public function new(deco: DecoInfo, obj: TiledObject, flipX: Bool, flipY: Bool)
     {
-        this.sprite   = new FlxSprite();
+        this.sprite   = Textures.decorations.createSprite(deco.name + "/01");
         this.deco     = deco;
         
-        this.sprite.frames = Textures.decorations;
-        this.sprite.animation.addByPrefix("anim", deco.name + "/", deco.frameRate, false, obj.flippedHorizontally, obj.flippedVertically);
-        this.sprite.x = obj.x;
-        this.sprite.y = obj.y - obj.height;
-        this.sprite.ID = deco.z;
-        //this.sprite.animation.finished = true;
-        
-        setDefaultFrame();
+        this.sprite.animation.addByPrefix("anim", deco.name + "/", deco.frameRate, false, flipX, flipY);
+        this.sprite.x      = obj.x;
+        this.sprite.y      = obj.y - obj.height;
+        this.sprite.ID     = deco.z;
     }
     
-    public static function create(deco: DecoInfo, obj: TiledObject)
+    public static function create(info: DecoInfo, obj: TiledObject, flipX: Bool, flipY: Bool)
     {
-        var deco = new DecoAnim(deco, obj);
+        var deco = new DecoAnim(info, obj, flipX, flipY);
         
         PlayState.addChild(deco.sprite);
         Objects.register(deco);
@@ -31,10 +27,5 @@ class DecoAnim implements IUpdateable
     public function update(elapsed: Float)
     {
         if (sprite.animation.finished && Math.random() < deco.animChance) sprite.animation.play("anim");
-    }
-    
-    private function setDefaultFrame()
-    {
-        sprite.frame = sprite.frames.getByName(deco.name + "/01");
     }
 }
