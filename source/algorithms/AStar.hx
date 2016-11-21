@@ -6,8 +6,13 @@ class AStar
 
     public static var obj = new AStar();
 
+    #if flash
+    private static var xplus = [ -1, 1,  0, 0];
+    private static var yplus = [ 0,  0, -1, 1];
+    #else
     private static var xplus = Vector.fromArrayCopy([ -1, 1,  0, 0]);
     private static var yplus = Vector.fromArrayCopy([ 0,  0, -1, 1]);
+    #end
 
     private var openedList       = new BinaryHeap<AStarNode>(compareNodes);
     private var closedSet       : IntMap<Bool>;

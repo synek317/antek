@@ -16,7 +16,6 @@ class PlayState extends FlxState
 		obj = this;
 
         Engine.init("assets/data/levels/l0.tmx");
-        Fog.obj.visible = false;
         FlxG.camera.bgColor = 0xff80c8f8;
 
         var antek1 = new Antek(Antek.A2);
@@ -28,7 +27,6 @@ class PlayState extends FlxState
         antek2.position.tileX = 4;
         antek2.position.tileY = 29;
 		Camera.updatePosition(5.htile(), 29.vtile());
-
         // ladder = new Ladder();
         // ladder.init(11);
         // ladder.tileX = 12;
@@ -44,7 +42,6 @@ class PlayState extends FlxState
 
         antek4.position.tileX = 20;
         antek4.position.tileY = 29;
-
         // ladder.createImmediately();
 
         // ladder2 = new Ladder();
@@ -82,9 +79,7 @@ class PlayState extends FlxState
     override public function update(elapsed:Float):Void
     {
         super.update(elapsed);
-        Engine.update();
-		Fog.update();
-        Objects.update(elapsed);
+        Engine.update(elapsed);
         Game.update();
 
         if (shouldReorderZ)

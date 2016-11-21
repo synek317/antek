@@ -27,7 +27,7 @@ class CellMap
     #if (debug)
     public function setAt(x: Int, y: Int, val: Int)        return debugSetAt(x, y, val);
     #else
-    public inline function setAt(x: Int, y: Int, val: Int) return fields .setAt(x, y, val);
+    public inline function setAt(x: Int, y: Int, val: Int) return fields.setAt(x, y, val);
     #end
 
     public function clear()

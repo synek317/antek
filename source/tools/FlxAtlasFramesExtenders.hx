@@ -6,8 +6,9 @@ class FlxAtlasFramesExtenders
     {
         var sprite = new FlxSprite();
         
-        sprite.frames = frames;
-        sprite.frame  = frames.getByName(frameName);
+        sprite.cameras = [FlxG.camera];
+        sprite.frames  = frames;
+        sprite.frame   = frames.getByName(frameName);
         sprite.centerOrigin(); //ugly fix to recalculate sprite width and height (otherwise it has the size taken from first sprite in atlas)
 
         return sprite;

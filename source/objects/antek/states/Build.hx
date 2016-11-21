@@ -16,7 +16,6 @@ class Build
             for (i in 0...hits)
             {
                 a.onBuild();
-                FlxG.sound.play(AssetPaths.build__wav, 0.01);
             }
         }
     }

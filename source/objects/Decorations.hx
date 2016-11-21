@@ -22,8 +22,8 @@ class Decorations
              //clear highest bits cause tiled use bit 32, 31 and 30 to describe flips (horizontal, vertical, diagonal)
             var originalGid = haxe.Int64.parseString(o.xmlData.att.resolve("gid"));
             var gid = originalGid.low & 0x3FFFFFFF;
-            var flipX = (originalGid.low & 0x80000000) != 0;
-            var flipY = (originalGid.low & 0x40000000) != 0;
+            var flipX = ((originalGid.low & 0x80000000) != 0);
+            var flipY = ((originalGid.low & 0x40000000) != 0);
             
             createDecoration(gid - gidShift, o, flipX, flipY);
         }

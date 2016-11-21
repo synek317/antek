@@ -5,7 +5,6 @@ class Engine
     public static function init(tiledLevel: String)
     {
         var tiledMap = new TiledMap(tiledLevel);
-
         LevelMap.init(tiledMap);
         Camera.init();
         Zoom.init();
@@ -15,7 +14,7 @@ class Engine
         Fog.init();
     }
 
-    public static function update()
+    public static function update(elapsed)
     {
         Zoom.update();
         Camera.update();
@@ -24,5 +23,7 @@ class Engine
         PathMap.updateDebug();
         ObjectsMap.updateDebug();
         #end
+        Fog.update();
+        Objects.update(elapsed);
     }
 }

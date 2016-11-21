@@ -10,7 +10,6 @@ class PathMap
     public static function init()
     {
         map = new CellMap(LevelMap.widthInTiles * Consts.CellsPerHTile, LevelMap.heightInTiles * Consts.CellsPerVTile);
-
         for(y in 0...LevelMap.heightInTiles)
         {
             for(x in 0...LevelMap.widthInTiles)

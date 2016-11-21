@@ -11,11 +11,11 @@ class Fog
 	private static var oldGraphic: 	   FlxGraphic;
 	private static var newFog:         FlxSprite;
 	
-	public  static var obj:            FlxSprite;
+	public  static var obj:            FlxSprite = new FlxSprite();
 		
 	public static function init()
 	{
-		pos              = new FlxPoint();
+		/*pos              = new FlxPoint();
 		obj              = makeFog();
 		fogRect          = new Rectangle(0, 0, obj.width, obj.height);
 		colorTransform   = new ColorTransform(0, 0, 0, -1, 0, 0, 0, 255);
@@ -27,18 +27,17 @@ class Fog
 		cam = new FlxCamera(0, 0, Std.int(obj.width), Std.int(obj.height), 1);
 		cam.bgColor = 0x00000000;
 		obj.cameras = [cam];
-		FlxG.cameras.add(cam);
+		FlxG.cameras.add(cam);*/
 	}
 	
 	public static function register(viewOwner: FlxSprite)
 	{
-		viewOwners.add(viewOwner);
+		//viewOwners.add(viewOwner);
 	}
 	
 	public static function update()
 	{
-        return;
-		newFog = makeFog();
+		/*newFog = makeFog();
 		
 		viewStamp.scale.x =  Zoom.zoomFactor;
 		viewStamp.scale.y =  Zoom.zoomFactor;
@@ -49,7 +48,7 @@ class Fog
 		
 		oldGraphic = obj.graphic;
 		obj.pixels = newFog.pixels;
-		FlxG.bitmap.remove(oldGraphic);
+		FlxG.bitmap.remove(oldGraphic);*/
 	}
 	
 	private static function updateViewPosition(newFog: FlxSprite, viewOwner: FlxSprite)

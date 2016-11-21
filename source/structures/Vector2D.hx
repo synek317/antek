@@ -1,8 +1,13 @@
 package structures;
+import haxe.ds.Vector;
 
 class Vector2D<T>
 {
+    #if flash
+    private var elements: Array<T>;
+    #else
     private var elements: Vector<T>;
+    #end
     private var width:    Int;
     private var height:   Int;
     
@@ -10,7 +15,11 @@ class Vector2D<T>
     {
         this.width    = width;
         this.height   = height;
+        #if flash
+        this.elements = new Array<T>();
+        #else
         this.elements = new Vector<T>(width * height);
+        #end
     }
     
     public inline function at(x: Int, y: Int): T
