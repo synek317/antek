@@ -24,6 +24,13 @@ bird/03
   orig: 45, 45
   offset: 0, 0
   index: -1
+bird/04
+  rotate: false
+  xy: 165, 33
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
 bush1
   rotate: false
   xy: 0, 178
