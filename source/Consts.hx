@@ -3,6 +3,7 @@ class Consts
     public static        var DefaultInt     : Int; //God, why? :( BECAUSE INT IS NULL ON DYNAMIC PLATFORMS AND 0 ON STATIC ONES
     
     public static inline var Ladder         : Int = 1;
+    public static inline var Bridge         : Int = 1;
     
     public static inline var TileHeight     : Int = 40;
     public static inline var TileWidth      : Int = 40;

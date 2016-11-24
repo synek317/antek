@@ -1,5 +1,6 @@
 package;
 import flixel.FlxBasic;
+import objects.Bridge;
 import objects.Ladder;
 
 class PlayState extends FlxState
@@ -40,8 +41,8 @@ class PlayState extends FlxState
 
         var antek4 = new Antek(Antek.A4);
 
-        antek4.position.tileX = 20;
-        antek4.position.tileY = 29;
+        antek4.position.tileX = 5;
+        antek4.position.tileY = 20;
         // ladder.createImmediately();
 
         // ladder2 = new Ladder();
@@ -63,10 +64,14 @@ class PlayState extends FlxState
         //ladder3.alpha = 0.5;
 
         //new BuildLadder(antek1, ladder2).action();
+        //bridge = Bridge.createReal(Position.fromTile(7, 20), 5);
+        BuildBridge.start(antek4, Position.fromTile(7, 20), 5);
+        
     }
 
     private function cmp(a: Int, b: Int) return a - b;
 
+    private var bridge: Bridge;
     private var fps1: FlxText;
     private var act: BuildLadder;
     private var act2: BuildLadder;
@@ -78,6 +83,8 @@ class PlayState extends FlxState
 
     override public function update(elapsed:Float):Void
     {
+        if (FlxG.keys.justPressed.Q) { bridge.step(); }
+        
         super.update(elapsed);
         Engine.update(elapsed);
         Game.update();

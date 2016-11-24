@@ -57,6 +57,7 @@ class LadderSpriteFactory
     private static function draw(bmp: BitmapData, partIndex: Int, tile: Int)
     {
         point.y = tile * Consts.TileHeight;
-        Textures.objects.getByName("ladder" + partIndex).paint(bmp, point);
+        var name = partIndex >= 1 && partIndex <= 3 ? "bridge" : "ladder";
+        Textures.objects.getByName(name + partIndex).paint(bmp, point);
     }
 }
