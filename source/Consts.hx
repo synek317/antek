@@ -28,7 +28,11 @@ class Consts
         { name: "rocks1",       creator: DecoStatic.create, z: ZOrder.DecoBack,    frameRate: 0, animChance: 0,      speed: 0  },
         { name: "rocks2",       creator: DecoStatic.create, z: ZOrder.DecoBack,    frameRate: 0, animChance: 0,      speed: 0  },
         { name: "rocks3",       creator: DecoStatic.create, z: ZOrder.DecoBack,    frameRate: 0, animChance: 0,      speed: 0  },
-        { name: "rocks4",       creator: DecoStatic.create, z: ZOrder.DecoBack,    frameRate: 0, animChance: 0,      speed: 0  }
+        { name: "rocks4",       creator: DecoStatic.create, z: ZOrder.DecoBack,    frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "cloud1",       creator: DecoStatic.create, z: ZOrder.Clouds,      frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "cloud2",       creator: DecoStatic.create, z: ZOrder.Clouds,      frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "cloud3",       creator: DecoStatic.create, z: ZOrder.Clouds,      frameRate: 0, animChance: 0,      speed: 0  },
+        { name: "cloud4",       creator: DecoStatic.create, z: ZOrder.Clouds,      frameRate: 0, animChance: 0,      speed: 0  }
     ];
     
     public static function EmptyFunFloatVoid(_: Float) {}

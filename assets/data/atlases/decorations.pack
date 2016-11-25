@@ -1,123 +1,151 @@
 decorations.png
-size: 210, 248
+size: 468, 284
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 bird/01
   rotate: false
-  xy: 75, 33
+  xy: 263, 0
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 bird/02
   rotate: false
-  xy: 165, 33
+  xy: 353, 0
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 bird/03
   rotate: false
-  xy: 120, 33
+  xy: 308, 0
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 bird/04
   rotate: false
-  xy: 165, 33
+  xy: 353, 0
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 bush1
   rotate: false
-  xy: 0, 178
+  xy: 340, 47
   size: 87, 59
   orig: 87, 59
   offset: 0, 0
   index: -1
 bush2
   rotate: false
-  xy: 138, 78
+  xy: 0, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_flowers
   rotate: false
-  xy: 0, 78
+  xy: 398, 0
   size: 70, 47
   orig: 70, 47
   offset: 0, 0
   index: -1
 bush_rabbit/01
   rotate: false
-  xy: 70, 78
+  xy: 68, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/02
   rotate: false
-  xy: 0, 128
+  xy: 204, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/03
   rotate: false
-  xy: 68, 128
+  xy: 272, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/04
   rotate: false
-  xy: 136, 128
+  xy: 136, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/05
   rotate: false
-  xy: 136, 128
+  xy: 136, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/06
   rotate: false
-  xy: 136, 128
+  xy: 136, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/07
   rotate: false
-  xy: 136, 128
+  xy: 136, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/08
   rotate: false
-  xy: 0, 128
+  xy: 204, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
 bush_rabbit/09
   rotate: false
-  xy: 70, 78
+  xy: 68, 47
   size: 68, 50
   orig: 68, 50
   offset: 0, 0
   index: -1
+cloud1
+  rotate: false
+  xy: 0, 184
+  size: 200, 83
+  orig: 200, 83
+  offset: 0, 0
+  index: -1
+cloud2
+  rotate: false
+  xy: 299, 106
+  size: 144, 78
+  orig: 144, 78
+  offset: 0, 0
+  index: -1
+cloud3
+  rotate: false
+  xy: 200, 184
+  size: 267, 100
+  orig: 267, 100
+  offset: 0, 0
+  index: -1
+cloud4
+  rotate: false
+  xy: 70, 106
+  size: 229, 72
+  orig: 229, 72
+  offset: 0, 0
+  index: -1
 rabbit
   rotate: false
-  xy: 87, 178
+  xy: 0, 106
   size: 70, 70
   orig: 70, 70
   offset: 0, 0
@@ -145,7 +173,7 @@ rocks3
   index: -1
 rocks4
   rotate: false
-  xy: 0, 33
+  xy: 188, 0
   size: 75, 40
   orig: 75, 40
   offset: 0, 0

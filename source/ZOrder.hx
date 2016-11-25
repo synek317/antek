@@ -8,5 +8,6 @@ class ZOrder
     public static inline var Bridge      : Int = 3900;
     public static inline var DecoBack    : Int = 3000;
     public static inline var DecoFarBack : Int = 2000;
+    public static inline var Clouds      : Int = -100;
     
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="22" height="30" tilewidth="40" tileheight="40" backgroundcolor="#b0d8e6" nextobjectid="53">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="22" height="30" tilewidth="40" tileheight="40" backgroundcolor="#b0d8e6" nextobjectid="63">
  <tileset firstgid="1" name="tiles" tilewidth="40" tileheight="40" tilecount="5" columns="5">
   <image source="../../images/tiles.png" width="200" height="40"/>
  </tileset>
- <tileset firstgid="6" name="decorations" tilewidth="87" tileheight="70" tilecount="11" columns="0">
+ <tileset firstgid="6" name="decorations" tilewidth="267" tileheight="100" tilecount="15" columns="0">
   <tile id="0">
    <image width="45" height="45" source="../../../raw_assets/decorations/images/bird/01.png"/>
   </tile>
@@ -36,6 +36,18 @@
   </tile>
   <tile id="10">
    <image width="75" height="40" source="../../../raw_assets/decorations/images/rocks4.png"/>
+  </tile>
+  <tile id="11">
+   <image width="200" height="83" source="../../../raw_assets/decorations/images/cloud1.png"/>
+  </tile>
+  <tile id="12">
+   <image width="144" height="78" source="../../../raw_assets/decorations/images/cloud2.png"/>
+  </tile>
+  <tile id="13">
+   <image width="267" height="100" source="../../../raw_assets/decorations/images/cloud3.png"/>
+  </tile>
+  <tile id="14">
+   <image width="229" height="72" source="../../../raw_assets/decorations/images/cloud4.png"/>
   </tile>
  </tileset>
  <layer name="tiles" width="22" height="30">
@@ -99,5 +111,13 @@
   <object id="49" gid="16" x="76.2424" y="175.545" width="75" height="40"/>
   <object id="50" gid="10" x="737.727" y="592.697" width="70" height="47"/>
   <object id="51" gid="10" x="434.697" y="1192.7" width="70" height="47"/>
+  <object id="54" gid="18" x="60" y="515" width="144" height="78"/>
+  <object id="56" gid="18" x="740" y="773" width="144" height="78"/>
+  <object id="57" gid="17" x="550" y="987" width="200" height="83"/>
+  <object id="58" gid="17" x="654" y="91" width="200" height="83"/>
+  <object id="59" gid="19" x="281" y="628" width="267" height="100"/>
+  <object id="60" gid="19" x="509" y="380" width="267" height="100"/>
+  <object id="61" gid="20" x="124" y="120" width="229" height="72"/>
+  <object id="62" gid="20" x="-2" y="926" width="229" height="72"/>
  </objectgroup>
 </map>

@@ -67,6 +67,9 @@ class PlayState extends FlxState
         //bridge = Bridge.createReal(Position.fromTile(7, 20), 5);
         BuildBridge.start(antek4, Position.fromTile(7, 20), 5);
         
+        FlxG.camera.antialiasing = true;
+        FlxG.camera.
+        
     }
 
     private function cmp(a: Int, b: Int) return a - b;
