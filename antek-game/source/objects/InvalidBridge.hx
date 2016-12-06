@@ -6,7 +6,7 @@ class InvalidBridge extends ASprite
     {
         super();
 
-        addSubSprite(new SubSprite(
+        /*addSubSprite(new SubSprite(
            this,
            BridgeSpriteFactory.createLeft(),
            -Consts.TileWidth,
@@ -26,7 +26,7 @@ class InvalidBridge extends ASprite
            Consts.TileWidth,
            0,
            0
-        ));
+        ));*/
 
         this.alpha = 0.33;
     }

@@ -19,11 +19,11 @@ class Game
         {
             case GameState.Idle:        game.states.Idle.update();
             case GameState.BuildLadder: game.states.BuildLadder.update();
-            case GameState.BuildBridge: game.states.BuildBridge.update();
+            //case GameState.BuildBridge: game.states.BuildBridge.update();
             default:                    return;
         }
     }
 
     public static inline function buildLadder() game.states.BuildLadder.enter();
-    public static inline function buildBridge() game.states.BuildBridge.enter();
+    //public static inline function buildBridge() game.states.BuildBridge.enter();
 }

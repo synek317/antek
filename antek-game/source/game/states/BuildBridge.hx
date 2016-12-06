@@ -2,7 +2,7 @@ package game.states;
 
 class BuildBridge
 {
-    public static function enter()
+    /*public static function enter()
     {
         if (Game.state == GameState.BuildBridge)         return exit();
         if (Game.state != GameState.Idle)                return;
@@ -123,5 +123,5 @@ class BuildBridge
         }
         
         return -1;
-    }
+    }*/
 }
