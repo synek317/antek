@@ -29,7 +29,6 @@
 
 	<set name="BUILD_DIR" value="export" />
 	<classpath name="source" />
-	<assets path="assets" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -46,6 +45,8 @@
 
 	<!-- <haxelib name="hxcpp-debugger" if="debug" />
 	<haxedef name="HXCPP_DEBUGGER" if="debug"/> -->
+
+	<haxelib name='antek-assets' />
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 

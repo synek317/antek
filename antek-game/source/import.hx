@@ -27,6 +27,8 @@ import flixel.input.mouse.FlxMouseEventManager;
 import flixel.addons.editors.tiled.*;
 import flixel.addons.editors.tiled.TiledLayer.TiledLayerType;
 
+import antek.assets.*;
+
 import interfaces.*;
 import types.*;
 import structures.*;

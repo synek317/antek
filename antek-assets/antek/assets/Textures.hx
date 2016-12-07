@@ -1,5 +1,4 @@
-package engine;
-import flixel.FlxSprite;
+package antek.assets;
 
 class Textures
 {

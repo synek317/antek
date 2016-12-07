@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- This prevents a bug in neko where inlined functions exceed the max code length -->
+	<haxedef name="NAPE_NO_INLINE" if="neko" />
+    <assets path="assets" />
+    <haxelib name="flixel" />
+</project>
